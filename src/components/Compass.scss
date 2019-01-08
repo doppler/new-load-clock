@@ -1,0 +1,32 @@
+.Compass {
+  position: absolute;
+  width: 8em;
+  height: 8em;
+  background-color: black;
+  clip-path: circle(50% at 50% 50%);
+  z-index: 0;
+}
+.Circle {
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  top: 1em;
+  left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(240, 50%, 30%);
+  clip-path: circle(40% at center);
+  font-weight: bold;
+  font-size: 2em;
+}
+.Arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8em;
+  height: 8em;
+  background-color: hsl(240, 100%, 50%);
+  clip-path: polygon(50% 0, 40% 50%, 60% 50%);
+}
