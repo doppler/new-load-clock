@@ -15,14 +15,18 @@ const App = () => {
       socket.open();
       socket.on("weather", data => {
         if (data) setWeather(data);
-        // console.log("weather", data);
+        console.log("weather", data);
       });
       socket.on("close", () => console.log("SOCKET CLOSED"));
     } catch (error) {
       console.log(error);
     }
+    // let reloadTimeout = setTimeout(() => {
+    //   document.location.reload();
+    // }, 1000 * 60);
     return () => {
       socket.close();
+      // clearTimeout(reloadTimeout);
     };
   }, []);
 

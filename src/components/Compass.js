@@ -7,6 +7,17 @@ export default ({ weather }) => (
       <div className="Circle">
         {weather.windSpeed > -1 ? weather.windSpeed : "..."}
       </div>
+      {weather.prevWindDirs &&
+        weather.prevWindDirs
+          .reverse()
+          .slice(1, weather.prevWindDirs.length - 1)
+          .map((dir, i) => (
+            <div
+              key={i}
+              className="Arrow previous"
+              style={{ rotate: `${dir}deg`, opacity: 0.8 - i / 30 }}
+            />
+          ))}
       <div
         className="Arrow"
         style={{ rotate: `${weather.windDirection}deg` }}

@@ -12,7 +12,7 @@ app.get("/", function(req, res) {
 r.connect()
   .then(conn => {
     r.table("weatherStationData")
-      .filter({ location: "ATL", type: "weather" })
+      .get("ATL-current")
       .changes()
       .run(conn, (err, cursor) => {
         if (err) throw err;
