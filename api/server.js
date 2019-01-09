@@ -17,8 +17,15 @@ r.connect()
       .run(conn, (err, cursor) => {
         if (err) throw err;
         cursor.each((err, result) => {
-          io.emit("weather", result.new_val);
+          if (err) console.error(err);
+          if (result.new_val) io.emit("weather", result.new_val);
         });
       });
   })
   .catch(error => console.log(error));
+
+// attempt to keep socket open in case other data
+// source goes down
+setInterval(() => {
+  io.emit("ping", true);
+}, 1000 * 60);

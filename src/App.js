@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Compass from "./components/Compass";
 
@@ -12,12 +11,13 @@ const App = () => {
 
   useEffect(() => {
     try {
-      console.log("opening socket");
+      // console.log("opening socket");
       socket.open();
       socket.on("weather", data => {
-        setWeather(data);
-        console.log("weather", data);
+        if (data) setWeather(data);
+        // console.log("weather", data);
       });
+      socket.on("close", () => console.log("SOCKET CLOSED"));
     } catch (error) {
       console.log(error);
     }
@@ -29,21 +29,8 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <Compass weather={weather} />
-        <p>Speed: {weather.windSpeed}</p>
-        <p>Direction: {weather.windDirection}</p>
+        <p>Time: {weather.time}</p>
       </header>
     </div>
   );
