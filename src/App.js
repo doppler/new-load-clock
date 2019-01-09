@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Compass from "./components/Compass";
-
+import WindChart from "./components/WindChart";
 const io = require("socket.io-client");
 
 const App = () => {
@@ -58,6 +58,7 @@ const App = () => {
             </tr>
           </tbody>
         </table>
+        <WindChart windSpeeds={weather.prevWindSpeeds} />
       </header>
     </div>
   );

@@ -1,0 +1,24 @@
+.WindChart {
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  // border: 1px solid white;
+  width: calc(100% - 2px);
+  height: 200px;
+  .Bar {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    margin-right: 1px;
+    background-color: hsl(120, 100%, 50%);
+    height: 200px;
+    width: 1px;
+  }
+  .Grad {
+    text-align: right;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 255, 0.75);
+  }
+}
