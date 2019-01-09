@@ -3,7 +3,6 @@ import "./App.css";
 import Compass from "./components/Compass";
 
 const io = require("socket.io-client");
-// const socket = io("http://localhost:3001");
 
 const App = () => {
   const { current: socket } = useRef(io("http://localhost:3001"));
@@ -11,16 +10,18 @@ const App = () => {
 
   useEffect(() => {
     try {
-      // console.log("opening socket");
+      console.log("opening socket");
       socket.open();
       socket.on("weather", data => {
         if (data) setWeather(data);
-        console.log("weather", data);
+        // console.log("weather", data);
       });
       socket.on("close", () => console.log("SOCKET CLOSED"));
     } catch (error) {
       console.log(error);
     }
+    // seems that after awhile websocket gets fucked up and memory leaks or
+    // something. just reload every minute.
     // let reloadTimeout = setTimeout(() => {
     //   document.location.reload();
     // }, 1000 * 60);
