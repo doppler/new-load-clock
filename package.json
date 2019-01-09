@@ -2,6 +2,7 @@
   "name": "socket-thing",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "express": "^4.16.4",
     "node-sass": "^4.11.0",
