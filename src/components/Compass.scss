@@ -1,13 +1,14 @@
 .Compass {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: black;
+  background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
+  opacity: 0.8;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  // width: 8.2em;
   width: 200px;
   height: 200px;
-  background-color: white;
-  // transform: rotate(-60deg);
-  clip-path: circle(50% at center);
   z-index: 10;
 }
 .Face {
