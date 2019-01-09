@@ -3,13 +3,23 @@
   display: grid;
   justify-content: center;
   z-index: 10;
-  height: 200px;
-  width: 324px;
+  height: 25vmin;
+  width: calc(25vmin * 1.618);
   border: 1px solid white;
   border-radius: 10px;
   background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
   opacity: 0.8;
   position: absolute;
-  left: 203px;
+  left: calc(25vmin + 3px);
   bottom: 0px;
+}
+@media only screen and (max-width: 425px) {
+  .StatsTable {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .StatsTable {
+    font-size: x-small;
+  }
 }

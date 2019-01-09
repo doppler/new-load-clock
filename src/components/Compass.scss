@@ -7,16 +7,16 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  width: 200px;
-  height: 200px;
+  width: 25vmin;
+  height: 25vmin;
   z-index: 10;
 }
 .Face {
   position: relative;
-  top: 1px;
-  left: 1px;
-  width: 198px;
-  height: 198px;
+  // top: 1px;
+  // left: 1px;
+  width: 25vmin;
+  height: 25vmin;
   background-image: radial-gradient(hsl(240, 100%, 0%), hsl(240, 50%, 50%));
   opacity: 0.95;
   clip-path: circle(50% at 50% 50%);
@@ -24,11 +24,11 @@
 }
 .Circle {
   z-index: 2;
-  width: 122px;
-  height: 122px;
+  width: 12.5vmin;
+  height: 12.5vmin;
   position: relative;
-  top: 38px;
-  left: 38px;
+  top: calc(50% - 6.25vmin);
+  left: calc(50% - 6.25vmin);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,8 +43,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 198px;
-  height: 198px;
+  width: 25vmin;
+  height: 25vmin;
   background-image: linear-gradient(hsl(60, 100%, 50%), hsl(0, 100%, 50%));
   clip-path: polygon(50% 0, 40% 30%, 50% 50%, 60% 30%);
   transition: 1s ease-in-out;
@@ -61,8 +61,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 198px;
-  height: 198px;
+  width: 25vmin;
+  height: 25vmin;
   .grid-cell {
     position: absolute;
     &.n,
@@ -85,6 +85,8 @@
   }
 }
 .Direction {
+  position: relative;
+  top: 1.75vmin;
   font-weight: bold;
   transform: translateY(1rem) scale(0.6);
 }
@@ -93,7 +95,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 198px;
-  width: 198px;
+  height: 25vmin;
+  width: 25vmin;
   clip-path: polygon(47% 0, 53% 0, 50% 3%);
+}
+@media only screen and (max-width: 425px) {
+  .Direction {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Direction {
+    font-size: x-small;
+  }
 }

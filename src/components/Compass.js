@@ -23,6 +23,11 @@ export default ({ weather }) => {
         <div className="Circle">
           {weather.windSpeed > -1 ? weather.windSpeed : "..."}
         </div>
+        <div className="Direction">
+          {weather.windDirection
+            ? `Direction: ${weather.windDirection}`
+            : "waiting..."}
+        </div>
         <GhostArrows prevDirs={weather.prevWindDirs} />
         <div
           className="Arrow"
@@ -31,11 +36,6 @@ export default ({ weather }) => {
           }}
         />
         <HashMarks />
-        <div className="Direction">
-          {weather.windDirection
-            ? `Direction: ${weather.windDirection}`
-            : "waiting..."}
-        </div>
         <div className="LabelGrid">
           <div className="grid-cell n">N</div>
           <div className="grid-cell e">E</div>

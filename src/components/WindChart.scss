@@ -3,16 +3,16 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  // border: 1px solid white;
+  background-image: linear-gradient(transparent, black);
   width: calc(100% - 2px);
-  height: 200px;
+  height: 25vmin;
   .Bar {
     position: absolute;
     bottom: 0;
     display: inline-block;
     margin-right: 1px;
     background-color: hsl(120, 100%, 50%);
-    height: 200px;
+    height: 25vmin;
     width: 1px;
   }
   .Grad {
