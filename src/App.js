@@ -1,36 +1,23 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Compass from "./components/Compass";
 import WindChart from "./components/WindChart";
 import StatsTable from "./components/StatsTable";
 const io = require("socket.io-client");
+const socket = io("http://localhost:3001");
+socket.open();
 
 const App = () => {
-  const { current: socket } = useRef(io("http://localhost:3001"));
   const [weather, setWeather] = useState({});
 
   if (!weather.prevWindSpeeds) weather.prevWindSpeeds = [];
 
   useEffect(() => {
-    try {
-      console.log("opening socket");
-      socket.open();
-      socket.on("weather", data => {
-        if (data) setWeather(data);
-        // console.log("weather", data);
-      });
-      socket.on("close", () => console.log("SOCKET CLOSED"));
-    } catch (error) {
-      console.log(error);
-    }
-    // seems that after awhile websocket gets fucked up and memory leaks or
-    // something. just reload every minute.
-    let reloadTimeout = setTimeout(() => {
-      document.location.reload();
-    }, 1000 * 60 * 2);
+    socket.on("weather", data => {
+      if (data) setWeather(data);
+    });
     return () => {
       socket.close();
-      clearTimeout(reloadTimeout);
     };
   }, []);
 
