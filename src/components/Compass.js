@@ -20,7 +20,10 @@ export default ({ weather }) => {
   return (
     <div className="Compass">
       <div className="Face">
-        <div className="Circle">
+        <div
+          className="Circle"
+          style={{ color: `hsl(${135 - weather.windSpeed * 6}, 100%, 50%)` }}
+        >
           {weather.windSpeed > -1 ? weather.windSpeed : "..."}
         </div>
         <div className="Direction">
