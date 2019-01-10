@@ -19,29 +19,31 @@ const Grad = ({ grad, max }) => (
   <div
     alt={`${grad} mph`}
     key={grad}
-    className="Grad"
+    className={`Grad ${grad % 5 === 0 ? "label" : null}`}
     style={{ bottom: `${(grad / max) * 100}%` }}
   />
 );
 
 const Grads = ({ maxSpeed }) => {
-  /* eslint-disable array-callback-return */
-  return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map(grad => {
-    if (maxSpeed >= grad) return <Grad key={grad} grad={grad} max={maxSpeed} />;
-  });
-  /* eslint-enable */
+  if (maxSpeed === -Infinity) return null;
+  return Array.from(Array(maxSpeed)).map((_, i) => (
+    <Grad key={i} grad={i + 1} max={maxSpeed} />
+  ));
 };
 
 const VertGrad = ({ grad }) => (
   <div
-    className="VertGrad"
+    className={`VertGrad ${grad % 5 === 0 ? "label" : null}`}
     alt={`${grad} min`}
     style={{ right: `${grad * 5}%` }}
   />
 );
 
 const VertGrads = () => {
-  return [15, 10, 5].map(grad => <VertGrad key={grad} grad={grad} />);
+  return Array.from(new Array(20).fill(0)).map((_, i) => {
+    return <VertGrad key={i} grad={i + 1} />;
+  });
+  // return [15, 10, 5].map(grad => <VertGrad key={grad} grad={grad} />);
 };
 
 export default ({ windSpeeds }) => {

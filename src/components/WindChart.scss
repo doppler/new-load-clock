@@ -3,7 +3,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  background-image: linear-gradient(transparent, black);
+  background-image: linear-gradient(transparent, 30%, black);
   width: calc(100% - 2px);
   height: 25vmin;
   .Bar {
@@ -19,8 +19,11 @@
     text-align: right;
     position: absolute;
     width: 100%;
-    border-bottom: 1px solid rgba(128, 128, 255, 0.75);
-    &::before {
+    border-bottom: 1px solid rgba(128, 128, 255, 0.15);
+    &.label {
+      border-bottom: 1px solid rgba(138, 138, 255, 0.75);
+    }
+    &.label::before {
       font-size: small;
       content: attr(alt);
       position: absolute;
@@ -31,8 +34,11 @@
   .VertGrad {
     position: absolute;
     height: 100%;
-    border-right: 1px solid white;
-    &::before {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    &.label {
+      border-right: 1px solid white;
+    }
+    &.label::before {
       font-size: small;
       content: attr(alt);
     }
