@@ -15,41 +15,19 @@ const Bar = ({ speed, maxSpeed, i }) => {
   );
 };
 
+const Grad = ({ grad, max }) => (
+  <div
+    alt={`${grad} mph`}
+    key={grad}
+    className="Grad"
+    style={{ bottom: `${(grad / max) * 100}%` }}
+  />
+);
 const Grads = ({ maxSpeed }) => {
   const grads = [];
-  if (maxSpeed >= 5) {
-    grads.push(
-      <div
-        key={5}
-        className="Grad five"
-        style={{ bottom: `${(5 / maxSpeed) * 100}%` }}
-      >
-        5 mph
-      </div>
-    );
-  }
-  if (maxSpeed >= 10) {
-    grads.push(
-      <div
-        key={10}
-        className="Grad ten"
-        style={{ bottom: `${(10 / maxSpeed) * 100}%` }}
-      >
-        10 mph
-      </div>
-    );
-  }
-  if (maxSpeed >= 15) {
-    grads.push(
-      <div
-        key={15}
-        className="Grad fifteen"
-        style={{ bottom: `${(15 / maxSpeed) * 100}%` }}
-      >
-        15 mph
-      </div>
-    );
-  }
+  [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map(grad => {
+    if (maxSpeed >= grad) grads.push(<Grad grad={grad} max={maxSpeed} />);
+  });
   return grads.map((grad, i) => grad);
 };
 

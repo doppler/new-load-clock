@@ -20,5 +20,11 @@
     position: absolute;
     width: 100%;
     border-bottom: 1px solid rgba(128, 128, 255, 0.75);
+    &::after {
+      content: attr(alt);
+      position: absolute;
+      right: 0px;
+      transform: translateY(-1rem);
+    }
   }
 }
