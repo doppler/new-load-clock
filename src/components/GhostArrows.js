@@ -9,7 +9,7 @@ export default ({ prevDirs }) => {
         key={i}
         className="Arrow previous"
         style={{
-          rotate: `${dir}deg`,
+          transform: `rotate(${dir}deg)`,
           opacity: 0.8 - i / 30
         }}
       />

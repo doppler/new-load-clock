@@ -35,7 +35,7 @@ export default ({ weather }) => {
         <div
           className="Arrow"
           style={{
-            rotate: `${rotation(weather.windDirection)}deg`
+            transform: `rotate(${rotation(weather.windDirection)}deg)`
           }}
         />
         <HashMarks />
