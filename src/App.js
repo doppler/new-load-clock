@@ -4,7 +4,7 @@ import Compass from "./components/Compass";
 import WindChart from "./components/WindChart";
 import StatsTable from "./components/StatsTable";
 const io = require("socket.io-client");
-const socket = io("http://localhost:3001");
+const socket = io(`http://${window.location.hostname}:3000`);
 socket.open();
 
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
         height: document.body.clientHeight
       });
     };
+    socket.emit("location", "ATL");
     socket.on("weather", data => {
       if (data) setWeather(data);
     });
