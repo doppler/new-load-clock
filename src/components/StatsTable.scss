@@ -7,7 +7,11 @@
   height: 25vmin;
   width: calc(25vmin * 1.618);
   border-radius: 0 10px 10px 0;
-  // background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
+  background-image: linear-gradient(
+    rgba(178, 178, 229, 0.5),
+    15%,
+    rgba(0, 0, 51, 0.5)
+  );
   // opacity: 0.8;
   position: absolute;
   left: calc(25vmin + 1px);

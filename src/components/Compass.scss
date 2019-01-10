@@ -1,9 +1,12 @@
 .Compass {
   // border: 1px solid white;
   border-radius: 10px 0 0 10px;
-  // background-color: black;
-  // background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
-  opacity: 0.75;
+  background-image: linear-gradient(
+    rgba(178, 178, 229, 0.5),
+    15%,
+    rgba(0, 0, 51, 0.5)
+  );
+  // opacity: 0.75;
   position: absolute;
   bottom: 0px;
   left: 1px;
@@ -18,7 +21,7 @@
   width: 25vmin;
   height: 25vmin;
   background-image: radial-gradient(hsl(240, 100%, 0%), hsl(240, 50%, 50%));
-  opacity: 0.95;
+  opacity: 0.75;
   clip-path: circle(50% at 50% 50%);
   z-index: 1;
 }
