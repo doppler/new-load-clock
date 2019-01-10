@@ -1,20 +1,41 @@
 .StatsTable {
   font-weight: bold;
+  text-shadow: 3px 3px 5px rgba(78, 71, 189, 0.199);
   display: grid;
   justify-content: center;
   z-index: 10;
   height: 25vmin;
   width: calc(25vmin * 1.618);
   border-radius: 0 10px 10px 0;
-  background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
-  opacity: 0.8;
+  // background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
+  // opacity: 0.8;
   position: absolute;
   left: calc(25vmin + 1px);
   bottom: 0px;
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-height: 600px) {
+  .StatsTable {
+    font-size: smaller;
+  }
+}
+@media only screen and (max-height: 450px) {
   .StatsTable {
     font-size: small;
+  }
+}
+@media only screen and (max-height: 380px) {
+  .StatsTable {
+    font-size: x-small;
+  }
+}
+@media only screen and (max-height: 300px) {
+  .StatsTable {
+    font-size: xx-small;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .StatsTable {
+    font-size: smaller;
   }
 }
 @media only screen and (max-width: 320px) {

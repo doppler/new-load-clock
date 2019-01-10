@@ -1,9 +1,9 @@
 .Compass {
   // border: 1px solid white;
   border-radius: 10px 0 0 10px;
-  background-color: black;
-  background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
-  opacity: 0.8;
+  // background-color: black;
+  // background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
+  opacity: 0.75;
   position: absolute;
   bottom: 0px;
   left: 1px;
@@ -86,7 +86,7 @@
 }
 .Direction {
   position: relative;
-  top: 1.75vmin;
+  top: 3vmin;
   font-weight: bold;
   transform: translateY(1rem) scale(0.6);
 }
