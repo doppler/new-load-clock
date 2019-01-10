@@ -24,11 +24,11 @@ const Grad = ({ grad, max }) => (
   />
 );
 const Grads = ({ maxSpeed }) => {
-  const grads = [];
-  [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map(grad => {
-    if (maxSpeed >= grad) grads.push(<Grad grad={grad} max={maxSpeed} />);
+  /* eslint-disable array-callback-return */
+  return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map(grad => {
+    if (maxSpeed >= grad) return <Grad key={grad} grad={grad} max={maxSpeed} />;
   });
-  return grads.map((grad, i) => grad);
+  /* eslint-enable */
 };
 
 export default ({ windSpeeds }) => {
