@@ -5,12 +5,11 @@
   z-index: 10;
   height: 25vmin;
   width: calc(25vmin * 1.618);
-  border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   background-image: linear-gradient(hsl(240, 50%, 40%), hsl(240, 100%, 10%));
   opacity: 0.8;
   position: absolute;
-  left: calc(25vmin + 3px);
+  left: calc(25vmin + 1px);
   bottom: 0px;
 }
 @media only screen and (max-width: 425px) {

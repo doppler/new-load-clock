@@ -40,7 +40,7 @@ const VertGrad = ({ grad }) => (
 );
 
 const VertGrads = () => {
-  return Array.from(new Array(20).fill(0)).map((_, i) => {
+  return Array.from(new Array(19).fill(0)).map((_, i) => {
     return <VertGrad key={i} grad={i + 1} />;
   });
   // return [15, 10, 5].map(grad => <VertGrad key={grad} grad={grad} />);
