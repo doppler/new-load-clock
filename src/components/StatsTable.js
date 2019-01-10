@@ -1,6 +1,12 @@
 import React from "react";
 import "./StatsTable.scss";
 
+const HighRow = ({ minute, speed }) => (
+  <tr style={{ color: `hsl(${135 - speed * 6}, 100%, 50%)` }}>
+    <td>{minute}min high:</td>
+    <td>{speed} mph</td>
+  </tr>
+);
 export default ({ weather }) => {
   const windSpeeds = [...weather.prevWindSpeeds].reverse();
 
@@ -16,18 +22,9 @@ export default ({ weather }) => {
             <td>Temperature:</td>
             <td>{weather.outsideTemp}&deg;F</td>
           </tr>
-          <tr>
-            <td>5min high:</td>
-            <td>{wind5minHigh} mph</td>
-          </tr>
-          <tr>
-            <td>10min high:</td>
-            <td>{wind10minHigh} mph</td>
-          </tr>
-          <tr>
-            <td>20min high:</td>
-            <td>{wind20minHigh} mph</td>
-          </tr>
+          <HighRow minute={5} speed={wind5minHigh} />
+          <HighRow minute={10} speed={wind10minHigh} />
+          <HighRow minute={20} speed={wind20minHigh} />
         </tbody>
       </table>
     </div>
