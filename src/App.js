@@ -4,7 +4,7 @@ import Compass from "./components/Compass";
 import WindChart from "./components/WindChart";
 import StatsTable from "./components/StatsTable";
 const io = require("socket.io-client");
-const socket = io(`http://${window.location.hostname}:3000`);
+const socket = io(`http://${window.location.hostname}:5000`);
 socket.open();
 
 const App = () => {

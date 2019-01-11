@@ -4,7 +4,9 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const path = require("path");
 
-server.listen(3001);
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT);
 
 app.use(express.static(path.join(__dirname, "../", "build")));
 app.get("/", function(req, res) {
