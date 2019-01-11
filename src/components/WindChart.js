@@ -25,7 +25,7 @@ const Grad = ({ grad, max }) => (
 );
 
 const Grads = ({ maxSpeed }) => {
-  if (maxSpeed === -Infinity) return null;
+  if (maxSpeed === -Infinity || maxSpeed === 0) maxSpeed = 5;
   return Array.from(Array(maxSpeed)).map((_, i) => (
     <Grad key={i} grad={i + 1} max={maxSpeed} />
   ));
