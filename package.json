@@ -10,7 +10,6 @@
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-scripts": "2.1.2",
-    "rethinkdb": "^2.3.3",
     "socket.io": "^2.2.0"
   },
   "scripts": {
