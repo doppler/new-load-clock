@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import format from "date-fns/format";
 import "./App.css";
 import Compass from "./components/Compass";
 import WindChart from "./components/WindChart";
@@ -9,20 +10,10 @@ socket.open();
 
 const App = () => {
   const [weather, setWeather] = useState({});
-  const [client, setClient] = useState({
-    width: document.body.clientWidth,
-    height: document.body.clientHeight
-  });
 
   if (!weather.prevWindSpeeds) weather.prevWindSpeeds = [];
 
   useEffect(() => {
-    document.body.onresize = () => {
-      setClient({
-        width: document.body.clientWidth,
-        height: document.body.clientHeight
-      });
-    };
     socket.emit("location", "ATL");
     socket.on("weather", data => {
       if (data) setWeather(data);
@@ -36,9 +27,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <Compass weather={weather} />
-        <p>Time: {weather.time}</p>
-        <p>clientWidth: {client.width}</p>
-        <p>clientHeight: {client.height}</p>
+        <p>Time: {weather.time && format(weather.time, "h:mm:ss A")}</p>
         <StatsTable weather={weather} />
         <WindChart windSpeeds={weather.prevWindSpeeds} />
       </header>
