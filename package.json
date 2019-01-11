@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "build",
+    "postinstall": "react-scripts build",
     "start-api": "nodemon server.js",
     "dev": "concurrently \"yarn start\" \"yarn start-api\""
   },
