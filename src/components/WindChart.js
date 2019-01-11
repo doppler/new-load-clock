@@ -43,11 +43,11 @@ const VertGrads = () => {
   return Array.from(new Array(19).fill(0)).map((_, i) => {
     return <VertGrad key={i} grad={i + 1} />;
   });
-  // return [15, 10, 5].map(grad => <VertGrad key={grad} grad={grad} />);
 };
 
 export default ({ windSpeeds }) => {
   const maxSpeed = Math.max(...windSpeeds);
+  if (maxSpeed === 0) windSpeeds = windSpeeds.slice(0, 0, 5);
   return (
     <div className="WindChart">
       <Grads maxSpeed={maxSpeed} />
