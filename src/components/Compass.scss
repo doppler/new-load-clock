@@ -20,7 +20,7 @@
   // left: 1px;
   width: 25vmin;
   height: 25vmin;
-  background-image: radial-gradient(hsl(240, 100%, 0%), hsl(240, 50%, 50%));
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
   opacity: 0.75;
   clip-path: circle(50% at 50% 50%);
   z-index: 1;
