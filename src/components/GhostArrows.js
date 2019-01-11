@@ -10,7 +10,7 @@ export default ({ prevDirs }) => {
         className="Arrow previous"
         style={{
           transform: `rotate(${dir}deg)`,
-          opacity: 0.8 - i / 30
+          opacity: 0.8 - i * 0.026
         }}
       />
     ));
