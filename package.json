@@ -1,6 +1,6 @@
 {
   "name": "new-load-clock",
-  "main": "api/server.js",
+  "main": "server.js",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-api": "nodemon --watch api api/server.js",
+    "start-api": "nodemon server.js",
     "dev": "concurrently \"yarn start\" \"yarn start-api\""
   },
   "eslintConfig": {
