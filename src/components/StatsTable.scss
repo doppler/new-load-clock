@@ -42,8 +42,13 @@
     font-size: smaller;
   }
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 420px) {
   .StatsTable {
     font-size: x-small;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .StatsTable {
+    font-size: xx-small;
   }
 }
