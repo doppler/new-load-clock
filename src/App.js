@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import format from "date-fns/format";
 import "./App.css";
 import Compass from "./components/Compass";
@@ -50,12 +50,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <p>Time: {weather.time && format(weather.time, "h:mm:ss A")}</p>
+      <div className="Footer">
         <Compass weather={weather} />
-        <p>Time: {weather.time && format(weather.time, "h:mm:ss A")}</p>
         <StatsTable weather={weather} />
         <WindChart windSpeeds={weather.prevWindSpeeds} />
-      </header>
+      </div>
     </div>
   );
 };

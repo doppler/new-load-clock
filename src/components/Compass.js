@@ -21,7 +21,7 @@ export default ({ weather }) => {
     () => {
       led.current.classList.add("on");
       setTimeout(() => {
-        led.current.classList.remove("on");
+        led.current && led.current.classList.remove("on");
       }, 50);
     },
     [weather]
