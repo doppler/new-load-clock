@@ -14,6 +14,28 @@
   height: 25vmin;
   z-index: 10;
 }
+.LED {
+  position: absolute;
+  left: 1vmin;
+  top: 1vmin;
+  width: 2vmin;
+  height: 2vmin;
+  background: radial-gradient(
+    hsl(120, 100%, 10%),
+    10%,
+    hsla(120, 100%, 50%, 0.1)
+  );
+  &.on {
+    background: radial-gradient(
+      hsl(120, 100%, 50%),
+      75%,
+      hsla(120, 100%, 50%, 0.1)
+    );
+
+    filter: drop-shadow(0 0 0.5vmin rgba(255, 255, 255, 1));
+  }
+  border-radius: 50%;
+}
 .Face {
   position: relative;
   // top: 1px;

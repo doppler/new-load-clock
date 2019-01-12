@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Compass.scss";
 import GhostArrows from "./GhostArrows";
 import HashMarks from "./HashMarks";
@@ -16,9 +16,20 @@ const rotation = deg => {
 };
 
 export default ({ weather }) => {
+  const led = useRef(null);
+  useEffect(
+    () => {
+      led.current.classList.add("on");
+      setTimeout(() => {
+        led.current.classList.remove("on");
+      }, 50);
+    },
+    [weather]
+  );
   if (!weather.prevWindDirs) weather.prevWindDirs = [];
   return (
     <div className="Compass">
+      <div className="LED" ref={led} />
       <div className="Face">
         <div
           className="Circle"
