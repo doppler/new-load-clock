@@ -5,7 +5,11 @@ import Compass from "./components/Compass";
 import WindChart from "./components/WindChart";
 import StatsTable from "./components/StatsTable";
 const io = require("socket.io-client");
-const socket = io("https://spaceland-load-clock.herokuapp.com/");
+
+const socket = io(
+  process.env.REACT_APP_WEBSOCKET_SERVER ||
+    "https://spaceland-load-clock.herokuapp.com"
+);
 socket.open();
 
 const validLocationFromPathname = () => {
