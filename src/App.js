@@ -12,10 +12,17 @@ const socket = io(
 );
 socket.open();
 
+const validLocations = {
+  ATL: "Atlanta",
+  CLW: "Clewiston",
+  DAL: "Dallas",
+  HOU: "Houston",
+  SAN: "San Marcos"
+};
+
 const validLocationFromPathname = () => {
-  const validLocations = ["ATL", "CLW", "DAL", "HOU", "SAN"];
   const match = window.location.pathname.split("/")[1].match(/[A-Z]{3}/);
-  if (match && validLocations.includes(match[0])) return match[0];
+  if (match && Object.keys(validLocations).includes(match[0])) return match[0];
   return "ATL";
 };
 
@@ -29,7 +36,11 @@ const App = () => {
   useEffect(() => {
     socket.emit("location", location);
     console.log("Joined", location);
+    window.document.title = `${validLocations[location]} ${
+      window.document.title
+    }`;
     socket.on("weather", data => {
+      console.log("got weather data", data.time);
       if (data) setWeather(data);
     });
     return () => {
