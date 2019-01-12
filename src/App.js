@@ -8,13 +8,23 @@ const io = require("socket.io-client");
 const socket = io("https://spaceland-load-clock.herokuapp.com/");
 socket.open();
 
+const validLocationFromPathname = () => {
+  const validLocations = ["ATL", "CLW", "DAL", "HOU", "SAN"];
+  const match = window.location.pathname.split("/")[1].match(/[A-Z]{3}/);
+  if (match && validLocations.includes(match[0])) return match[0];
+  return "ATL";
+};
+
 const App = () => {
+  const location = validLocationFromPathname();
+
   const [weather, setWeather] = useState({});
 
   if (!weather.prevWindSpeeds) weather.prevWindSpeeds = [];
 
   useEffect(() => {
-    socket.emit("location", "ATL");
+    socket.emit("location", location);
+    console.log("Joined", location);
     socket.on("weather", data => {
       if (data) setWeather(data);
     });
