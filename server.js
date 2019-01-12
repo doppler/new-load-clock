@@ -20,6 +20,7 @@ io.sockets.on("connection", socket => {
     socket.join(location);
   });
   socket.on("weather-record", record => {
+    console.log("weather-record", record.location, record.time);
     io.to(record.location).emit("weather", record);
   });
 });
