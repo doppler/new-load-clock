@@ -37,11 +37,6 @@ export default ({ weather }) => {
         >
           {weather.windSpeed > -1 ? weather.windSpeed : "..."}
         </div>
-        <div className="Direction">
-          {weather.windDirection
-            ? `Direction: ${weather.windDirection}`
-            : "waiting..."}
-        </div>
         <GhostArrows prevDirs={weather.prevWindDirs} />
         <div
           className="Arrow"

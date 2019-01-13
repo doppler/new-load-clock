@@ -1,0 +1,121 @@
+.Compass {
+  position: relative;
+  display: inline-block;
+  width: 15vh;
+  height: 15vh;
+  z-index: 3;
+  font-size: 2vh;
+  border-radius: 10px 0 0 10px;
+  .LED {
+    position: relative;
+    left: 5%;
+    top: 3%;
+    width: 5%;
+    height: 5%;
+    border-radius: 50%;
+    background: radial-gradient(
+      hsl(120, 100%, 10%),
+      10%,
+      hsla(120, 100%, 10%, 0.1)
+    );
+    &.on {
+      background: radial-gradient(
+        hsl(120, 100%, 50%),
+        75%,
+        hsla(120, 100%, 50%, 0.1)
+      );
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
+    }
+  }
+  .Face {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
+    background-image: radial-gradient(
+      hsla(240, 100%, 50%, 0.165),
+      hsla(270, 100%, 10%, 0.33),
+      hsla(300, 100%, 10%, 1)
+    );
+
+    // opacity: 0.25;
+    clip-path: circle(50% at 50% 50%);
+    .Circle {
+      position: relative;
+      top: 25%;
+      left: 25%;
+      width: 50%;
+      height: 50%;
+      font-size: 4vh;
+      font-weight: bold;
+      text-shadow: 2px 1px 3px black, 0px -1px white;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: radial-gradient(
+        hsla(240, 100%, 50%, 0.165),
+        hsla(240, 100%, 10%, 0.66),
+        hsla(300, 100%, 10%, 1)
+      );
+      clip-path: circle(40% at center);
+      // opacity: 0.75;
+    }
+    .LabelGrid {
+      font-weight: bold;
+      color: hsl(240, 50%, 85%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      .grid-cell {
+        position: absolute;
+        &.n,
+        &.s {
+          left: calc(50% - 0.5rem);
+        }
+        &.e,
+        &.w {
+          top: calc(50% - 1rem);
+        }
+        &.e {
+          right: 2%;
+        }
+        &.s {
+          bottom: 1%;
+        }
+        &.w {
+          left: 3%;
+        }
+      }
+    }
+    .Arrow {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(hsl(60, 100%, 50%), hsl(0, 100%, 50%));
+      clip-path: polygon(50% 0, 40% 33%, 50% 50%, 60% 33%);
+      transition: 1s ease-in-out;
+      &.previous {
+        z-index: 0;
+        background-image: linear-gradient(hsl(60, 33%, 50%), hsl(0, 33%, 50%));
+        clip-path: polygon(50% 0, 40% 33%, 50% 30%, 60% 33%);
+        transition: none;
+      }
+    }
+    .Hashmark {
+      background-color: hsla(270, 100%, 50%, 0.75);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      clip-path: polygon(47% 0, 53% 0, 50% 3%);
+    }
+  }
+}

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import format from "date-fns/format";
 import "./App.css";
-import Compass from "./components/Compass";
-import WindChart from "./components/WindChart";
-import StatsTable from "./components/StatsTable";
+import { Footer } from "./components/Footer/index";
 const io = require("socket.io-client");
 
 const socket = io(
@@ -51,11 +49,7 @@ const App = () => {
   return (
     <div className="App">
       <p>Time: {weather.time && format(weather.time, "h:mm:ss A")}</p>
-      <div className="Footer">
-        <Compass weather={weather} />
-        <StatsTable weather={weather} />
-        <WindChart windSpeeds={weather.prevWindSpeeds} />
-      </div>
+      <Footer weather={weather} />
     </div>
   );
 };

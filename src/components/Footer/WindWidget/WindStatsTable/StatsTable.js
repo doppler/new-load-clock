@@ -4,7 +4,7 @@ import "./StatsTable.scss";
 const HighRow = ({ minute, speed }) => (
   <tr style={{ color: `hsl(${135 - speed * 6}, 100%, 50%)` }}>
     <td>{minute}min high:</td>
-    <td>{speed} mph</td>
+    <td>{speed !== -Infinity ? speed : "..."} mph</td>
   </tr>
 );
 export default ({ weather }) => {
@@ -20,7 +20,9 @@ export default ({ weather }) => {
         <tbody>
           <tr>
             <td>Temperature:</td>
-            <td>{weather.outsideTemp}&deg;F</td>
+            <td>
+              {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
+            </td>
           </tr>
           <HighRow minute={5} speed={wind5minHigh} />
           <HighRow minute={10} speed={wind10minHigh} />

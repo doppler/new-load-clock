@@ -1,6 +1,10 @@
 .WindChart {
+  position: absolute;
+  top: 0;
   background-image: linear-gradient(transparent, 30%, black);
-  height: 15vh;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
   .Bar {
     position: absolute;
     bottom: 0;
