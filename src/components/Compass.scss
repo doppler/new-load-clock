@@ -1,29 +1,27 @@
 .Compass {
+  position: absolute;
+  width: 15vh;
+  height: 15vh;
+  z-index: 1;
   font-size: 2vh;
-  // border: 1px solid white;
   border-radius: 10px 0 0 10px;
   background-image: linear-gradient(
-    rgba(178, 178, 229, 0.5),
+    hsla(270, 100%, 50%, 0.5),
     15%,
     rgba(0, 0, 51, 0.5)
   );
-  // opacity: 0.75;
-  width: 15vh;
-  height: 15vh;
-  position: absolute;
-  // left: calc(50% - (15vh + (15vh * 1.618)) / 2);
-  z-index: 10;
 }
 .LED {
   position: absolute;
-  left: 1vmin;
-  top: 1vmin;
-  width: 1vh;
-  height: 1vh;
+  left: 5%;
+  top: 3%;
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
   background: radial-gradient(
     hsl(120, 100%, 10%),
     10%,
-    hsla(120, 100%, 50%, 0.1)
+    hsla(120, 100%, 10%, 0.1)
   );
   &.on {
     background: radial-gradient(
@@ -31,42 +29,50 @@
       75%,
       hsla(120, 100%, 50%, 0.1)
     );
-
-    filter: drop-shadow(0 0 0.5vmin rgba(255, 255, 255, 1));
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
   }
-  border-radius: 50%;
 }
 .Face {
-  width: 15vh;
-  height: 15vh;
+  width: 100%;
+  height: 100%;
   background-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
-  opacity: 0.75;
+  background-image: radial-gradient(
+    hsla(240, 100%, 50%, 0.165),
+    hsla(270, 100%, 10%, 0.33),
+    hsla(300, 100%, 10%, 1)
+  );
+
+  // opacity: 0.25;
   clip-path: circle(50% at 50% 50%);
-  z-index: 1;
 }
 .Circle {
+  position: relative;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
   font-size: 4vh;
   font-weight: bold;
+  text-shadow: 2px 1px 3px black, 0px -1px white;
   z-index: 2;
-  width: 7.5vh;
-  height: 7.5vh;
-  position: relative;
-  top: calc(7.5vh - 25%);
-  left: calc(7.5vh - 25%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: radial-gradient(hsl(240, 50%, 10%), hsl(240, 50%, 50%));
+  background-image: radial-gradient(
+    hsla(240, 100%, 50%, 0.165),
+    hsla(240, 100%, 10%, 0.66),
+    hsla(300, 100%, 10%, 1)
+  );
   clip-path: circle(40% at center);
-  opacity: 0.75;
+  // opacity: 0.75;
 }
 .Arrow {
   z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
-  width: 15vh;
-  height: 15vh;
+  width: 100%;
+  height: 100%;
   background-image: linear-gradient(hsl(60, 100%, 50%), hsl(0, 100%, 50%));
   clip-path: polygon(50% 0, 40% 33%, 50% 50%, 60% 33%);
   transition: 1s ease-in-out;
@@ -83,8 +89,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 15vh;
-  height: 15vh;
+  width: 100%;
+  height: 100%;
   .grid-cell {
     position: absolute;
     &.n,
@@ -114,12 +120,12 @@
   transform: translateY(1rem) scale(0.6);
 }
 .Hashmark {
-  background-color: hsl(240, 100%, 80%);
+  background-color: hsla(270, 100%, 50%, 0.75);
   position: absolute;
   top: 0;
   left: 0;
-  height: 15vh;
-  width: 15vh;
+  height: 100%;
+  width: 100%;
   clip-path: polygon(47% 0, 53% 0, 50% 3%);
 }
 @media only screen and (max-width: 425px) {
