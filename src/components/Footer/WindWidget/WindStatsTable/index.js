@@ -18,7 +18,11 @@ export default ({ weather }) => {
     <div className="StatsTable">
       <table>
         <tbody>
-          <tr>
+          <tr
+            style={{
+              color: `hsl(${280 - weather.outsideTemp * 3}, 100%, 50%)`
+            }}
+          >
             <td>Temperature:</td>
             <td>
               {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
