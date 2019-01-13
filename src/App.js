@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Header from "./components/Header";
+import LoadClocks from "./components/LoadClocks";
 import Footer from "./components/Footer/index";
 const io = require("socket.io-client");
 
@@ -49,6 +50,7 @@ const App = () => {
   return (
     <div className="App">
       <Header location={validLocations[location]} time={weather.time} />
+      <LoadClocks loads={[]} />
       <Footer weather={weather} />
     </div>
   );

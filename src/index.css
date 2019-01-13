@@ -10,7 +10,7 @@ body {
 
 html,
 body {
-  /* width: calc(100vh * 0.5625); */
+  /* box-sizing: border-box; */
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
