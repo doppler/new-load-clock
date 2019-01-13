@@ -3,7 +3,6 @@
   src: url(./HelveticaNeue-HeavyExtObl.woff);
 }
 .App {
-  /* text-align: center; */
   background: #282c34 url(./SkydiveSpacelandLogo-white-text.png) no-repeat fixed
     center;
 }
@@ -13,29 +12,49 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  /* justify-content: center; */
-  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
 #Header {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   width: 100%;
-  height: 3vh;
+  height: 5vh;
   border-bottom: 1px solid red;
   box-shadow: 0px 1px 5px hsl(0, 100%, 50%);
   .title,
   .time {
+    flex: auto;
     display: inline-block;
     margin: 0.5em;
     font-family: "HelveticaNeue", Arial, Helvetica, sans-serif;
-    // font-size: 2em;
     font-weight: 100;
     transform: scaleX(1.16) translateX(1.16);
     text-shadow: 1px 1px 3px black;
-    background-image: linear-gradient(transparent, 95%, red, 96%, transparent);
   }
   .time {
-    float: right;
+    text-align: right;
+  }
+  font-size: 1.5em;
+}
+@media only screen and (max-width: 700px) {
+  #Header {
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .App {
+    background-size: contain;
+  }
+  #Header {
+    font-size: smaller;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #Header {
+    font-size: x-small;
   }
 }

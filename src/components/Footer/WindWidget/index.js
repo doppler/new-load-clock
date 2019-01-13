@@ -1,6 +1,6 @@
 import React from "react";
-import { Compass } from "./Compass";
-import { WindStatsTable } from "./WindStatsTable";
+import Compass from "./Compass";
+import WindStatsTable from "./WindStatsTable";
 import "./WindWidget.scss";
 
 export default props => {

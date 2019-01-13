@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import format from "date-fns/format";
-import Logo from "./SkydiveSpacelandLogo-white-text.png";
 import "./App.scss";
-import { Footer } from "./components/Footer/index";
+import Header from "./components/Header";
+import Footer from "./components/Footer/index";
 const io = require("socket.io-client");
 
 const socket = io(
@@ -49,14 +48,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <div id="Header">
-        <span className="title">
-          Skydive Spaceland {validLocations[location]}
-        </span>
-        <span className="time">
-          {weather.time && format(weather.time, "h:mm:ss A")}
-        </span>
-      </div>
+      <Header location={validLocations[location]} time={weather.time} />
       <Footer weather={weather} />
     </div>
   );
