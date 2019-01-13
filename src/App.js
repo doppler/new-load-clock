@@ -29,10 +29,12 @@ const App = () => {
   const location = validLocationFromPathname();
 
   const [weather, setWeather] = useState({});
+  const [loads, setLoads] = useState([]);
 
   if (!weather.prevWindSpeeds) weather.prevWindSpeeds = [];
 
   useEffect(() => {
+    // setLoads(require("./loads/1.json"));
     socket.emit("location", location);
     window.document.title = `${validLocations[location]} ${
       window.document.title
@@ -48,7 +50,7 @@ const App = () => {
   return (
     <div className="App">
       <Header location={validLocations[location]} time={weather.time} />
-      <LoadClocks loads={[]} />
+      <LoadClocks loads={loads} />
       <Footer weather={weather} />
     </div>
   );

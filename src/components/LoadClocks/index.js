@@ -15,7 +15,9 @@ export default ({ loads }) => {
 
 const LoadClock = ({ load }) => (
   <div className="Load">
-    <h1>Load {load.number}</h1>
+    <header>{load.name}</header>
+    <span className="time">{load.timer}</span>
+    <footer>Slots Remaining: {load.slots}</footer>
   </div>
 );
 
