@@ -3,11 +3,11 @@
   display: inline-flex;
   border-radius: 10px;
   background-image: linear-gradient(
-      hsla(270, 100%, 50%, 0.5),
+      hsla(240, 100%, 50%, 0.5),
       15%,
       rgba(0, 0, 51, 0.5)
     ),
-    linear-gradient(transparent, 98%, hsla(270, 100%, 98%, 1));
+    linear-gradient(transparent, 98%, hsla(240, 100%, 98%, 1));
 
   .Compass {
     display: inline-block;

@@ -64,7 +64,8 @@
     }
     .LabelGrid {
       font-weight: bold;
-      color: hsl(240, 50%, 85%);
+      color: hsla(240, 100%, 75%, 0.75);
+      text-shadow: 0px 0px 2px black;
       position: absolute;
       top: 0;
       left: 0;
@@ -103,13 +104,13 @@
       transition: 1s ease-in-out;
       &.previous {
         z-index: 0;
-        background-image: linear-gradient(hsl(60, 33%, 50%), hsl(0, 33%, 50%));
+        background-image: linear-gradient(hsl(240, 33%, 50%), hsl(0, 33%, 50%));
         clip-path: polygon(50% 0, 40% 33%, 50% 30%, 60% 33%);
         transition: none;
       }
     }
     .Hashmark {
-      background-color: hsla(270, 100%, 50%, 0.75);
+      background-color: hsla(240, 100%, 75%, 0.75);
       position: absolute;
       top: 0;
       left: 0;
