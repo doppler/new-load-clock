@@ -10,10 +10,11 @@
   width: calc(15vh * 1.618);
   border-radius: 0 10px 10px 0;
   background-image: linear-gradient(
-    hsla(270, 100%, 50%, 0.5),
-    15%,
-    rgba(0, 0, 51, 0.5)
-  );
+      hsla(270, 100%, 50%, 0.5),
+      15%,
+      rgba(0, 0, 51, 0.5)
+    ),
+    linear-gradient(transparent, 98%, hsla(270, 100%, 98%, 1));
   position: absolute;
   // left: calc(50% - (15vh * 0.311));
   left: 15vh;

@@ -1,30 +1,22 @@
 .WindChart {
-  font-weight: bold;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   background-image: linear-gradient(transparent, 30%, black);
-  width: calc(100% - 2px);
   height: 15vh;
   .Bar {
     position: absolute;
     bottom: 0;
-    display: inline-block;
-    margin-right: 1px;
-    background-color: hsl(120, 100%, 50%);
-    height: 25vmin;
     width: 1px;
   }
   .Grad {
-    text-align: right;
     position: absolute;
     width: 100%;
-    border-bottom: 1px solid rgba(128, 128, 255, 0.15);
+    border-bottom: 1px dashed rgba(128, 128, 255, 0.15);
     &.label {
-      border-bottom: 1px solid rgba(138, 138, 255, 0.75);
+      border-bottom: 1px dashed rgba(138, 138, 255, 0.75);
+      box-shadow: 0px 0px 3px rgba(138, 138, 255, 1);
     }
     &.label::before {
       font-size: small;
+      color: rgba(138, 138, 255, 0.75);
       content: attr(alt);
       position: absolute;
       right: 0px;
@@ -34,13 +26,18 @@
   .VertGrad {
     position: absolute;
     height: 100%;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px dashed rgba(255, 255, 255, 0.15);
     &.label {
-      border-right: 1px solid white;
+      border-right: 1px dashed rgba(138, 138, 255, 0.75);
+      box-shadow: 0px 0px 3px rgba(138, 138, 255, 1);
     }
     &.label::before {
       font-size: small;
+      color: rgba(138, 138, 255, 0.75);
       content: attr(alt);
+      position: absolute;
+      width: 4rem;
+      transform: rotate(270deg) translate(-1rem, -2.5rem);
     }
   }
 }

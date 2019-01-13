@@ -9,6 +9,7 @@ const Bar = ({ speed, maxSpeed, i }) => {
       style={{
         height: `${percent}%`,
         backgroundColor: `hsl(${120 - speed * 6}, 100%, 50%)`,
+        boxShadow: `0px -1px 5px hsl(${120 - speed * 6}, 100%, 75%)`,
         left: `${(i / 600) * 100}%`
       }}
     />
