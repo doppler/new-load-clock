@@ -47,8 +47,8 @@ const VertGrads = () => {
 };
 
 export default ({ windSpeeds }) => {
-  const maxSpeed = Math.max(...windSpeeds);
-  if (maxSpeed === 0) windSpeeds = windSpeeds.slice(0, 0, 5);
+  let ms = Math.max(...windSpeeds);
+  const maxSpeed = ms < 5 ? 5 : ms;
   return (
     <div className="WindChart">
       <Grads maxSpeed={maxSpeed} />
