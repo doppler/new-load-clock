@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import SocketContext from "../SocketContext/Context";
 import "./LoadClocks.scss";
 
-export default ({ loads }) => {
+export default () => {
+  const { loads } = useContext(SocketContext);
   return (
     <div id="LoadClocks">
       {loads.length ? (

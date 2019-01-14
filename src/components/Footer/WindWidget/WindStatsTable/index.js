@@ -8,7 +8,9 @@ const HighRow = ({ minute, speed }) => (
   </tr>
 );
 export default ({ weather }) => {
-  const windSpeeds = [...weather.prevWindSpeeds].reverse();
+  const windSpeeds = weather.prevWindSpeeds
+    ? [...weather.prevWindSpeeds].reverse()
+    : [];
 
   const wind5minHigh = Math.max(...windSpeeds.slice(0, 150));
   const wind10minHigh = Math.max(...windSpeeds.slice(150, 300));

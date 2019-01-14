@@ -1,56 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import SocketContext from "./components/SocketContext/Context";
 import "./App.scss";
 import Header from "./components/Header";
 import LoadClocks from "./components/LoadClocks";
 import Footer from "./components/Footer/index";
-const io = require("socket.io-client");
+import { validLocations, getLocationFromPathName } from "./lib/location";
 
-const socket = io(
-  process.env.REACT_APP_WEBSOCKET_SERVER ||
-    "https://spaceland-load-clock.herokuapp.com"
-);
-socket.open();
-
-const validLocations = {
-  ATL: "Atlanta",
-  CLW: "Clewiston",
-  DAL: "Dallas",
-  HOU: "Houston",
-  SAN: "San Marcos"
-};
-
-const validLocationFromPathname = () => {
-  const match = window.location.pathname.split("/")[1].match(/[A-Z]{3}/);
-  if (match && Object.keys(validLocations).includes(match[0])) return match[0];
-  return "ATL";
-};
+const location = getLocationFromPathName();
 
 const App = () => {
-  const location = validLocationFromPathname();
-
-  const [weather, setWeather] = useState({});
-  const [loads, setLoads] = useState([]);
-
-  if (!weather.prevWindSpeeds) weather.prevWindSpeeds = [];
-
-  useEffect(() => {
-    // setLoads(require("./loads/1.json"));
-    socket.emit("location", location);
-    window.document.title = `${validLocations[location]} ${
-      window.document.title
-    }`;
-    socket.on("weather", data => {
-      if (data) setWeather(data);
-    });
-    return () => {
-      socket.close();
-    };
-  }, []);
+  const { weather } = useContext(SocketContext);
 
   return (
     <div className="App">
       <Header location={validLocations[location]} time={weather.time} />
-      <LoadClocks loads={loads} />
+      <LoadClocks />
       <Footer weather={weather} />
     </div>
   );

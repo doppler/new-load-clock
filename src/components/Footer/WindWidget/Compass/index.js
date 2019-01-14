@@ -26,7 +26,6 @@ export default ({ weather }) => {
     },
     [weather]
   );
-  if (!weather.prevWindDirs) weather.prevWindDirs = [];
   return (
     <div className="Compass">
       <div className="LED" ref={led} />

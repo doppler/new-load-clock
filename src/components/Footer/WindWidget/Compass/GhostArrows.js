@@ -1,6 +1,7 @@
 import React from "react";
 
 export default ({ prevDirs }) => {
+  if (!prevDirs) return null;
   return prevDirs
     .reverse()
     .slice(1, prevDirs.length - 1)

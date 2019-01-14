@@ -54,9 +54,10 @@ export default ({ windSpeeds }) => {
     <div className="WindChart">
       <Grads maxSpeed={maxSpeed} />
       <VertGrads />
-      {windSpeeds.map((speed, i) => (
-        <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
-      ))}
+      {windSpeeds &&
+        windSpeeds.map((speed, i) => (
+          <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
+        ))}
     </div>
   );
 };
