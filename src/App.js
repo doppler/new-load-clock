@@ -34,12 +34,10 @@ const App = () => {
 
   useEffect(() => {
     socket.emit("location", location);
-    console.log("Joined", location);
     window.document.title = `${validLocations[location]} ${
       window.document.title
     }`;
     socket.on("weather", data => {
-      console.log("got weather data", data.time);
       if (data) setWeather(data);
     });
     return () => {
