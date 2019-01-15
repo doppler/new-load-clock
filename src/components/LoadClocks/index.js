@@ -6,6 +6,15 @@ const { differenceInSeconds } = require("date-fns");
 
 export default () => {
   const { loads } = useContext(SocketContext);
+  // uncomment for testing purposes
+  // const loads = [
+  //   {
+  //     loadNo: 1,
+  //     plane: "Caravan - 921F",
+  //     slotsRemaining: 3,
+  //     departureTime: new Date(2019, 0, 15, 1, 4)
+  //   }
+  // ];
   return (
     <div id="LoadClocks">
       {loads.length ? (
@@ -19,7 +28,7 @@ export default () => {
 
 const LoadClock = ({ load }) => {
   let timerInterval;
-  const [timer, setTimer] = useState("--:--");
+  const [timer, setTimer] = useState({ ds: 0, time: "--:--" });
 
   const updateTimer = () => {
     let ds = differenceInSeconds(new Date(), new Date(load.departureTime));
@@ -27,7 +36,7 @@ const LoadClock = ({ load }) => {
       ds = 0;
       clearInterval(timerInterval);
     }
-    setTimer(secondsToMMSS(ds));
+    setTimer({ ds, time: secondsToMMSS(ds) });
   };
 
   useEffect(
@@ -43,11 +52,13 @@ const LoadClock = ({ load }) => {
   );
 
   return (
-    <div className="Load">
+    <div className={`Load ${colorForSecondsRemaining(timer.ds)}`}>
       <header>
         {load.plane} {load.loadNo}
       </header>
-      <span className="time">{timer}</span>
+      <span className={`time ${colorForSecondsRemaining(timer.ds)}`}>
+        {timer.time}
+      </span>
       {/* <span className="json">{JSON.stringify(load, null, 2)}</span> */}
       <footer>Slots Remaining: {load.slotsRemaining}</footer>
     </div>
@@ -57,3 +68,26 @@ const LoadClock = ({ load }) => {
 const NoLoadsScheduled = () => (
   <div className="NoLoadsScheduled">No Loads Scheduled</div>
 );
+
+const colorForSecondsRemaining = ds => {
+  return null;
+  /*
+  const d = Math.abs(ds);
+  let color;
+  switch (true) {
+    case d < 60 * 1:
+      color = "red";
+      break;
+    case d < 60 * 5:
+      color = "orange";
+      break;
+    case d < 60 * 10:
+      color = "yellow";
+      break;
+    default:
+      color = white;
+      break;
+  }
+  return color;
+  */
+};

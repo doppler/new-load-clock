@@ -29,6 +29,15 @@
 }
 
 .Load {
+  &.yellow {
+    border-color: yellow;
+  }
+  &.orange {
+    border-color: orange;
+  }
+  &.red {
+    border-color: red;
+  }
   display: flex;
   flex-direction: column;
   margin: 1em;
@@ -56,6 +65,15 @@
     color: white;
     text-shadow: -1px -1px 2px white, 2px 2px 5px black;
     opacity: 0.85;
+    &.yellow {
+      color: yellow;
+    }
+    &.orange {
+      color: orange;
+    }
+    &.red {
+      color: red;
+    }
   }
   span.json {
     font-family: "Courier New", Courier, monospace;
