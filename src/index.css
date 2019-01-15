@@ -16,3 +16,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(./HelveticaNeue-HeavyExtObl.woff);
+}

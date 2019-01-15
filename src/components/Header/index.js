@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import location, { locationCode, locations } from "../../lib/location";
+import "./Header.scss";
+
+const NavArrow = ({ direction, onClick }) => (
+  <div
+    className={`NavArrow ${direction === 1 ? "right" : "left"}`}
+    onClick={onClick}
+  />
+);
 
 export default () => {
   const [time, setTime] = useState("00:00:00 --");
@@ -23,23 +31,12 @@ export default () => {
       currentKeyIdx = -1;
     window.location.pathname = `/${locationKeys[currentKeyIdx + direction]}`;
   };
-  const [rangeValue, setRangeValue] = useState(0);
-  const handleRangeChange = event => {
-    setRangeValue(event.target.value);
-    navigateToOtherClock(Number(event.target.value));
-  };
   return (
     <div id="Header">
       <div className="title">
+        <NavArrow direction={-1} onClick={() => navigateToOtherClock(-1)} />
         Skydive Spaceland {location}
-        <input
-          onChange={handleRangeChange}
-          type="range"
-          min={-1}
-          max={1}
-          value={rangeValue}
-          step={1}
-        />
+        <NavArrow direction={1} onClick={() => navigateToOtherClock(1)} />
       </div>
       <div className="time">{time}</div>
     </div>
