@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import SocketContext from "../SocketContext/Context";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
-const differenceInSeconds = require("date-fns/difference_in_seconds");
+const { differenceInSeconds } = require("date-fns");
 
 export default () => {
   const { loads } = useContext(SocketContext);
   return (
     <div id="LoadClocks">
-      {loads.loads && loads.loads.length ? (
-        loads.loads.map((load, i) => <LoadClock load={load} key={i} />)
+      {loads.length ? (
+        loads.map((load, i) => <LoadClock load={load} key={i} />)
       ) : (
         <NoLoadsScheduled />
       )}
