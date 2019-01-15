@@ -12,6 +12,17 @@
     95%,
     hsla(240, 100%, 100%, 0.5)
   );
+  z-index: 2;
+  &::after {
+    font-family: "HelveticaNeue";
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    content: attr(alt);
+    font-size: 8em;
+    opacity: 0.1;
+  }
 }
 
 .NoLoadsScheduled {

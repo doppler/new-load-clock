@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import SocketContext from "../SocketContext/Context";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
+import location from "../../lib/location";
 const { differenceInSeconds } = require("date-fns");
 
 export default () => {
@@ -16,7 +17,7 @@ export default () => {
   //   }
   // ];
   return (
-    <div id="LoadClocks">
+    <div id="LoadClocks" alt={location}>
       {loads.length ? (
         loads.map((load, i) => <LoadClock load={load} key={i} />)
       ) : (
