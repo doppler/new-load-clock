@@ -1,10 +1,4 @@
-export const validLocations = {
-  ATL: "Atlanta",
-  CLW: "Clewiston",
-  DAL: "Dallas",
-  HOU: "Houston",
-  SAN: "San Marcos"
-};
+import validLocations from "../locations.json";
 
 export const getLocationCodeFromPathName = () => {
   const match = window.location.pathname.split("/")[1].match(/[A-Z]{3}/);

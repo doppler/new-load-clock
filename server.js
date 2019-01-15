@@ -3,6 +3,7 @@ const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const path = require("path");
+const locations = require("./src/locations.json");
 
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +16,9 @@ app.get("*", function(req, res) {
 });
 
 const loadAnnouncements = {};
+Object.keys(locations).map(location => {
+  loadAnnouncements[location] = { location, loads: [] };
+});
 
 io.sockets.on("connection", socket => {
   socket.on("location", location => {
