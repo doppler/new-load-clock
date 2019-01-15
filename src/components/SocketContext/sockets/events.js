@@ -7,7 +7,6 @@ export const socketEvents = ({ setValue }) => {
     });
   });
   socket.on("load-announcement", announcement => {
-    console.log("load-announcement", announcement);
     const { loads } = announcement;
     setValue(state => {
       return { ...state, loads };
