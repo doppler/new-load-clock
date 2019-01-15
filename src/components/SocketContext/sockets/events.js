@@ -6,4 +6,9 @@ export const socketEvents = ({ setValue }) => {
       return { ...state, weather };
     });
   });
+  socket.on("load-announcement", loads => {
+    setValue(state => {
+      return { ...state, loads };
+    });
+  });
 };
