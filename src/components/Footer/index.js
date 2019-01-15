@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import SocketContext from "../SocketContext/Context";
 import WindWidget from "./WindWidget";
 import WindChart from "./WindChart";
 import "./Footer.scss";
 
-export default props => {
+export default () => {
+  const { weather } = useContext(SocketContext);
+
   return (
     <div id="Footer">
-      <WindWidget weather={props.weather} />
-      <WindChart windSpeeds={props.weather.prevWindSpeeds} />
+      <WindWidget weather={weather} />
+      <WindChart windSpeeds={weather.prevWindSpeeds} />
     </div>
   );
 };

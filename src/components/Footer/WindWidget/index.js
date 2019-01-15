@@ -3,11 +3,11 @@ import Compass from "./Compass";
 import WindStatsTable from "./WindStatsTable";
 import "./WindWidget.scss";
 
-export default props => {
+export default ({ weather }) => {
   return (
     <div id="WindWidget">
-      <Compass weather={props.weather} />
-      <WindStatsTable weather={props.weather} />
+      <Compass weather={weather} />
+      <WindStatsTable weather={weather} />
     </div>
   );
 };
