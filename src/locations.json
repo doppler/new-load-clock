@@ -1,7 +1,7 @@
 {
-  "ATL": "Atlanta",
-  "CLW": "Clewiston",
-  "DAL": "Dallas",
-  "HOU": "Houston",
-  "SAN": "San Marcos"
+  "ATL": { "name": "Atlanta" },
+  "CLW": { "name": "Clewiston" },
+  "DAL": { "name": "Dallas" },
+  "HOU": { "name": "Houston" },
+  "SAN": { "name": "San Marcos" }
 }
