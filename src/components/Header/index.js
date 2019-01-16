@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
-import location, { locationCode, locations } from "../../lib/location";
+import {
+  locationName,
+  locationCode,
+  allLocationCodes
+} from "../../lib/location";
 import "./Header.scss";
 
 const NavArrow = ({ direction, onClick }) => (
@@ -23,19 +27,21 @@ export default () => {
   }, []);
 
   const navigateToOtherClock = direction => {
-    const locationKeys = Object.keys(locations);
-    let currentKeyIdx = locationKeys.indexOf(locationCode);
+    // const locationKeys = Object.keys(locations);
+    let currentKeyIdx = allLocationCodes.indexOf(locationCode);
     if (currentKeyIdx === 0 && direction === -1)
-      currentKeyIdx = locationKeys.length;
-    if (currentKeyIdx === locationKeys.length - 1 && direction === 1)
+      currentKeyIdx = allLocationCodes.length;
+    if (currentKeyIdx === allLocationCodes.length - 1 && direction === 1)
       currentKeyIdx = -1;
-    window.location.pathname = `/${locationKeys[currentKeyIdx + direction]}`;
+    window.location.pathname = `/${
+      allLocationCodes[currentKeyIdx + direction]
+    }`;
   };
   return (
     <div id="Header">
       <div className="title">
         <NavArrow direction={-1} onClick={() => navigateToOtherClock(-1)} />
-        Skydive Spaceland {location}
+        Skydive Spaceland {locationName}
         <NavArrow direction={1} onClick={() => navigateToOtherClock(1)} />
       </div>
       <div className="time">{time}</div>
