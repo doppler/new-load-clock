@@ -34,9 +34,7 @@ export default () => {
       currentKeyIdx = allLocationCodes.length;
     if (currentKeyIdx === allLocationCodes.length - 1 && direction === 1)
       currentKeyIdx = -1;
-    window.location.pathname = `/${
-      allLocationCodes[currentKeyIdx + direction]
-    }`;
+    window.location.hash = `#${allLocationCodes[currentKeyIdx + direction]}`;
   };
   return (
     <div id="Header">
