@@ -40,23 +40,25 @@
     font-weight: 100;
     transform: scaleX(1.16) translateX(1.16);
     text-shadow: 1px 1px 3px black;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .time {
     text-align: right;
   }
   font-size: 1.5em;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 896px) {
   #Header {
     font-size: 1em;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 640px) {
   #Header {
     font-size: smaller;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 480px) {
   #Header {
     font-size: x-small;
   }

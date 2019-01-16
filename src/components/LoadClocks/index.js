@@ -17,7 +17,7 @@ export default () => {
   //   }
   // ];
   return (
-    <div id="LoadClocks" locationName={locationName}>
+    <div id="LoadClocks" locationname={locationName}>
       {loads.length ? (
         loads.map((load, i) => <LoadClock load={load} key={i} />)
       ) : (
