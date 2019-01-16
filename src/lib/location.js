@@ -14,4 +14,6 @@ export const allLocationCodes = Object.keys(validLocations);
 
 export const locationName = validLocations[locationCode]["name"];
 
+export const locationTimezone = validLocations[locationCode]["tz"];
+
 export default validLocations[locationCode];

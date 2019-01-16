@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { format } from "date-fns";
+import moment from "moment-timezone";
 import {
   locationName,
   locationCode,
+  locationTimezone,
   allLocationCodes
 } from "../../lib/location";
 import "./Header.scss";
@@ -17,7 +18,7 @@ const NavArrow = ({ direction, onClick }) => (
 export default () => {
   const [time, setTime] = useState("00:00:00 --");
   const updateTime = () => {
-    setTime(format(new Date(), "h:mm:ss a"));
+    setTime(moment.tz(locationTimezone).format("h:mm:ss A z"));
   };
   useEffect(() => {
     const timeInterval = setInterval(() => {
