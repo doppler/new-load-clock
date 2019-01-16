@@ -10,4 +10,8 @@ export const getLocationCodeFromPathName = () => {
 
 export const locationCode = getLocationCodeFromPathName();
 
+export const allLocationCodes = Object.keys(validLocations);
+
+export const locationName = validLocations[locationCode]["name"];
+
 export default validLocations[locationCode];
