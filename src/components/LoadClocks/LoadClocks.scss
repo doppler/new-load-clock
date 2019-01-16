@@ -110,6 +110,11 @@
     }
   }
 }
+@media only screen and (max-width: 600px) {
+  #LoadClocks::after {
+    font-size: 4em;
+  }
+}
 @media only screen and (max-width: 500px) {
   .Load {
     header {
