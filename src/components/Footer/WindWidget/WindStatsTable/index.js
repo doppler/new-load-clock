@@ -7,11 +7,13 @@ const HighRow = ({ minute, speed }) => (
     <td>{speed !== -Infinity ? speed : "..."} mph</td>
   </tr>
 );
+
 export default ({ weather }) => {
+  if (!weather.prevWindSpeeds)
+    return <div className="StatsTable">No Weather Data.</div>;
   const windSpeeds = weather.prevWindSpeeds
     ? [...weather.prevWindSpeeds].reverse()
     : [];
-
   const wind5minHigh = Math.max(...windSpeeds.slice(0, 150));
   const wind10minHigh = Math.max(...windSpeeds.slice(150, 300));
   const wind20minHigh = Math.max(...windSpeeds.slice(300, 600));
@@ -25,7 +27,7 @@ export default ({ weather }) => {
               color: `hsl(${280 - weather.outsideTemp * 3}, 100%, 50%)`
             }}
           >
-            <td>Temperature:</td>
+            <td>Temperatures:</td>
             <td>
               {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
             </td>
