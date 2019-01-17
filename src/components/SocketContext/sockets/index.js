@@ -9,7 +9,7 @@ const SOCKETSERVER =
 
 export const socket = io(SOCKETSERVER);
 socket.on("connect", msg =>
-  console.log(`Established socket connection to ${SOCKETSERVER}`)
+  console.debug(`Established socket connection to ${SOCKETSERVER}`)
 );
 
 export const initSockets = ({ setValue }) => {
