@@ -96,13 +96,38 @@
     flex: 0;
     font-weight: bold;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
   }
   & > * {
     height: 100%;
   }
 }
 
+@media only screen and (max-width: 1080px) {
+  .Load {
+    header {
+      font-size: 6em;
+    }
+    span.time {
+      font-size: 24em;
+    }
+  }
+}
+
+@media only screen and (max-height: 1080px) {
+  .Load {
+    header {
+      font-size: 2em;
+    }
+    span.time {
+      font-size: 8em;
+    }
+    footer {
+      font-size: 1em;
+    }
+  }
+}
+/*
 @media only screen and (max-width: 768px) {
   .Load {
     span.time {
@@ -141,3 +166,4 @@
     }
   }
 }
+*/
