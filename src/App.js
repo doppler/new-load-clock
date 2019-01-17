@@ -9,6 +9,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import LoadClocks from "./components/LoadClocks";
 import Footer from "./components/Footer/index";
+import { announceLocation } from "./components/SocketContext/sockets/emit";
 
 const App = () => {
   const allLocationCodes = getLocationCodes();
@@ -48,6 +49,12 @@ const App = () => {
     },
     [locationName, locationTimezone, currentCode, prevLocation, nextLocation]
   );
+  useEffect(
+    () => {
+      announceLocation(getLocationCode());
+    },
+    [currentCode]
+  );
   return (
     <div className="App">
       <Header
@@ -57,7 +64,7 @@ const App = () => {
         nextLocation={nextLocation}
       />
       <LoadClocks locationName={locationName} />
-      <Footer />
+      <Footer weatherStation={currentCode} />
     </div>
   );
 };

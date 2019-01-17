@@ -4,7 +4,7 @@ import WindWidget from "./WindWidget";
 import WindChart from "./WindChart";
 import "./Footer.scss";
 
-export default () => {
+const Footer = ({ weatherStation }) => {
   const { weather } = useContext(SocketContext);
 
   return (
@@ -14,3 +14,4 @@ export default () => {
     </div>
   );
 };
+export default Footer;
