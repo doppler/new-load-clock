@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import SocketContext from "../SocketContext/Context";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
-import { locationName } from "../../lib/location";
+// import { getLocationName } from "../../lib/location";
 const { differenceInSeconds } = require("date-fns");
 
-export default () => {
+const LoadClocks = ({ locationName }) => {
   const { loads } = useContext(SocketContext);
   // uncomment for testing purposes
   // const loads = [
@@ -26,6 +26,7 @@ export default () => {
     </div>
   );
 };
+export default LoadClocks;
 
 const LoadClock = ({ load }) => {
   let timerInterval;
