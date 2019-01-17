@@ -2,18 +2,36 @@ import React, { useContext, useState, useEffect } from "react";
 import SocketContext from "../SocketContext/Context";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
-// import { getLocationName } from "../../lib/location";
 const { differenceInSeconds } = require("date-fns");
 
 const LoadClocks = ({ locationName }) => {
   const { loads } = useContext(SocketContext);
   // uncomment for testing purposes
+  // import { addSeconds } from "date-fns"; // move this up if uncommenting
   // const loads = [
   //   {
-  //     loadNo: 1,
-  //     plane: "Caravan - 921F",
+  //     loadNo: 3,
+  //     plane: "Caravan - 21F",
   //     slotsRemaining: 3,
-  //     departureTime: new Date(2019, 0, 15, 1, 4)
+  //     departureTime: addSeconds(new Date(), 600)
+  //   },
+  //   // {
+  //   //   loadNo: 1,
+  //   //   plane: "Skyvan - XX",
+  //   //   slotsRemaining: 3,
+  //   //   departureTime: addSeconds(new Date(), 982)
+  //   // },
+  //   {
+  //     loadNo: 1,
+  //     plane: "Otter - BA",
+  //     slotsRemaining: 8,
+  //     departureTime: addSeconds(new Date(), 1350)
+  //   },
+  //   {
+  //     loadNo: 1,
+  //     plane: "Otter - TS",
+  //     slotsRemaining: 6,
+  //     departureTime: addSeconds(new Date(), 1364)
   //   }
   // ];
   return (
