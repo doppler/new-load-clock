@@ -34,27 +34,25 @@ const App = () => {
     getLocationTimezone()
   );
   const handleHashChange = () => {
-    setLocationName(getLocationName());
-    setLocationTimezone(getLocationTimezone());
     setCurrentCode(getLocationCode());
-    setPrevLocation(getPrevLocation());
-    setNextLocation(getNextLocation());
   };
-  useEffect(
-    () => {
-      window.onhashchange = () => {
-        handleHashChange();
-      };
+  useEffect(() => {
+    window.onhashchange = () => {
       handleHashChange();
-    },
-    [locationName, locationTimezone, currentCode, prevLocation, nextLocation]
-  );
+    };
+    handleHashChange();
+  }, []);
   useEffect(
     () => {
+      setLocationName(getLocationName());
+      setLocationTimezone(getLocationTimezone());
       announceLocation(getLocationCode());
+      setPrevLocation(getPrevLocation());
+      setNextLocation(getNextLocation());
     },
     [currentCode]
   );
+
   return (
     <div className="App">
       <Header
