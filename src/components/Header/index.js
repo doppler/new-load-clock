@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment-timezone";
-import {
-  getLocationName,
-  getLocationCode,
-  getLocationCodes
-} from "../../lib/location";
 import "./Header.scss";
 
 const NavArrow = ({ direction, onClick }) => (
@@ -14,12 +9,12 @@ const NavArrow = ({ direction, onClick }) => (
   />
 );
 
-const Header = ({ locationName, locationTimezone }) => {
-  const allLocationCodes = getLocationCodes();
-
-  const [currentCodeIdx, setCurrentCodeIdx] = useState(
-    allLocationCodes.indexOf(getLocationCode())
-  );
+const Header = ({
+  locationName,
+  locationTimezone,
+  prevLocation,
+  nextLocation
+}) => {
   const [time, setTime] = useState("00:00:00 --");
   const updateTime = locationTimezone => {
     setTime(moment.tz(locationTimezone).format("h:mm:ss A z"));
@@ -33,23 +28,18 @@ const Header = ({ locationName, locationTimezone }) => {
     },
     [locationTimezone]
   );
-
-  const navigateToOtherClock = direction => {
-    // let currentKeyIdx = allLocationCodes.indexOf(getLocationCode());
-    if (currentCodeIdx === 0 && direction === -1)
-      setCurrentCodeIdx(allLocationCodes.length);
-    // currentKeyIdx = allLocationCodes.length;
-    if (currentCodeIdx === allLocationCodes.length - 1 && direction === 1)
-      setCurrentCodeIdx(-1);
-    // currentKeyIdx = -1;
-    window.location.hash = `#${allLocationCodes[currentCodeIdx + direction]}`;
-  };
   return (
     <div id="Header">
       <div className="title">
-        <NavArrow direction={-1} onClick={() => navigateToOtherClock(-1)} />
+        <NavArrow
+          direction={-1}
+          onClick={() => (window.location.hash = `#${prevLocation}`)}
+        />
         Skydive Spaceland {locationName}
-        <NavArrow direction={1} onClick={() => navigateToOtherClock(1)} />
+        <NavArrow
+          direction={1}
+          onClick={() => (window.location.hash = `#${nextLocation}`)}
+        />
       </div>
       <div className="time">{time}</div>
     </div>
