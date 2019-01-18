@@ -18,10 +18,11 @@
     position: absolute;
     top: 5vh;
     left: 0;
-    text-align: center;
+    width: 100%;
+    // text-align: right;
     content: attr(locationname);
     font-size: 8em;
-    opacity: 0.1;
+    opacity: 0.25;
   }
 }
 
@@ -127,17 +128,17 @@
     }
   }
 }
+@media only screen and (max-width: 1079px) {
+  #LoadClocks::after {
+    font-size: 4em;
+  }
+}
 /*
 @media only screen and (max-width: 768px) {
   .Load {
     span.time {
       font-size: 8em;
     }
-  }
-}
-@media only screen and (max-width: 600px) {
-  #LoadClocks::after {
-    font-size: 4em;
   }
 }
 @media only screen and (max-width: 500px) {
