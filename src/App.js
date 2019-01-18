@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
-import {
-  getLocationCode,
-  getLocationCodes,
-  getLocationName,
-  getLocationTimezone
-} from "./lib/location";
+import React from "react";
+import Screen from "./components/Screen";
+// import {
+//   getLocationCode,
+//   getLocationCodes,
+//   getLocationName,
+//   getLocationTimezone
+// } from "./lib/location";
 import "./App.scss";
-import Header from "./components/Header";
-import LoadClocks from "./components/LoadClocks";
-import Footer from "./components/Footer/index";
-import { announceLocation } from "./components/SocketContext/sockets/emit";
-
+// import Header from "./components/Header";
+// import LoadClocks from "./components/LoadClocks";
+// import Footer from "./components/Footer/index";
+// import { announceLocation } from "./components/SocketContext/sockets/emit";
+import locations from "./locations.json";
 const App = () => {
+  /*
   const allLocationCodes = getLocationCodes();
   const [currentCode, setCurrentCode] = useState(getLocationCode());
   const getPrevLocation = () => {
@@ -52,17 +54,16 @@ const App = () => {
     },
     [currentCode]
   );
-
+  */
   return (
     <div className="App">
-      <Header
-        locationName={locationName}
-        locationTimezone={locationTimezone}
-        prevLocation={prevLocation}
-        nextLocation={nextLocation}
-      />
-      <LoadClocks locationName={locationName} />
-      <Footer weatherStation={currentCode} />
+      <div className="Carousel">
+        <div className="ViewPort">
+          {Object.keys(locations).map((location, i) => (
+            <Screen key={i} location={location} offset={i} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

@@ -23,7 +23,7 @@ Object.keys(locations).map(location => {
 io.sockets.on("connection", socket => {
   socket.on("location", location => {
     console.log("join", location);
-    socket.leaveAll();
+    // socket.leaveAll();
     socket.join(location);
     socket.emit("weather", { windDirection: 0, location });
     socket.emit("load-announcment", []);

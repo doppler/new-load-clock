@@ -1,0 +1,18 @@
+.Screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  &::after {
+    font-family: "HelveticaNeue";
+    position: relative;
+    top: -80vh;
+    left: 0;
+    width: 100%;
+    // text-align: right;
+    content: attr(locationname);
+    font-size: 8em;
+    opacity: 0.25;
+  }
+}

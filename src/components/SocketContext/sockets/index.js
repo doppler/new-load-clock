@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 import { socketEvents } from "./events";
-import { announceLocation } from "./emit";
-import { getLocationCode } from "../../../lib/location";
+// import { announceLocation } from "./emit";
+// import { getLocationCode } from "../../../lib/location";
 
 const SOCKETSERVER =
   process.env.REACT_APP_WEBSOCKET_SERVER ||
@@ -14,5 +14,5 @@ socket.on("connect", msg =>
 
 export const initSockets = ({ setValue }) => {
   socketEvents({ setValue });
-  announceLocation(getLocationCode());
+  // announceLocation(getLocationCode());
 };
