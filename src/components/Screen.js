@@ -5,13 +5,9 @@ import Footer from "./Footer/index";
 import "./Screen.scss";
 import locations from "../locations.json";
 
-const Screen = ({ offset, location, weather, loads }) => {
+const Screen = ({ location, weather, loads }) => {
   return (
-    <div
-      className="Screen"
-      locationname={locations[location]["name"]}
-      style={{ left: `${offset * 100}vw` }}
-    >
+    <div className="Screen" locationname={locations[location]["name"]}>
       <Header
         locationName={locations[location]["name"]}
         locationTimezone={locations[location]["tz"]}
