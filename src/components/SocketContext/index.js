@@ -5,7 +5,7 @@ import { initSockets } from "./sockets";
 const SocketProvider = props => {
   const [value, setValue] = useState({
     weather: {},
-    loads: []
+    loads: {}
   });
   useEffect(
     () => {

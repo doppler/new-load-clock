@@ -18,8 +18,8 @@ app.get("*", function(req, res) {
 const loadAnnouncements = {};
 const weatherAnnouncements = {};
 Object.keys(locations).map(location => {
-  loadAnnouncements[location] = { location, loads: [] };
-  weatherAnnouncements[location] = { location, weather: {} };
+  loadAnnouncements[location] = [];
+  weatherAnnouncements[location] = {};
 });
 
 io.sockets.on("connection", socket => {

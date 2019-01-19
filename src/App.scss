@@ -1,21 +1,21 @@
 .App {
-  background: #282c34 url(./SkydiveSpacelandLogo-white-text.png) no-repeat fixed
-    center;
+  background-color: black;
 }
 
 .App {
-  width: 100vw;
+  // width: 100vw;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   color: white;
 }
 .ViewPort {
-  position: relative;
-  left: -00vw;
-  height: 100vh;
-  transition: 1s ease-out;
+  // position: relative;
+  // left: -00vw;
+  // height: 100vh;
+  // transition: 1s ease-out;
 }
+
 @media only screen and (max-width: 500px) {
   .App {
     background-size: contain;

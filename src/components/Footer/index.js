@@ -1,21 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import SocketContext from "../SocketContext/Context";
+import React from "react";
 import WindWidget from "./WindWidget";
 import WindChart from "./WindChart";
-import { announceLocation } from "../SocketContext/sockets/emit";
 import "./Footer.scss";
 
-const Footer = ({ weatherStation }) => {
-  const { weather } = useContext(SocketContext);
-
-  useEffect(() => {
-    announceLocation(weatherStation);
-  }, []);
-
+const Footer = ({ weather }) => {
+  if (!weather) return null;
   return (
     <div id="Footer">
       <WindWidget weather={weather} />
-      <WindChart windSpeeds={weather.prevWindSpeeds} />
+      <WindChart windSpeeds={weather && weather.prevWindSpeeds} />
     </div>
   );
 };
