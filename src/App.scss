@@ -1,13 +1,10 @@
 .App {
+  display: flex;
+  width: 100vh;
   min-height: 100vh;
   color: white;
   background-color: black;
 }
-.ViewPort {
-  display: flex;
-  width: 100vw;
-}
-
 @media only screen and (max-width: 500px) {
   .App {
     background-size: contain;

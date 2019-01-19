@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Header from "./Header";
 import LoadClocks from "./LoadClocks";
 import Footer from "./Footer/index";
 import "./Screen.scss";
-import SocketContext from "./SocketContext/Context";
 import locations from "../locations.json";
 
-const Screen = ({ location, offset }) => {
-  const { weather, loads } = useContext(SocketContext);
+const Screen = ({ offset, location, weather, loads }) => {
   return (
     <div
       className="Screen"
@@ -18,11 +16,8 @@ const Screen = ({ location, offset }) => {
         locationName={locations[location]["name"]}
         locationTimezone={locations[location]["tz"]}
       />
-      <LoadClocks
-        loads={loads[location]}
-        locationName={locations[location]["name"]}
-      />
-      <Footer weather={weather[location]} />
+      <LoadClocks loads={loads} locationName={locations[location]["name"]} />
+      <Footer weather={weather || {}} />
     </div>
   );
 };

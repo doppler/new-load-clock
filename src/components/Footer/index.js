@@ -4,11 +4,12 @@ import WindChart from "./WindChart";
 import "./Footer.scss";
 
 const Footer = ({ weather }) => {
-  if (!weather) return null;
+  // if (!weather) return null;
+  const { prevWindSpeeds } = weather;
   return (
     <div id="Footer">
       <WindWidget weather={weather} />
-      <WindChart windSpeeds={weather && weather.prevWindSpeeds} />
+      <WindChart prevWindSpeeds={prevWindSpeeds} />
     </div>
   );
 };
