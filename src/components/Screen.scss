@@ -35,3 +35,17 @@
     font-size: small;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .Screen {
+    &::after {
+      font-size: 6em;
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  .Screen {
+    &::after {
+      font-size: 4em;
+    }
+  }
+}
