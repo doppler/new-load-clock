@@ -1,19 +1,11 @@
 .App {
+  min-height: 100vh;
+  color: white;
   background-color: black;
 }
-
-.App {
-  // width: 100vw;
-  min-height: 100vh;
-  // display: flex;
-  // flex-direction: column;
-  color: white;
-}
 .ViewPort {
-  // position: relative;
-  // left: -00vw;
-  // height: 100vh;
-  // transition: 1s ease-out;
+  display: flex;
+  width: 100vw;
 }
 
 @media only screen and (max-width: 500px) {

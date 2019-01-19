@@ -1,8 +1,6 @@
 .Screen {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100vw;
+  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
   background: #282c34 url(../SkydiveSpacelandLogo-white-text.png) no-repeat
     center;
@@ -10,9 +8,7 @@
     font-family: "HelveticaNeue";
     position: relative;
     top: -80vh;
-    left: 0;
     width: 100%;
-    // text-align: right;
     content: attr(locationname);
     font-size: 8em;
     opacity: 0.25;
@@ -20,12 +16,10 @@
 }
 
 @media only screen and (min-width: 1920px) {
-  .ViewPort {
-    display: flex;
-  }
   .Screen {
     margin-right: 1px;
     width: 20vw;
+    min-width: 20vw;
     background-size: contain;
     &::after {
       font-size: 2.5em;
