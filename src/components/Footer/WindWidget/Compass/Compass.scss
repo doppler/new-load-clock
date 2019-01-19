@@ -1,6 +1,5 @@
 .Compass {
   position: relative;
-  // display: inline-block;
   width: 15vh;
   height: 15vh;
   z-index: 10;
@@ -39,8 +38,6 @@
       hsla(270, 100%, 10%, 0.5),
       hsla(300, 100%, 10%, 0)
     );
-    // display: none;
-    // clip-path: circle(50% at 50% 50%);
     .Circle {
       position: relative;
       top: 25%;
@@ -60,7 +57,6 @@
         hsla(300, 100%, 10%, 1)
       );
       clip-path: circle(40% at center);
-      // opacity: 0.75;
     }
     .LabelGrid {
       font-weight: bold;

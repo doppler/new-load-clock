@@ -78,7 +78,6 @@ const LoadClock = ({ load }) => {
       <span className={`time ${colorForSecondsRemaining(timer.ds)}`}>
         {timer.time}
       </span>
-      {/* <span className="json">{JSON.stringify(load, null, 2)}</span> */}
       <footer>Slots Remaining: {load.slotsRemaining}</footer>
     </div>
   );

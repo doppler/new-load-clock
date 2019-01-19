@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import SocketContext from "./components/SocketContext/Context";
 import Screen from "./components/Screen";
 import "./App.scss";

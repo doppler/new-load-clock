@@ -13,17 +13,6 @@
     hsla(240, 100%, 100%, 0.5)
   );
   z-index: 2;
-  // &::before {
-  //   font-family: "HelveticaNeue";
-  //   position: relative;
-  //   // top: 5vh;
-  //   left: 0;
-  //   width: 100%;
-  //   // text-align: right;
-  //   content: attr(locationname);
-  //   font-size: 8em;
-  //   opacity: 0.25;
-  // }
 }
 
 .NoLoadsScheduled {
@@ -133,38 +122,3 @@
     font-size: 4em;
   }
 }
-/*
-@media only screen and (max-width: 768px) {
-  .Load {
-    span.time {
-      font-size: 8em;
-    }
-  }
-}
-@media only screen and (max-width: 500px) {
-  .Load {
-    header {
-      font-size: 2em;
-    }
-    span.time {
-      font-size: 6em;
-    }
-    footer {
-      font-size: 1em;
-    }
-  }
-}
-@media only screen and (max-width: 320px) {
-  .Load {
-    header {
-      font-size: 2em;
-    }
-    span.time {
-      font-size: 5em;
-    }
-    footer {
-      font-size: 1em;
-    }
-  }
-}
-*/
