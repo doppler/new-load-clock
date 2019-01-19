@@ -34,13 +34,14 @@ export default ({ weather }) => {
           className="Circle"
           style={{ color: `hsl(${135 - weather.windSpeed * 6}, 100%, 50%)` }}
         >
-          {weather.windSpeed > -1 ? weather.windSpeed : "..."}
+          {weather.windSpeed > -1 ? weather.windSpeed : "--"}
         </div>
         <GhostArrows prevDirs={weather.prevWindDirs} />
         <div
           className="Arrow"
           style={{
-            transform: `rotate(${rotation(weather.windDirection)}deg)`
+            transform: `rotate(${rotation(weather.windDirection)}deg)`,
+            opacity: `${weather.windSpeed ? 0.75 : 0.25}`
           }}
         />
         <HashMarks />
