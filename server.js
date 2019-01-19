@@ -16,26 +16,37 @@ app.get("*", function(req, res) {
 });
 
 const loadAnnouncements = {};
+const weatherAnnouncements = {};
 Object.keys(locations).map(location => {
   loadAnnouncements[location] = { location, loads: [] };
+  weatherAnnouncements[location] = { location, weather: {} };
 });
 
 io.sockets.on("connection", socket => {
-  socket.on("location", location => {
-    console.log("join", location);
+  socket.on("join", channel => {
+    console.log("join", channel);
     socket.leaveAll();
-    socket.join(location);
-    socket.emit("weather", { windDirection: 0, location });
-    socket.emit("load-announcment", []);
-    io.to(location).emit("load-announcement", loadAnnouncements[location]);
+    socket.join(channel);
+    if (channel === "announcements") {
+      io.to("announcements").emit("load-announcement", loadAnnouncements);
+      io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+    }
   });
   socket.on("weather-record", record => {
-    console.log("weather-record", record.location, record.time);
-    io.to(record.location).emit("weather", record);
+    console.log(new Date(), "weather-record", record.location);
+    weatherAnnouncements[record.location] = record;
   });
   socket.on("load-announcement", announcement => {
-    console.log("loads", announcement.location, announcement.time);
+    console.log(new Date(), "load-announcement", announcement.location);
     loadAnnouncements[announcement.location] = announcement;
-    io.to(announcement.location).emit("load-announcement", announcement);
+    io.to("announcements").emit("load-announcement", announcement);
   });
 });
+setInterval(() => {
+  io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+  console.log(
+    new Date(),
+    "weather-announcement",
+    Object.keys(weatherAnnouncements).map(k => k)
+  );
+}, 2000);
