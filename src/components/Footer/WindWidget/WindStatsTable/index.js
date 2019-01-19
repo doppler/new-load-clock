@@ -27,7 +27,7 @@ export default ({ weather }) => {
               color: `hsl(${280 - weather.outsideTemp * 3}, 100%, 50%)`
             }}
           >
-            <td>Temperatures:</td>
+            <td>Temperature:</td>
             <td>
               {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
             </td>
