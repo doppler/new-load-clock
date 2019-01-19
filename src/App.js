@@ -6,19 +6,27 @@ import locations from "./locations.json";
 const App = () => {
   const [clientWidth, setClientWidth] = useState(document.body.clientWidth);
   // const [pageXOffset, setPageXOffset] = useState(window.pageXOffset);
-  useEffect(() => {
-    window.onresize = () => {
-      setClientWidth(document.body.clientWidth);
-    };
-    let timer;
-    window.onscroll = () => {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        const offset = Math.round(window.pageXOffset / clientWidth);
-        window.scrollTo(clientWidth * offset, 0);
-      }, 75);
-    };
-  }, []);
+  useEffect(
+    () => {
+      window.scrollTo(
+        document.body.clientWidth *
+          Math.round(window.pageXOffset / document.body.clientWidth),
+        0
+      );
+      window.onresize = () => {
+        setClientWidth(document.body.clientWidth);
+      };
+      let timer;
+      window.onscroll = () => {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+          const offset = Math.round(window.pageXOffset / clientWidth);
+          window.scrollTo(clientWidth * offset, 0);
+        }, 75);
+      };
+    },
+    [clientWidth]
+  );
   return (
     <div className="App">
       <div className="Carousel">
