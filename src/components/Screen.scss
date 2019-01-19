@@ -3,7 +3,7 @@
   min-width: 100vw;
   height: 100vh;
   background: #282c34 url(../SkydiveSpacelandLogo-white-text.png) no-repeat
-    center;
+    center calc(85vh - 132px);
   &::after {
     font-family: "HelveticaNeue";
     position: relative;
