@@ -1,6 +1,6 @@
 .StatsTable {
   display: inline-block;
-  font-size: 2vh;
+  font-size: 0.75rem;
   font-weight: bold;
   text-shadow: 3px 3px 5px black, -1px -1px 1px black;
   display: grid;
@@ -9,6 +9,9 @@
   z-index: 10;
   height: 15vh;
   width: calc(15vh * 1.618);
+  tr.labels {
+    font-size: 0.75rem;
+  }
   td:first-child {
     text-align: left;
   }
@@ -16,25 +19,14 @@
     text-align: left;
   }
 }
-@media only screen and (max-height: 625px) {
+@media only screen and (min-height: 960px) {
   .StatsTable {
-    font-size: 1.9vh;
+    font-size: 1.25rem;
   }
 }
-@media only screen and (max-height: 450px) {
+
+@media only screen and (min-height: 1081px) {
   .StatsTable {
-    font-size: 1.7;
-    width: 100%;
-  }
-}
-@media only screen and (max-height: 380px) {
-  .StatsTable {
-    font-size: x-small;
-    width: 100%;
-  }
-}
-@media only screen and (max-height: 300px) {
-  .StatsTable {
-    font-size: xx-small;
+    font-size: 2.5rem;
   }
 }

@@ -51,7 +51,7 @@ export default ({ weather }) => {
             </td>
             <td />
           </tr>
-          <tr style={{ fontSize: "0.5rem" }}>
+          <tr className="labels">
             <td />
             <td>Avg</td>
             <td>High</td>
