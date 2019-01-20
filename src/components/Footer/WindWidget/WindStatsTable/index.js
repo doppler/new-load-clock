@@ -39,23 +39,14 @@ export default ({ weather }) => {
   return (
     <div className="StatsTable">
       <table>
+        <thead>
+          <tr>
+            <th>Wind Speeds</th>
+            <th>Averege</th>
+            <th>High</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr
-            style={{
-              color: `hsl(${280 - weather.outsideTemp * 3}, 100%, 50%)`
-            }}
-          >
-            <td>Temperature:</td>
-            <td colSpan={2}>
-              {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
-            </td>
-            <td />
-          </tr>
-          <tr className="labels">
-            <td />
-            <td>Avg</td>
-            <td>High</td>
-          </tr>
           {[5, 10, 20].map(i => (
             <StatsRow key={i} minute={i} />
           ))}

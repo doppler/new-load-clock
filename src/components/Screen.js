@@ -9,6 +9,7 @@ const Screen = ({ location, weather, loads }) => {
   return (
     <div className="Screen" locationname={locations[location]["name"]}>
       <Header
+        temperature={weather && weather.outsideTemp}
         locationName={locations[location]["name"]}
         locationTimezone={locations[location]["tz"]}
       />
