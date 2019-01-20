@@ -73,7 +73,7 @@ const LoadClock = ({ load }) => {
   return (
     <div className={`Load ${colorForSecondsRemaining(timer.ds)}`}>
       <header>
-        {load.plane} {load.loadNo}
+        {load.plane} {load.loadNumber}
       </header>
       <span className={`time ${colorForSecondsRemaining(timer.ds)}`}>
         {timer.time}
