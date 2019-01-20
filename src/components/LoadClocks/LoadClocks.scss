@@ -13,16 +13,6 @@
     hsla(240, 100%, 100%, 0.5)
   );
   z-index: 2;
-  &::after {
-    font-family: "HelveticaNeue";
-    position: absolute;
-    top: 5vh;
-    left: 0;
-    text-align: center;
-    content: attr(locationname);
-    font-size: 8em;
-    opacity: 0.1;
-  }
 }
 
 .NoLoadsScheduled {
@@ -127,43 +117,8 @@
     }
   }
 }
-/*
-@media only screen and (max-width: 768px) {
-  .Load {
-    span.time {
-      font-size: 8em;
-    }
-  }
-}
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1079px) {
   #LoadClocks::after {
     font-size: 4em;
   }
 }
-@media only screen and (max-width: 500px) {
-  .Load {
-    header {
-      font-size: 2em;
-    }
-    span.time {
-      font-size: 6em;
-    }
-    footer {
-      font-size: 1em;
-    }
-  }
-}
-@media only screen and (max-width: 320px) {
-  .Load {
-    header {
-      font-size: 2em;
-    }
-    span.time {
-      font-size: 5em;
-    }
-    footer {
-      font-size: 1em;
-    }
-  }
-}
-*/

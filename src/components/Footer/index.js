@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
-import SocketContext from "../SocketContext/Context";
+import React from "react";
 import WindWidget from "./WindWidget";
 import WindChart from "./WindChart";
 import "./Footer.scss";
 
-const Footer = ({ weatherStation }) => {
-  const { weather } = useContext(SocketContext);
-
+const Footer = ({ weather }) => {
+  const { prevWindSpeeds } = weather;
   return (
     <div id="Footer">
       <WindWidget weather={weather} />
-      <WindChart windSpeeds={weather.prevWindSpeeds} />
+      <WindChart prevWindSpeeds={prevWindSpeeds} />
     </div>
   );
 };

@@ -1,68 +1,50 @@
-import React, { useState, useEffect } from "react";
-import {
-  getLocationCode,
-  getLocationCodes,
-  getLocationName,
-  getLocationTimezone
-} from "./lib/location";
+import React, { useEffect, useContext } from "react";
+import SocketContext from "./components/SocketContext/Context";
+import Screen from "./components/Screen";
 import "./App.scss";
-import Header from "./components/Header";
-import LoadClocks from "./components/LoadClocks";
-import Footer from "./components/Footer/index";
-import { announceLocation } from "./components/SocketContext/sockets/emit";
+import locations from "./locations.json";
+const locationCodes = Object.keys(locations).map(i => i);
+
+const codeFromUrl = () => {
+  const code = document.location.hash.replace("#", "");
+  if (locationCodes.includes(code)) {
+    return code;
+  }
+};
 
 const App = () => {
-  const allLocationCodes = getLocationCodes();
-  const [currentCode, setCurrentCode] = useState(getLocationCode());
-  const getPrevLocation = () => {
-    const currIdx = allLocationCodes.indexOf(currentCode);
-    if (allLocationCodes.indexOf(currentCode) === 0)
-      return allLocationCodes[allLocationCodes.length - 1];
-    return allLocationCodes[currIdx - 1];
-  };
-  const getNextLocation = () => {
-    const currIdx = allLocationCodes.indexOf(currentCode);
-    if (allLocationCodes.indexOf(currentCode) === allLocationCodes.length - 1)
-      return allLocationCodes[0];
-    return allLocationCodes[currIdx + 1];
-  };
-  const [prevLocation, setPrevLocation] = useState(getPrevLocation());
-  const [nextLocation, setNextLocation] = useState(getNextLocation());
-
-  const [locationName, setLocationName] = useState("");
-  const [locationTimezone, setLocationTimezone] = useState(
-    getLocationTimezone()
-  );
-  const handleHashChange = () => {
-    setCurrentCode(getLocationCode());
-  };
   useEffect(() => {
-    window.onhashchange = () => {
-      handleHashChange();
+    let locationCode;
+    if ((locationCode = codeFromUrl())) {
+      window.scrollTo(
+        document.body.clientWidth * locationCodes.indexOf(locationCode),
+        0
+      );
+    }
+    let timer;
+    window.onscroll = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        const index = Math.round(
+          window.pageXOffset / document.body.clientWidth
+        );
+        window.scrollTo(document.body.clientWidth * index, 0);
+        document.location.hash = `#${locationCodes[index]}`;
+      }, 75);
     };
-    handleHashChange();
   }, []);
-  useEffect(
-    () => {
-      setLocationName(getLocationName());
-      setLocationTimezone(getLocationTimezone());
-      announceLocation(getLocationCode());
-      setPrevLocation(getPrevLocation());
-      setNextLocation(getNextLocation());
-    },
-    [currentCode]
-  );
-
+  const { weather, loads } = useContext(SocketContext);
+  console.log(loads["ATL"]);
   return (
     <div className="App">
-      <Header
-        locationName={locationName}
-        locationTimezone={locationTimezone}
-        prevLocation={prevLocation}
-        nextLocation={nextLocation}
-      />
-      <LoadClocks locationName={locationName} />
-      <Footer weatherStation={currentCode} />
+      {Object.keys(locations).map((location, i) => (
+        <Screen
+          key={i}
+          location={location}
+          weather={weather[location]}
+          loads={loads[location]}
+        />
+      ))}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { socket } from "./";
 
-export const announceLocation = location => {
-  socket.emit("location", location);
+export const joinChannel = channel => {
+  socket.emit("join", channel);
 };

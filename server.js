@@ -18,19 +18,23 @@ app.get("*", function(req, res) {
 });
 
 const loadAnnouncements = {};
+const weatherAnnouncements = {};
 Object.keys(locations).map(location => {
-  loadAnnouncements[location] = { location, loads: [] };
+  loadAnnouncements[location] = [];
+  weatherAnnouncements[location] = {};
 });
 
 io.sockets.on("connection", socket => {
-  socket.on("location", location => {
-    console.log("join", location);
+  socket.on("join", channel => {
+    console.log("join", channel);
     socket.leaveAll();
-    socket.join(location);
-    socket.emit("weather", { windDirection: 0, location });
-    socket.emit("load-announcment", []);
-    io.to(location).emit("load-announcement", loadAnnouncements[location]);
+    socket.join(channel);
+    if (channel === "announcements") {
+      io.to("announcements").emit("load-announcement", loadAnnouncements);
+      io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+    }
   });
+
   socket.on("jwt-weather-record", token => {
     jwt.verify(token, process.env.JWT_SECRET, (err, record) => {
       if (err) {
@@ -38,7 +42,8 @@ io.sockets.on("connection", socket => {
         return false;
       }
       console.log("jwt-weather-record", record.location, record.time);
-      io.to(record.location).emit("weather", record);
+      weatherAnnouncements[record.location] = record;
+      // io.to(record.location).emit("weather", record);
     });
   });
   // socket.on("weather-record", record => {
@@ -56,8 +61,8 @@ io.sockets.on("connection", socket => {
         announcement.location,
         announcement.time
       );
-      loadAnnouncements[announcement.location] = announcement;
-      io.to(announcement.location).emit("load-announcement", announcement);
+      loadAnnouncements[announcement.location] = announcement.loads;
+      io.to("announcements").emit("load-announcement", loadAnnouncements);
     });
   });
   // socket.on("load-announcement", announcement => {
@@ -66,3 +71,11 @@ io.sockets.on("connection", socket => {
   //   io.to(announcement.location).emit("load-announcement", announcement);
   // });
 });
+setInterval(() => {
+  io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+  console.log(
+    new Date(),
+    "weather-announcement",
+    Object.keys(weatherAnnouncements).map(k => k)
+  );
+}, 2000);

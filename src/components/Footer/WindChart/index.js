@@ -46,7 +46,7 @@ const VertGrads = () => {
   });
 };
 
-export default ({ windSpeeds }) => {
+export default ({ prevWindSpeeds }) => {
   const maxSpeed = 25;
   // let ms = Math.max(...windSpeeds);
   // const maxSpeed = ms < 5 ? 5 : ms;
@@ -54,8 +54,8 @@ export default ({ windSpeeds }) => {
     <div className="WindChart">
       <Grads maxSpeed={maxSpeed} />
       <VertGrads />
-      {windSpeeds &&
-        windSpeeds.map((speed, i) => (
+      {prevWindSpeeds &&
+        prevWindSpeeds.map((speed, i) => (
           <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
         ))}
     </div>

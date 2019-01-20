@@ -16,6 +16,7 @@ const rotation = deg => {
 };
 
 export default ({ weather }) => {
+  const { windDirection, prevWindDirs, windSpeed } = weather;
   const led = useRef(null);
   useEffect(
     () => {
@@ -32,15 +33,16 @@ export default ({ weather }) => {
       <div className="Face">
         <div
           className="Circle"
-          style={{ color: `hsl(${135 - weather.windSpeed * 6}, 100%, 50%)` }}
+          style={{ color: `hsl(${135 - windSpeed * 6}, 100%, 50%)` }}
         >
-          {weather.windSpeed > -1 ? weather.windSpeed : "..."}
+          {windSpeed > -1 ? windSpeed : "--"}
         </div>
-        <GhostArrows prevDirs={weather.prevWindDirs} />
+        <GhostArrows prevDirs={prevWindDirs} />
         <div
           className="Arrow"
           style={{
-            transform: `rotate(${rotation(weather.windDirection)}deg)`
+            transform: `rotate(${rotation(windDirection)}deg)`,
+            opacity: `${windSpeed ? 0.75 : 0.25}`
           }}
         />
         <HashMarks />

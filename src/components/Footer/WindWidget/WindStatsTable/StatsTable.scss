@@ -1,5 +1,4 @@
 .StatsTable {
-  // position: absolute;
   display: inline-block;
   font-size: 2vh;
   font-weight: bold;
@@ -39,20 +38,3 @@
     font-size: xx-small;
   }
 }
-/*
-@media only screen and (max-width: 600px) {
-  .StatsTable {
-    font-size: smaller;
-  }
-}
-@media only screen and (max-width: 420px) {
-  .StatsTable {
-    font-size: x-small;
-  }
-}
-@media only screen and (max-width: 300px) {
-  .StatsTable {
-    font-size: xx-small;
-  }
-}
-*/

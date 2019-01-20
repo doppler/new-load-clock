@@ -1,0 +1,51 @@
+.Screen {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100vh;
+  background: #282c34 url(../SkydiveSpacelandLogo-white-text.png) no-repeat
+    center calc(85vh - 132px);
+  &::after {
+    font-family: "HelveticaNeue";
+    position: relative;
+    top: -95vh;
+    width: 100%;
+    content: attr(locationname);
+    font-size: 8em;
+    opacity: 0.25;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .Screen {
+    margin-right: 1px;
+    width: 20vw;
+    min-width: 20vw;
+    background-size: contain;
+    &::after {
+      font-size: 2.5em;
+    }
+  }
+  #Header {
+    font-size: x-small;
+  }
+  #Footer {
+    width: 20vw;
+  }
+  .StatsTable {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .Screen {
+    &::after {
+      font-size: 6em;
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  .Screen {
+    &::after {
+      font-size: 4em;
+    }
+  }
+}

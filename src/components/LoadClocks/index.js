@@ -1,11 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-import SocketContext from "../SocketContext/Context";
+import React, { useState, useEffect } from "react";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
 const { differenceInSeconds } = require("date-fns");
 
-const LoadClocks = ({ locationName }) => {
-  const { loads } = useContext(SocketContext);
+const LoadClocks = ({ loads, locationName }) => {
+  // const { loads } = useContext(SocketContext);
   // uncomment for testing purposes
   // import { addSeconds } from "date-fns"; // move this up if uncommenting
   // const loads = [
@@ -36,7 +35,7 @@ const LoadClocks = ({ locationName }) => {
   // ];
   return (
     <div id="LoadClocks" locationname={locationName}>
-      {loads.length ? (
+      {loads && loads.length ? (
         loads.map((load, i) => <LoadClock load={load} key={i} />)
       ) : (
         <NoLoadsScheduled />
@@ -79,7 +78,6 @@ const LoadClock = ({ load }) => {
       <span className={`time ${colorForSecondsRemaining(timer.ds)}`}>
         {timer.time}
       </span>
-      {/* <span className="json">{JSON.stringify(load, null, 2)}</span> */}
       <footer>Slots Remaining: {load.slotsRemaining}</footer>
     </div>
   );

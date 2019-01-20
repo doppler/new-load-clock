@@ -1,5 +1,6 @@
 #WindWidget {
-  z-index: 2;
+  position: relative;
+  z-index: 10;
   display: inline-flex;
   border-radius: 10px;
   background-image: linear-gradient(
