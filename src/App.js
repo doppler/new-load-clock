@@ -34,7 +34,6 @@ const App = () => {
     };
   }, []);
   const { weather, loads } = useContext(SocketContext);
-  console.log(loads["ATL"]);
   return (
     <div className="App">
       {Object.keys(locations).map((location, i) => (
