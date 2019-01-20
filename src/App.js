@@ -41,7 +41,7 @@ const App = () => {
           key={i}
           location={location}
           weather={weather[location]}
-          loads={loads[location]}
+          loadsObject={loads[location]}
         />
       ))}
     </div>

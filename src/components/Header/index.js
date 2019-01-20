@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import moment from "moment-timezone";
 import "./Header.scss";
 
-const Header = ({ temperature, locationTimezone }) => {
+const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   const [time, setTime] = useState(null);
   const updateTime = locationTimezone => {
-    setTime(moment.tz(locationTimezone).format("h:mm:ss A z"));
+    setTime(moment.tz(locationTimezone).format("h:mm:ss A"));
   };
   useEffect(
     () => {
@@ -19,6 +19,7 @@ const Header = ({ temperature, locationTimezone }) => {
   return (
     <div id="Header">
       <div className="time">{time && time}</div>
+      <div className="loadsFlown">Loads Flown Today: {loadsFlownToday}</div>
       <div
         className="temperature"
         style={{

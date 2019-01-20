@@ -3,40 +3,11 @@ import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
 const { differenceInSeconds } = require("date-fns");
 
-const LoadClocks = ({ loads, locationName }) => {
-  // const { loads } = useContext(SocketContext);
-  // uncomment for testing purposes
-  // import { addSeconds } from "date-fns"; // move this up if uncommenting
-  // const loads = [
-  //   {
-  //     loadNo: 3,
-  //     plane: "Caravan - 21F",
-  //     slotsRemaining: 3,
-  //     departureTime: addSeconds(new Date(), 600)
-  //   },
-  //   // {
-  //   //   loadNo: 1,
-  //   //   plane: "Skyvan - XX",
-  //   //   slotsRemaining: 3,
-  //   //   departureTime: addSeconds(new Date(), 982)
-  //   // },
-  //   {
-  //     loadNo: 1,
-  //     plane: "Otter - BA",
-  //     slotsRemaining: 8,
-  //     departureTime: addSeconds(new Date(), 1350)
-  //   },
-  //   {
-  //     loadNo: 1,
-  //     plane: "Otter - TS",
-  //     slotsRemaining: 6,
-  //     departureTime: addSeconds(new Date(), 1364)
-  //   }
-  // ];
+const LoadClocks = ({ loadsObject, locationName }) => {
   return (
     <div id="LoadClocks" locationname={locationName}>
-      {loads && loads.length ? (
-        loads.map((load, i) => <LoadClock load={load} key={i} />)
+      {loadsObject && loadsObject.loads && loadsObject.loads.length ? (
+        loadsObject.loads.map((load, i) => <LoadClock load={load} key={i} />)
       ) : (
         <NoLoadsScheduled />
       )}

@@ -2,14 +2,24 @@
   position: relative;
   width: 100%;
   height: 5vh;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid red;
   font-size: 1.5em;
   font-family: "HelveticaNeue", Arial, Helvetica, sans-serif;
   box-shadow: 0px 1px 5px hsl(0, 100%, 50%);
-  .temperature,
-  .time {
+  * {
+    flex: 1;
     display: inline-block;
-    margin: 0.5em;
+    line-break: unset;
+    // margin: 0.5em;
+  }
+  .loadsFlown {
+    flex: 2;
+    text-align: center;
+  }
+  .temperature {
+    text-align: right;
   }
 }
 @media only screen and (max-width: 896px) {
