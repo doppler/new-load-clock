@@ -20,7 +20,7 @@ app.get("*", function(req, res) {
 const loadAnnouncements = {};
 const weatherAnnouncements = {};
 Object.keys(locations).map(location => {
-  loadAnnouncements[location] = [];
+  loadAnnouncements[location] = { loadsFlownToday: 0 };
   weatherAnnouncements[location] = {};
 });
 
@@ -30,8 +30,8 @@ io.sockets.on("connection", socket => {
     socket.leaveAll();
     socket.join(channel);
     if (channel === "announcements") {
-      io.to("announcements").emit("load-announcement", loadAnnouncements);
-      io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+      socket.emit("load-announcement", loadAnnouncements);
+      socket.emit("weather-announcement", weatherAnnouncements);
     }
   });
 
@@ -61,7 +61,7 @@ io.sockets.on("connection", socket => {
         announcement.location,
         announcement.time
       );
-      loadAnnouncements[announcement.location] = announcement.loads;
+      loadAnnouncements[announcement.location] = announcement;
       io.to("announcements").emit("load-announcement", loadAnnouncements);
     });
   });
