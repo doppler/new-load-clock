@@ -3,7 +3,7 @@ import moment from "moment-timezone";
 import "./Header.scss";
 
 const Header = ({ temperature, locationTimezone }) => {
-  const [time, setTime] = useState("00:00:00 --");
+  const [time, setTime] = useState(null);
   const updateTime = locationTimezone => {
     setTime(moment.tz(locationTimezone).format("h:mm:ss A z"));
   };
@@ -18,14 +18,14 @@ const Header = ({ temperature, locationTimezone }) => {
   );
   return (
     <div id="Header">
-      <div className="time">{time}</div>
+      <div className="time">{time && time}</div>
       <div
         className="temperature"
         style={{
           color: `hsl(${280 - temperature * 3}, 100%, 50%)`
         }}
       >
-        {temperature} &deg;F
+        {temperature && `${temperature} °F`}
       </div>
     </div>
   );
