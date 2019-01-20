@@ -1,10 +1,18 @@
 import React from "react";
 import "./StatsTable.scss";
 
-const HighRow = ({ minute, speed }) => (
+const windSpeedAvg = (windspeeds, timespan) => {
+  const seconds = timespan * 60;
+  const ticks = seconds / 2; // service reports every 2 seconds
+  const sum = windspeeds.slice(0, ticks).reduce((a, b) => a + b);
+  return Math.round(sum / ticks);
+};
+
+const StatsRow = ({ minute, speed, avg }) => (
   <tr style={{ color: `hsl(${135 - speed * 6}, 100%, 50%)` }}>
     <td>{minute}min high:</td>
-    <td>{speed !== -Infinity ? speed : "..."} mph</td>
+    <td>{speed !== -Infinity ? speed : "..."}</td>
+    <td>{avg}</td>
   </tr>
 );
 
@@ -31,10 +39,23 @@ export default ({ weather }) => {
             <td>
               {weather.outsideTemp ? `${weather.outsideTemp}` : "..."}&deg;F
             </td>
+            <td />
           </tr>
-          <HighRow minute={5} speed={wind5minHigh} />
-          <HighRow minute={10} speed={wind10minHigh} />
-          <HighRow minute={20} speed={wind20minHigh} />
+          <StatsRow
+            minute={5}
+            speed={wind5minHigh}
+            avg={windSpeedAvg(windSpeeds, 5)}
+          />
+          <StatsRow
+            minute={10}
+            speed={wind10minHigh}
+            avg={windSpeedAvg(windSpeeds, 10)}
+          />
+          <StatsRow
+            minute={20}
+            speed={wind20minHigh}
+            avg={windSpeedAvg(windSpeeds, 20)}
+          />
         </tbody>
       </table>
     </div>
