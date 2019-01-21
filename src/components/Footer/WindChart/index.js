@@ -46,7 +46,7 @@ const VertGrads = () => {
   });
 };
 
-export default ({ prevWindSpeeds }) => {
+const WindChart = ({ prevWindSpeeds }) => {
   const maxSpeed = 25;
   // let ms = Math.max(...windSpeeds);
   // const maxSpeed = ms < 5 ? 5 : ms;
@@ -55,9 +55,12 @@ export default ({ prevWindSpeeds }) => {
       <Grads maxSpeed={maxSpeed} />
       <VertGrads />
       {prevWindSpeeds &&
-        prevWindSpeeds.map((speed, i) => (
-          <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
-        ))}
+        prevWindSpeeds.map((speed, i) =>
+          speed > 0 ? (
+            <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
+          ) : null
+        )}
     </div>
   );
 };
+export default WindChart;

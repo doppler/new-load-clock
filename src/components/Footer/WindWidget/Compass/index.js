@@ -15,7 +15,7 @@ const rotation = deg => {
   return rot;
 };
 
-export default ({ weather }) => {
+const Compass = ({ weather }) => {
   const { windDirection, prevWindDirs, windSpeed } = weather;
   const led = useRef(null);
   useEffect(
@@ -56,3 +56,4 @@ export default ({ weather }) => {
     </div>
   );
 };
+export default Compass;

@@ -3,7 +3,7 @@ import Compass from "./Compass";
 import WindStatsTable from "./WindStatsTable";
 import "./WindWidget.scss";
 
-export default ({ weather }) => {
+const WindWidget = ({ weather }) => {
   return (
     <div id="WindWidget">
       <Compass weather={weather} />
@@ -11,3 +11,4 @@ export default ({ weather }) => {
     </div>
   );
 };
+export default WindWidget;

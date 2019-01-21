@@ -30,7 +30,7 @@ const StatsRow = ({ minute }) => {
   );
 };
 
-export default ({ weather }) => {
+const WindStatsTable = ({ weather }) => {
   if (!weather.prevWindSpeeds)
     return <div className="StatsTable">No Weather Data.</div>;
   windSpeeds = weather.prevWindSpeeds
@@ -55,3 +55,4 @@ export default ({ weather }) => {
     </div>
   );
 };
+export default WindStatsTable;

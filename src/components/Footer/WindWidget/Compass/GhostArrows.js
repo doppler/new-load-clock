@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ prevDirs }) => {
+const GhostArrows = ({ prevDirs }) => {
   if (!prevDirs) return null;
   return prevDirs
     .reverse()
@@ -16,3 +16,4 @@ export default ({ prevDirs }) => {
       />
     ));
 };
+export default GhostArrows;
