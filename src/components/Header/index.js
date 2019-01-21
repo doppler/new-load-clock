@@ -5,7 +5,7 @@ import "./Header.scss";
 const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   const [time, setTime] = useState(null);
   const updateTime = locationTimezone => {
-    setTime(moment.tz(locationTimezone).format("h:mm:ss A"));
+    setTime(moment.tz(locationTimezone).format("h:mm A"));
   };
   useEffect(
     () => {
