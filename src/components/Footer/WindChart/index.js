@@ -46,21 +46,35 @@ const VertGrads = () => {
   });
 };
 
-const WindChart = ({ prevWindSpeeds }) => {
-  const maxSpeed = 25;
-  // let ms = Math.max(...windSpeeds);
-  // const maxSpeed = ms < 5 ? 5 : ms;
+const maxSpeed = 25;
+
+export const GraphBars = ({ prevWindSpeeds }) => {
   return (
-    <div className="WindChart">
-      <Grads maxSpeed={maxSpeed} />
-      <VertGrads />
+    <div className="GraphBars">
       {prevWindSpeeds &&
         prevWindSpeeds.map((speed, i) =>
           speed > 0 ? (
             <Bar key={i} maxSpeed={maxSpeed} speed={speed} i={i} />
           ) : null
-        )}
+        )}{" "}
     </div>
   );
 };
-export default WindChart;
+
+export const GraphBackground = () => (
+  <div className="GraphBackground">
+    <Grads maxSpeed={maxSpeed} />
+    <VertGrads />
+  </div>
+);
+
+// const WindChart = ({ prevWindSpeeds }) => {
+//   // let ms = Math.max(...windSpeeds);
+//   // const maxSpeed = ms < 5 ? 5 : ms;
+//   return (
+//     <div className="WindChart">
+//       <Bars prevWindSpeeds={prevWindSpeeds} />
+//     </div>
+//   );
+// };
+// export default WindChart;

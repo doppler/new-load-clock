@@ -1,6 +1,6 @@
 import React from "react";
 import WindWidget from "./WindWidget";
-import WindChart from "./WindChart";
+import WindChart, { GraphBackground, GraphBars } from "./WindChart";
 import "./Footer.scss";
 
 const Footer = ({ weather }) => {
@@ -8,7 +8,9 @@ const Footer = ({ weather }) => {
   return (
     <div id="Footer">
       <WindWidget weather={weather} />
-      <WindChart prevWindSpeeds={prevWindSpeeds} />
+      {/* <WindChart prevWindSpeeds={prevWindSpeeds} /> */}
+      <GraphBackground />
+      <GraphBars prevWindSpeeds={prevWindSpeeds} />
     </div>
   );
 };

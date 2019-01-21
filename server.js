@@ -43,13 +43,12 @@ io.sockets.on("connection", socket => {
       }
       console.log("jwt-weather-record", record.location, record.time);
       weatherAnnouncements[record.location] = record;
-      // io.to(record.location).emit("weather", record);
+      // keep this around for testing for now
+      // Object.keys(locations).forEach(location => {
+      //   weatherAnnouncements[location] = record;
+      // });
     });
   });
-  // socket.on("weather-record", record => {
-  //   console.log("weather-record", record.location, record.time);
-  //   io.to(record.location).emit("weather", record);
-  // });
   socket.on("jwt-load-announcement", token => {
     jwt.verify(token, process.env.JWT_SECRET, (err, announcement) => {
       if (err) {
@@ -65,11 +64,6 @@ io.sockets.on("connection", socket => {
       io.to("announcements").emit("load-announcement", loadAnnouncements);
     });
   });
-  // socket.on("load-announcement", announcement => {
-  //   console.log("loads", announcement.location, announcement.time);
-  //   loadAnnouncements[announcement.location] = announcement;
-  //   io.to(announcement.location).emit("load-announcement", announcement);
-  // });
 });
 setInterval(() => {
   io.to("announcements").emit("weather-announcement", weatherAnnouncements);

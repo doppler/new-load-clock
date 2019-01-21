@@ -6,11 +6,9 @@ const { differenceInSeconds } = require("date-fns");
 const LoadClocks = ({ loadsObject, locationName }) => {
   return (
     <div id="LoadClocks" locationname={locationName}>
-      {loadsObject && loadsObject.loads && loadsObject.loads.length ? (
-        loadsObject.loads.map((load, i) => <LoadClock load={load} key={i} />)
-      ) : (
-        <NoLoadsScheduled />
-      )}
+      {loadsObject && loadsObject.loads && loadsObject.loads.length
+        ? loadsObject.loads.map((load, i) => <LoadClock load={load} key={i} />)
+        : null}
     </div>
   );
 };

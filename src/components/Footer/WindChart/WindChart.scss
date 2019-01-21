@@ -1,4 +1,17 @@
-.WindChart {
+.GraphBars {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  .Bar {
+    position: absolute;
+    bottom: 0;
+    width: 1px;
+  }
+}
+// .WindChart,
+.GraphBackground {
   position: absolute;
   top: 0;
   background-image: linear-gradient(transparent, 30%, black);
