@@ -1,4 +1,4 @@
-#LoadClocks {
+.LoadClocks {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,7 +118,7 @@
   }
 }
 @media only screen and (max-width: 1079px) {
-  #LoadClocks::after {
+  .LoadClocks::after {
     font-size: 4em;
   }
 }

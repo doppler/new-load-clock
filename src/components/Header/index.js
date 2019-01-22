@@ -17,7 +17,7 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
     [locationTimezone]
   );
   return (
-    <div id="Header">
+    <div className="Header">
       <div className="time">{time && time}</div>
       <div className="loadsFlown">Loads Flown Today: {loadsFlownToday}</div>
       <div

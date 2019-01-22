@@ -1,9 +1,10 @@
-.Screen {
+.Screen,
+.Settings {
   width: 100vw;
   min-width: 100vw;
   height: 100vh;
-  background: #282c34 url(../SkydiveSpacelandLogo-white-text.png) no-repeat
-    center calc(85vh - 132px);
+  background: hsl(240, 100%, 25%) url(../SkydiveSpacelandLogo-white-text.png)
+    no-repeat center calc(85vh - 132px);
   &::after {
     font-family: "HelveticaNeue";
     position: relative;
@@ -25,10 +26,10 @@
       font-size: 2.5em;
     }
   }
-  #Header {
+  .Header {
     font-size: x-small;
   }
-  #Footer {
+  .Footer {
     width: 20vw;
   }
   .StatsTable {

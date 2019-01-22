@@ -1,4 +1,4 @@
-#Header {
+.Header {
   position: relative;
   width: 100%;
   height: 5vh;
@@ -23,17 +23,17 @@
   }
 }
 @media only screen and (max-width: 896px) {
-  #Header {
+  .Header {
     font-size: 1em;
   }
 }
 @media only screen and (max-width: 640px) {
-  #Header {
+  .Header {
     font-size: smaller;
   }
 }
 @media only screen and (max-width: 480px) {
-  #Header {
+  .Header {
     font-size: x-small;
   }
 }

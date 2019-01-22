@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import SocketContext from "./components/SocketContext/Context";
 import Screen from "./components/Screen";
+import { Settings } from "./components/Settings";
 import "./App.scss";
 import locations from "./locations.json";
 const locationCodes = Object.keys(locations).map(i => i);
@@ -44,6 +45,7 @@ const App = () => {
           loadsObject={loads[location]}
         />
       ))}
+      <Settings />
     </div>
   );
 };

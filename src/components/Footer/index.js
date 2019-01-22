@@ -11,7 +11,7 @@ import {
 // import { fakeWindData } from "./WindChart/lib/wind-data-funcs"; // eslint-disable-line no-unused-vars
 import "./Footer.scss";
 
-const Footer = ({ weather }) => {
+const Footer = ({ weather, fakeData }) => {
   const { prevWindSpeeds } = weather;
   const [params, setParams] = useState({});
   // const [prevWindSpeeds, setFakeWindSpeeds] = useState([]);
@@ -22,7 +22,7 @@ const Footer = ({ weather }) => {
     setParams(getParams());
   }, []);
   return (
-    <div id="Footer">
+    <div className={`Footer ${fakeData ? "fakeData" : null}`}>
       <WindWidget weather={weather} prevWindSpeeds={prevWindSpeeds} />
       <GraphBackground />
       {params.dots ? (

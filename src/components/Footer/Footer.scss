@@ -1,5 +1,21 @@
-#Footer {
+.Footer {
   position: relative;
   bottom: 0;
   height: 15vh;
+  &.fakeData {
+    &::before {
+      position: absolute;
+      top: 0;
+      z-index: 30;
+      color: white;
+      font-weight: bold;
+      color: yellow;
+      border: 2px solid greenyellow;
+      content: "Note: NOT LIVE DATA!";
+    }
+    .Compass .Face .Arrow.previous {
+      transition: none;
+      display: none;
+    }
+  }
 }
