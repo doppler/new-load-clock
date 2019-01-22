@@ -36,13 +36,14 @@
   z-index: 3;
   position: absolute;
   top: 0;
+  left: 2.5%;
   height: 100%;
   width: 100%;
   .GraphDot {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 2.5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
   }
 }
 .GraphHighs {

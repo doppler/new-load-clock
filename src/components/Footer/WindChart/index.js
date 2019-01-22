@@ -68,13 +68,14 @@ const GraphDot = ({ val, i, color }) => (
     className="GraphDot"
     style={{
       left: `${((i * 15) / 600) * 100}%`,
-      bottom: `${(val / 25) * 100}%`,
+      bottom: `calc(${(val / 25) * 100}% - 2px)`,
       color: color,
       backgroundColor: color
     }}
   />
 );
 export const GraphAverages = ({ prevWindSpeeds }) => {
+  if (!prevWindSpeeds || !prevWindSpeeds.length) return null;
   const averages = averageEachRange(prevWindSpeeds);
   return (
     <div className="GraphAverages">
@@ -85,11 +86,12 @@ export const GraphAverages = ({ prevWindSpeeds }) => {
   );
 };
 export const GraphHighs = ({ prevWindSpeeds }) => {
+  if (!prevWindSpeeds || !prevWindSpeeds.length) return null;
   const highs = maxEachRange(prevWindSpeeds);
   return (
     <div className="GraphHighs">
       {highs.map((high, i) => (
-        <GraphDot val={high} i={i} key={i} color={"red"} />
+        <GraphDot val={high} i={i} key={i} color={"white"} />
       ))}
     </div>
   );
@@ -118,9 +120,9 @@ export const LineGraph = ({ prevWindSpeeds }) => {
       bottom: 0,
       left: 0
     },
-    showArea: true,
+    showArea: false,
     showLine: true,
-    showPoint: true,
+    showPoint: false,
     height: "100%",
     low: 0,
     high: 25
