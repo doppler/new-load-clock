@@ -1,4 +1,5 @@
 import React from "react";
+import { averageEachRange, maxEachRange } from "./lib/wind-data-funcs";
 import "./WindChart.scss";
 
 const Bar = ({ speed, maxSpeed, i }) => {
@@ -61,6 +62,37 @@ export const GraphBars = ({ prevWindSpeeds }) => {
   );
 };
 
+const GraphDot = ({ val, i, color }) => (
+  <div
+    className="GraphDot"
+    style={{
+      left: `${((i * 15) / 600) * 100}%`,
+      bottom: `${(val / 25) * 100}%`,
+      color: color,
+      backgroundColor: color
+    }}
+  />
+);
+export const GraphAverages = ({ prevWindSpeeds }) => {
+  const averages = averageEachRange(prevWindSpeeds);
+  return (
+    <div className="GraphAverages">
+      {averages.map((avg, i) => (
+        <GraphDot val={avg} i={i} key={i} color={"white"} />
+      ))}
+    </div>
+  );
+};
+export const GraphHighs = ({ prevWindSpeeds }) => {
+  const highs = maxEachRange(prevWindSpeeds);
+  return (
+    <div className="GraphHighs">
+      {highs.map((high, i) => (
+        <GraphDot val={high} i={i} key={i} color={"red"} />
+      ))}
+    </div>
+  );
+};
 export const GraphBackground = () => (
   <div className="GraphBackground">
     <Grads maxSpeed={maxSpeed} />

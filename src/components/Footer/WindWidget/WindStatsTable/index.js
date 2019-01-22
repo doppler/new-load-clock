@@ -10,9 +10,7 @@ const windSpeedHigh = timespan => {
 const windSpeedAvg = timespan => {
   if (!windSpeeds.length) return "...";
   const ticks = (timespan * 60) / 2; // service reports every 2 seconds
-  const slice = windSpeeds.slice(0, ticks);
-  const sum = slice.reduce((a, b) => a + b);
-  return Math.round(sum / ticks);
+  return Math.round(windSpeeds.slice(0, ticks).reduce((a, b) => a + b) / ticks);
 };
 
 const colorForSpeed = speed => {
@@ -30,12 +28,13 @@ const StatsRow = ({ minute }) => {
   );
 };
 
-const WindStatsTable = ({ weather }) => {
+const WindStatsTable = ({ weather, fakeWindSpeeds }) => {
   if (!weather.prevWindSpeeds)
     return <div className="StatsTable">No Weather Data.</div>;
   windSpeeds = weather.prevWindSpeeds
     ? [...weather.prevWindSpeeds].reverse()
     : [];
+  windSpeeds = [...fakeWindSpeeds].reverse();
   return (
     <div className="StatsTable">
       <table>

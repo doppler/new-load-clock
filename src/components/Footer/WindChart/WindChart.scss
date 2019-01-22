@@ -8,7 +8,25 @@
     position: absolute;
     bottom: 0;
     width: 1px;
+    opacity: 0.2;
   }
+}
+.GraphAverages,
+.GraphHighs {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  .GraphDot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+  }
+}
+.GraphHighs {
+  z-index: 4;
 }
 // .WindChart,
 .GraphBackground {

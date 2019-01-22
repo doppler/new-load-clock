@@ -52,9 +52,9 @@ const LoadClock = ({ load }) => {
   );
 };
 
-const NoLoadsScheduled = () => (
-  <div className="NoLoadsScheduled">No Loads Scheduled</div>
-);
+// const NoLoadsScheduled = () => (
+//   <div className="NoLoadsScheduled">No Loads Scheduled</div>
+// );
 
 const colorForSecondsRemaining = ds => {
   return null;
