@@ -80,7 +80,7 @@ export const GraphAverages = ({ prevWindSpeeds }) => {
   return (
     <div className="GraphAverages">
       {averages.map((avg, i) => (
-        <GraphDot val={avg} i={i} key={i} color={"white"} />
+        <GraphDot val={avg} i={i} key={i} color={"lightblue"} />
       ))}
     </div>
   );
@@ -91,7 +91,7 @@ export const GraphHighs = ({ prevWindSpeeds }) => {
   return (
     <div className="GraphHighs">
       {highs.map((high, i) => (
-        <GraphDot val={high} i={i} key={i} color={"white"} />
+        <GraphDot val={high} i={i} key={i} color={"lightpink"} />
       ))}
     </div>
   );

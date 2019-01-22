@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
+import { getParams } from "../../lib/utils";
 import WindWidget from "./WindWidget";
 import {
   GraphBackground,
@@ -7,7 +8,7 @@ import {
   GraphHighs,
   LineGraph
 } from "./WindChart";
-import { fakeWindData } from "./WindChart/lib/wind-data-funcs"; // eslint-disable-line no-unused-vars
+// import { fakeWindData } from "./WindChart/lib/wind-data-funcs"; // eslint-disable-line no-unused-vars
 import "./Footer.scss";
 
 const Footer = ({ weather }) => {
@@ -18,18 +19,10 @@ const Footer = ({ weather }) => {
   //   setFakeWindSpeeds(fakeWindData(600));
   // }, []);
   useEffect(() => {
-    const paramPairs = document.location.search.replace(/^\?/, "").split(/&/);
-    console.log({ paramPairs });
-    paramPairs.forEach(pair => {
-      const [key, value] = [...pair.split(/=/)];
-      params[key] = value;
-    });
-    setParams(params);
-    console.log(params);
+    setParams(getParams());
   }, []);
   return (
     <div id="Footer">
-      {/* <WindChart prevWindSpeeds={prevWindSpeeds} /> */}
       <WindWidget weather={weather} prevWindSpeeds={prevWindSpeeds} />
       <GraphBackground />
       {params.dots ? (
