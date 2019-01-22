@@ -21,27 +21,26 @@ const StatsRow = ({ minute }) => {
   const avg = windSpeedAvg(minute);
   return (
     <tr>
-      <td>{minute} minute</td>
+      <td>{minute} min</td>
       <td style={{ color: colorForSpeed(avg) }}>{avg}</td>
       <td style={{ color: colorForSpeed(high) }}>{high}</td>
     </tr>
   );
 };
 
-const WindStatsTable = ({ weather, fakeWindSpeeds }) => {
+const WindStatsTable = ({ weather }) => {
   if (!weather.prevWindSpeeds)
     return <div className="StatsTable">No Weather Data.</div>;
   windSpeeds = weather.prevWindSpeeds
     ? [...weather.prevWindSpeeds].reverse()
     : [];
-  windSpeeds = [...fakeWindSpeeds].reverse();
   return (
     <div className="StatsTable">
       <table>
         <thead>
           <tr>
-            <th>Wind Speeds</th>
-            <th>Averege</th>
+            <th>Winds</th>
+            <th>Avg</th>
             <th>High</th>
           </tr>
         </thead>

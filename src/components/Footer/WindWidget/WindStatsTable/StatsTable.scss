@@ -1,5 +1,5 @@
 .StatsTable {
-  font-size: 0.75rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-shadow: 3px 3px 5px black, -1px -1px 1px black;
   display: grid;
@@ -12,7 +12,7 @@
     width: calc(15vh * 1.618 - 2em);
   }
   th {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   td {
     text-align: center;
@@ -21,14 +21,28 @@
     text-align: left;
   }
 }
-@media only screen and (min-height: 960px) {
-  .StatsTable {
-    font-size: 1.25rem;
-  }
-}
 
-@media only screen and (min-height: 1081px) {
+@media only screen and (max-height: 1080px) {
   .StatsTable {
     font-size: 2.5rem;
+    th {
+      font-size: 2rem;
+    }
+  }
+}
+@media only screen and (max-height: 1079px) {
+  .StatsTable {
+    font-size: 1rem;
+    th {
+      font-size: 0.75rem;
+    }
+  }
+}
+@media only screen and (max-height: 600px) {
+  .StatsTable {
+    font-size: 0.5rem;
+    th {
+      font-size: 0.5rem;
+    }
   }
 }

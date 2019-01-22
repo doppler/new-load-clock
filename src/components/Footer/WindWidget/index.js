@@ -3,11 +3,11 @@ import Compass from "./Compass";
 import WindStatsTable from "./WindStatsTable";
 import "./WindWidget.scss";
 
-const WindWidget = ({ weather, fakeWindSpeeds }) => {
+const WindWidget = ({ weather }) => {
   return (
     <div id="WindWidget">
       <Compass weather={weather} />
-      <WindStatsTable weather={weather} fakeWindSpeeds={fakeWindSpeeds} />
+      <WindStatsTable weather={weather} />
     </div>
   );
 };

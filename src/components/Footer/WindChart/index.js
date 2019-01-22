@@ -1,4 +1,5 @@
 import React from "react";
+import ChartistGraph from "react-chartist";
 import { averageEachRange, maxEachRange } from "./lib/wind-data-funcs";
 import "./WindChart.scss";
 
@@ -90,6 +91,43 @@ export const GraphHighs = ({ prevWindSpeeds }) => {
       {highs.map((high, i) => (
         <GraphDot val={high} i={i} key={i} color={"red"} />
       ))}
+    </div>
+  );
+};
+export const LineGraph = ({ prevWindSpeeds }) => {
+  if (!prevWindSpeeds || !prevWindSpeeds.length) return null;
+  const highs = maxEachRange(prevWindSpeeds);
+  const avgs = averageEachRange(prevWindSpeeds);
+  const data = {
+    series: [avgs, highs]
+  };
+  const options = {
+    axisX: {
+      offset: 0,
+      showLabel: false,
+      showGrid: false
+    },
+    axisY: {
+      offset: 0,
+      showLabel: true,
+      showGrid: false
+    },
+    chartPadding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
+    showArea: true,
+    showLine: true,
+    showPoint: true,
+    height: "100%",
+    low: 0,
+    high: 25
+  };
+  return (
+    <div className="LineGraph">
+      <ChartistGraph data={data} options={options} type="Line" />
     </div>
   );
 };
