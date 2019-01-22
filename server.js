@@ -22,7 +22,7 @@ app.get("*", function(req, res) {
 
 const loadAnnouncements = {};
 const weatherAnnouncements = {};
-Object.keys(locations).map(location => {
+Object.keys(locations).forEach(location => {
   loadAnnouncements[location] = { loadsFlownToday: 0 };
   weatherAnnouncements[location] = {};
 });
