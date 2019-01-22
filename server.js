@@ -6,9 +6,12 @@ const jwt = require("jsonwebtoken");
 const io = require("socket.io")(server);
 const path = require("path");
 const locations = require("./src/locations.json");
-
 const PORT = process.env.PORT || 5000;
-
+// const fs = require("fs");
+// const saveWeatherStream = fs.createWriteStream(
+//   "./savedWeatherAnnouncements.txt",
+//   { flags: "a+" }
+// );
 server.listen(PORT);
 
 app.use(express.static(__dirname));
@@ -72,4 +75,5 @@ setInterval(() => {
     "weather-announcement",
     Object.keys(weatherAnnouncements).map(k => k)
   );
+  // saveWeatherStream.write(`${JSON.stringify(weatherAnnouncements)}\n`);
 }, 2000);
