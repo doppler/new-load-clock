@@ -16,9 +16,7 @@ const reducer = (state, action) => {
 };
 
 const SettingsProvider = props => {
-  // const [value, setValue] = useState(initialState);
   const [state, dispatch] = useReducer(reducer, initialState);
-
   useEffect(
     () => {
       localStorage.setItem("lc.settings", JSON.stringify(state));
