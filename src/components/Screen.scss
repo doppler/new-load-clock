@@ -45,8 +45,9 @@
 }
 @media only screen and (max-width: 640px) {
   .Screen {
+    background-size: contain;
     &::after {
-      font-size: 4em;
+      font-size: 3em;
     }
   }
 }
