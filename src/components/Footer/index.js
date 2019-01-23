@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
+import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
 import { getParams } from "../../lib/utils";
+import SettingsContext from "../SettingsContext/Context";
 import WindWidget from "./WindWidget";
 import {
   GraphBackground,
@@ -14,6 +15,8 @@ import "./Footer.scss";
 const Footer = ({ weather, fakeData }) => {
   const { prevWindSpeeds } = weather;
   const [params, setParams] = useState({});
+  const { graph } = useContext(SettingsContext);
+  // console.log(dispatch);
   // const [prevWindSpeeds, setFakeWindSpeeds] = useState([]);
   // useEffect(() => {
   //   setFakeWindSpeeds(fakeWindData(600));
@@ -25,18 +28,20 @@ const Footer = ({ weather, fakeData }) => {
     <div className={`Footer ${fakeData ? "fakeData" : null}`}>
       <WindWidget weather={weather} prevWindSpeeds={prevWindSpeeds} />
       <GraphBackground />
-      {params.dots ? (
+      {params.dots || graph.dots ? (
         <>
           <GraphAverages prevWindSpeeds={prevWindSpeeds} />
           <GraphHighs prevWindSpeeds={prevWindSpeeds} />
         </>
       ) : null}
-      {params.bars ? (
+      {params.bars || graph.bars ? (
         <>
           <GraphBars prevWindSpeeds={prevWindSpeeds} />
         </>
       ) : null}
-      <LineGraph prevWindSpeeds={prevWindSpeeds} />
+      {params.lines || graph.lines ? (
+        <LineGraph prevWindSpeeds={prevWindSpeeds} />
+      ) : null}
     </div>
   );
 };

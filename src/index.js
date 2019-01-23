@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import SocketProvider from "./components/SocketContext";
+import SettingsProvider from "./components/SettingsContext";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <SocketProvider>
-    <App />
-  </SocketProvider>,
+  <SettingsProvider>
+    <SocketProvider>
+      <App />
+    </SocketProvider>
+  </SettingsProvider>,
   document.getElementById("root")
 );
 
