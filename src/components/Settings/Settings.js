@@ -44,7 +44,11 @@ const Settings = () => {
           <header>Header</header>
           <ul>
             <li onClick={() => toggleHeader("celsius")}>
-              <input type="checkbox" checked={header.celsius} readOnly />
+              <input
+                type="checkbox"
+                checked={header.celsius || false}
+                readOnly
+              />
               <label>Show temperature in degrees celsius</label>
             </li>
           </ul>

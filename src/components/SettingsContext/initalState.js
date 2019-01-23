@@ -11,4 +11,10 @@ const newState = {
 
 const lcState = JSON.parse(localStorage.getItem("lc.settings"));
 
+// make sure if we add a settings attribute, clients don't crash on
+// app update.
+["graph", "header"].forEach(attribute => {
+  if (!lcState[attribute]) lcState[attribute] = {};
+});
+
 export const initialState = lcState || newState;
