@@ -111,8 +111,9 @@ export const LineGraph = ({ prevWindSpeeds }) => {
     },
     axisY: {
       offset: 0,
-      showLabel: true,
-      showGrid: false
+      showLabel: false,
+      showGrid: false,
+      scaleMinSpace: 1
     },
     chartPadding: {
       top: 0,
@@ -123,7 +124,6 @@ export const LineGraph = ({ prevWindSpeeds }) => {
     showArea: false,
     showLine: true,
     showPoint: false,
-    height: "100%",
     low: 0,
     high: 25
   };
