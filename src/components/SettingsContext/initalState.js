@@ -9,7 +9,7 @@ const newState = {
   }
 };
 
-const lcState = JSON.parse(localStorage.getItem("lc.settings"));
+const lcState = JSON.parse(localStorage.getItem("lc.settings")) || newState;
 
 // make sure if we add a settings attribute, clients don't crash on
 // app update.
@@ -17,4 +17,4 @@ const lcState = JSON.parse(localStorage.getItem("lc.settings"));
   if (!lcState[attribute]) lcState[attribute] = {};
 });
 
-export const initialState = lcState || newState;
+export const initialState = lcState;
