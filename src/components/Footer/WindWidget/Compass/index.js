@@ -5,6 +5,7 @@ import HashMarks from "./HashMarks";
 
 let rot;
 const rotation = deg => {
+  if (deg < 270 && deg > 90) return deg;
   let angle;
   rot = rot || 0;
   angle = rot % 360;
