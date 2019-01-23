@@ -28,15 +28,15 @@ const Settings = () => {
                 checked={graph.lines}
                 readOnly
               />
-              <label>Show Lines</label>
+              <label>Show 30-second average wind speed lines</label>
             </li>
             <li onClick={() => toggleGraph("dots")}>
               <input id="dots" type="checkbox" checked={graph.dots} readOnly />
-              <label>Show Dots</label>
+              <label>Show 30-second average wind speed dots</label>
             </li>
             <li onClick={() => toggleGraph("bars")}>
               <input id="bars" type="checkbox" checked={graph.bars} readOnly />
-              <label>Show Bars</label>
+              <label>Show 2-second wind speed bars</label>
             </li>
           </ul>
         </section>
