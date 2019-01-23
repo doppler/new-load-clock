@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import SettingsContext from "../SettingsContext/Context";
 import moment from "moment-timezone";
 import "./Header.scss";
 
 const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
+  const { header, dispatch } = useContext(SettingsContext);
   const [time, setTime] = useState(null);
   const updateTime = locationTimezone => {
     setTime(moment.tz(locationTimezone).format("h:mm A"));
@@ -16,6 +18,9 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
     },
     [locationTimezone]
   );
+  const toggleHeader = attribute => {
+    dispatch({ type: "toggleHeader", attribute });
+  };
   return (
     <div className="Header">
       <div className="time">{time && time}</div>
@@ -25,8 +30,13 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
         style={{
           color: `hsl(${280 - temperature * 3}, 100%, 50%)`
         }}
+        onClick={() => toggleHeader("celsius")}
       >
-        {temperature && `${temperature} °F`}
+        {temperature
+          ? header.celsius
+            ? `${(((temperature - 32) * 5) / 9).toFixed(1)} °C`
+            : `${temperature} °F`
+          : null}
       </div>
     </div>
   );

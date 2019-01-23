@@ -3,6 +3,9 @@ const newState = {
     lines: true,
     dots: false,
     bars: false
+  },
+  header: {
+    celsius: false
   }
 };
 

@@ -10,6 +10,12 @@ const reducer = (state, action) => {
         [action.attribute]: !state.graph[action.attribute]
       };
       return { ...state, graph };
+    case "toggleHeader":
+      const header = {
+        ...state.header,
+        [action.attribute]: !state.header[action.attribute]
+      };
+      return { ...state, header };
     default:
       return state;
   }
