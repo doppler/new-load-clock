@@ -1,6 +1,6 @@
 {
   "short_name": "Load Clock",
-  "name": "Spaceland Load Clock",
+  "name": "Load Clock",
   "icons": [
     {
       "src": "/logos/logo-16.png",
@@ -35,6 +35,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00007f",
+  "background_color": "#00007f"
 }
