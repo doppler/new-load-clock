@@ -1,6 +1,11 @@
 import React from "react";
 import ChartistGraph from "react-chartist";
-import { averageEachRange, maxEachRange } from "./lib/wind-data-funcs";
+import {
+  averageEachRange,
+  maxEachRange,
+  colorForSpeed
+} from "../../../lib/wind-funcs";
+
 import "./WindChart.scss";
 
 const Bar = ({ speed, maxSpeed, i }) => {
@@ -10,8 +15,8 @@ const Bar = ({ speed, maxSpeed, i }) => {
       className="Bar"
       style={{
         height: `${percent}%`,
-        backgroundColor: `hsl(${120 - speed * 6}, 100%, 50%)`,
-        boxShadow: `0px -1px 5px hsl(${120 - speed * 6}, 100%, 75%)`,
+        backgroundColor: colorForSpeed(speed),
+        boxShadow: `0px -1px 5px ${colorForSpeed(speed)}`,
         left: `${(i / 600) * 100}%`
       }}
     />

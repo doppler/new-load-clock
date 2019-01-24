@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { colorForSpeed } from "../../../../lib/wind-funcs";
 import "./Compass.scss";
 import GhostArrows from "./GhostArrows";
 import HashMarks from "./HashMarks";
@@ -32,10 +33,7 @@ const Compass = ({ weather }) => {
     <div className="Compass">
       <div className="LED" ref={led} />
       <div className="Face">
-        <div
-          className="Circle"
-          style={{ color: `hsl(${135 - windSpeed * 6}, 100%, 50%)` }}
-        >
+        <div className="Circle" style={{ color: colorForSpeed(windSpeed) }}>
           {windSpeed > -1 ? windSpeed : "--"}
         </div>
         <GhostArrows prevDirs={prevWindDirs} />

@@ -1,4 +1,5 @@
 import React from "react";
+import { colorForSpeed } from "../../../../lib/wind-funcs";
 import "./StatsTable.scss";
 
 let windSpeeds;
@@ -13,9 +14,6 @@ const windSpeedAvg = timespan => {
   return Math.round(windSpeeds.slice(0, ticks).reduce((a, b) => a + b) / ticks);
 };
 
-const colorForSpeed = speed => {
-  return `hsl(${135 - speed * 6}, 100%, 50%)`;
-};
 const StatsRow = ({ minute }) => {
   const high = windSpeedHigh(minute);
   const avg = windSpeedAvg(minute);

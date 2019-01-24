@@ -1,3 +1,5 @@
+export const colorForSpeed = speed => `hsl(${145 - speed * 5}, 100%, 50%)`;
+
 const average = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
 
 export const averageEachRange = (arr, rangeLength = 15) => {
