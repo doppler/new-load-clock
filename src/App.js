@@ -36,7 +36,11 @@ const App = () => {
   }, []);
   const { weather, loads } = useContext(SocketContext);
   return (
-    <div className="App">
+    <div
+      className={`App ${
+        process.env.NODE_ENV === "development" ? "development" : null
+      }`}
+    >
       {Object.keys(locations).map((location, i) => (
         <Screen
           key={i}
