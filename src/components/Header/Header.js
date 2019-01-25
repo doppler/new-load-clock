@@ -23,8 +23,9 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   };
   return (
     <div className="Header">
-      <div className="time">{time && time}</div>
+      <Hamburger />
       <div className="loadsFlown">Loads Flown Today: {loadsFlownToday}</div>
+      <div className="time">{time && time}</div>
       <div
         className="temperature"
         style={{
@@ -42,3 +43,17 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   );
 };
 export default Header;
+
+const Hamburger = () => {
+  const [active, setActive] = useState(false);
+  const hamburgerClick = () => {
+    setActive(!active);
+  };
+  return (
+    <div className="Hamburger" onClick={hamburgerClick}>
+      <div className={`line ${active ? "active" : null} top`} />
+      <div className={`line ${active ? "active" : null} middle`} />
+      <div className={`line ${active ? "active" : null} bottom`} />
+    </div>
+  );
+};

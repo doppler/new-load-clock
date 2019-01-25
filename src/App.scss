@@ -8,9 +8,9 @@
     &::before {
       position: absolute;
       display: inline-block;
-      // transform: translateX(calc(50vw - 50%));
+      transform: translateX(calc(50vw - 50%));
       text-align: center;
-      width: 100vw;
+      // width: 100vw;
       background-color: yellow;
       color: black;
       font-weight: bold;
