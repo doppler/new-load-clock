@@ -9,6 +9,8 @@ const STATUS_MANIFEST = 1,
   STATUS_LOADING = 3,
   STATUS_DEPARTED = 4,
   STATUS_LANDED = 5;
+
+const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
 const LoadClocks = ({ loadsObject, locationName }) => {
@@ -28,7 +30,7 @@ export const LoadClock = ({ load }) => {
 
   const updateTimer = () => {
     let ds = differenceInSeconds(new Date(), new Date(load.departureTime));
-    if (load.status === STATUS_LOADING) {
+    if (load.status === STATUS_HOLD) {
       setTimer({ ...timer, time: "HOLD" });
       clearInterval(timerInterval);
       return;
@@ -51,7 +53,7 @@ export const LoadClock = ({ load }) => {
     },
     [load]
   );
-  if (timer.ds >= 0 && load.status !== STATUS_LOADING) return null;
+  if (timer.ds >= 0 && load.status !== STATUS_HOLD) return null;
   return (
     <div className={`Load ${colorForSecondsRemaining(timer.ds)}`}>
       <header>
