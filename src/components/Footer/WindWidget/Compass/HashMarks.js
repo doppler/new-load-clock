@@ -1,7 +1,7 @@
 import React from "react";
 
 const HashMarks = () => {
-  return [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
+  return [30, 60, 120, 150, 210, 240, 300, 330].map(deg => (
     <div
       key={deg}
       className="Hashmark"
