@@ -4,19 +4,6 @@ import "./Compass.scss";
 import GhostArrows from "./GhostArrows";
 import HashMarks from "./HashMarks";
 
-let rot;
-const rotation = deg => {
-  if (deg < 270 && deg > 90) return deg;
-  let angle;
-  rot = rot || 0;
-  angle = rot % 360;
-  if (angle < 0) angle += 360;
-  if (angle < 180 && deg > angle + 180) rot -= 360;
-  if (angle >= 180 && deg <= angle - 180) rot += 360;
-  rot += deg - angle;
-  return rot;
-};
-
 const Compass = ({ weather }) => {
   const { windDirection, prevWindDirs, windSpeed } = weather;
   const led = useRef(null);
@@ -29,6 +16,17 @@ const Compass = ({ weather }) => {
     },
     [weather]
   );
+  let rotation;
+  const correctedRotation = degree => {
+    let angle;
+    rotation = rotation || 0;
+    angle = rotation % 360;
+    if (angle < 0) angle += 360;
+    if (angle < 180 && degree > angle + 180) rotation -= 360;
+    if (angle >= 180 && degree <= angle - 180) rotation += 360;
+    rotation += degree - angle;
+    return rotation;
+  };
   return (
     <div className="Compass">
       <div className="LED" ref={led} />
@@ -40,7 +38,7 @@ const Compass = ({ weather }) => {
         <div
           className="Arrow"
           style={{
-            transform: `rotate(${rotation(windDirection)}deg)`,
+            transform: `rotate(${correctedRotation(windDirection)}deg)`,
             opacity: `${windSpeed ? 0.75 : 0.25}`
           }}
         />
