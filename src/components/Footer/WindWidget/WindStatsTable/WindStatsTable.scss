@@ -1,4 +1,4 @@
-.StatsTable {
+.WindStatsTable {
   font-size: 2.5rem;
   font-weight: bold;
   text-shadow: 3px 3px 5px black, -1px -1px 1px black;
@@ -23,7 +23,7 @@
 }
 
 @media only screen and (max-height: 1080px) {
-  .StatsTable {
+  .WindStatsTable {
     font-size: 2.5rem;
     th {
       font-size: 2rem;
@@ -31,7 +31,7 @@
   }
 }
 @media only screen and (max-height: 1079px) {
-  .StatsTable {
+  .WindStatsTable {
     font-size: 1rem;
     th {
       font-size: 0.75rem;
@@ -39,7 +39,7 @@
   }
 }
 @media only screen and (max-height: 600px) {
-  .StatsTable {
+  .WindStatsTable {
     font-size: 0.5rem;
     th {
       font-size: 0.5rem;

@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
+import { Header } from "./Header";
 import { LoadClocks } from "./LoadClocks";
-import Footer from "./Footer/index";
+import { Footer } from "./Footer/index";
 import "./Screen.scss";
 import locations from "../locations.json";
 

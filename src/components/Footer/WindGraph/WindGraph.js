@@ -6,7 +6,7 @@ import {
   colorForSpeed
 } from "../../../lib/wind-funcs";
 
-import "./WindChart.scss";
+import "./WindGraph.scss";
 
 const Bar = ({ speed, maxSpeed, i }) => {
   const percent = (speed / maxSpeed) * 100;
@@ -144,14 +144,3 @@ export const GraphBackground = () => (
     <VertGrads />
   </div>
 );
-
-// const WindChart = ({ prevWindSpeeds }) => {
-//   // let ms = Math.max(...windSpeeds);
-//   // const maxSpeed = ms < 5 ? 5 : ms;
-//   return (
-//     <div className="WindChart">
-//       <Bars prevWindSpeeds={prevWindSpeeds} />
-//     </div>
-//   );
-// };
-// export default WindChart;
