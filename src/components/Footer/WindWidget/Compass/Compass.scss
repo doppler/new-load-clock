@@ -31,13 +31,13 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
-    background-image: radial-gradient(
-      hsla(240, 100%, 50%, 0.75),
-      15%,
-      hsla(270, 100%, 10%, 0.5),
-      hsla(300, 100%, 10%, 0)
-    );
+    // background-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
+    // background-image: radial-gradient(
+    //   hsla(240, 100%, 50%, 0.75),
+    //   15%,
+    //   hsla(270, 100%, 10%, 0.5),
+    //   hsla(300, 100%, 10%, 0)
+    // );
     .Circle {
       position: relative;
       top: 25%;
@@ -52,8 +52,10 @@
       align-items: center;
       justify-content: center;
       background-image: radial-gradient(
-        hsla(240, 100%, 50%, 0.165),
-        hsla(240, 100%, 10%, 0.66),
+        hsla(240, 100%, 50%, 0.25),
+        66%,
+        hsla(240, 100%, 10%, 0.25),
+        90%,
         hsla(300, 100%, 10%, 1)
       );
       clip-path: circle(40% at center);
