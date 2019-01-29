@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 5000;
 // );
 server.listen(PORT);
 
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "build")));
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 const loadAnnouncements = {};
 const weatherAnnouncements = {};
@@ -40,7 +44,7 @@ io.sockets.on("connection", socket => {
         console.log(err.message);
         return false;
       }
-      console.log(record.time, "jwt-weather-record", record.location);
+      console.log("jwt-weather-record", record.location, record.time);
       weatherAnnouncements[record.location] = record;
       // keep this around for testing for now
       // Object.keys(locations).forEach(location => {
@@ -55,9 +59,9 @@ io.sockets.on("connection", socket => {
         return false;
       }
       console.log(
-        announcement.time,
         "jwt-load-announcment",
-        announcement.location
+        announcement.location,
+        announcement.time
       );
       loadAnnouncements[announcement.location] = announcement;
       io.to("announcements").emit("load-announcement", loadAnnouncements);
@@ -66,10 +70,10 @@ io.sockets.on("connection", socket => {
 });
 setInterval(() => {
   io.to("announcements").emit("weather-announcement", weatherAnnouncements);
-  // console.log(
-  //   new Date(),
-  //   "weather-announcement",
-  //   Object.keys(weatherAnnouncements).map(k => k)
-  // );
+  console.log(
+    new Date(),
+    "weather-announcement",
+    Object.keys(weatherAnnouncements).map(k => k)
+  );
   // saveWeatherStream.write(`${JSON.stringify(weatherAnnouncements)}\n`);
 }, 2000);
