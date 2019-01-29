@@ -60,6 +60,8 @@ export const LoadClock = ({ load }) => {
         className={
           load.slotsRemaining === 0 || load.status === STATUS_HOLD
             ? "status-red"
+            : load.status === STATUS_LOADING
+            ? "status-blue"
             : null
         }
       >
