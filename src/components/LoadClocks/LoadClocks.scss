@@ -56,6 +56,9 @@
     font-weight: bold;
     border-bottom: 3px solid white;
     flex: 0;
+    &.status-red {
+      background-color: red;
+    }
   }
   span.time {
     display: flex;

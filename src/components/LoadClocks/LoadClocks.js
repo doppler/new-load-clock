@@ -56,7 +56,13 @@ export const LoadClock = ({ load }) => {
   if (timer.ds >= 0 && load.status !== STATUS_HOLD) return null;
   return (
     <div className={`Load ${colorForSecondsRemaining(timer.ds)}`}>
-      <header>
+      <header
+        className={
+          load.slotsRemaining === 0 || load.status === STATUS_HOLD
+            ? "status-red"
+            : null
+        }
+      >
         {load.plane} {load.loadNumber}
       </header>
       <span className={`time ${colorForSecondsRemaining(timer.ds)}`}>
