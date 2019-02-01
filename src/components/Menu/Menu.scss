@@ -1,0 +1,67 @@
+.Menu {
+  font-family: "HelveticaNeue";
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(240, 50%, 0%, 0.9);
+  transition: left 0.25s ease-in-out;
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    li {
+      &.navigable {
+        &:hover {
+          cursor: pointer;
+          background-color: hsla(240, 50%, 50%, 0.9);
+        }
+      }
+      padding: 0.5em 0 0.5em 0;
+      font-size: 2em;
+      border-bottom: 1px solid white;
+      &.header {
+        height: calc(5vh - 1em);
+      }
+      &.divider {
+        cursor: none;
+      }
+    }
+  }
+  &.visible {
+    left: 0px;
+  }
+}
+.Hamburger {
+  z-index: 101;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  flex: 1;
+  &:hover {
+    cursor: pointer;
+  }
+  .line {
+    display: block;
+    width: 18px;
+    height: 3px;
+    border-radius: 1.5px;
+    margin-bottom: 3px;
+    background-color: white;
+    transition: 0.25s;
+    &.active {
+      &.top {
+        transform: translateY(3px) rotate(-45deg);
+      }
+      &.bottom {
+        transform: translateY(-3px) rotate(45deg);
+      }
+      &.middle {
+        display: none;
+      }
+    }
+  }
+}

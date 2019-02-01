@@ -9,21 +9,17 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   const updateTime = locationTimezone => {
     setTime(moment.tz(locationTimezone).format("h:mm A"));
   };
-  useEffect(
-    () => {
-      const timeInterval = setInterval(() => {
-        updateTime(locationTimezone);
-      }, 1000);
-      return () => clearInterval(timeInterval);
-    },
-    [locationTimezone]
-  );
+  useEffect(() => {
+    const timeInterval = setInterval(() => {
+      updateTime(locationTimezone);
+    }, 1000);
+    return () => clearInterval(timeInterval);
+  }, [locationTimezone]);
   const toggleHeader = attribute => {
     dispatch({ type: "toggleHeader", attribute });
   };
   return (
     <div className="Header">
-      <Hamburger />
       <div className="loadsFlown">Loads Flown Today: {loadsFlownToday}</div>
       <div className="time">{time && time}</div>
       <div
@@ -43,17 +39,3 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   );
 };
 export default Header;
-
-const Hamburger = () => {
-  const [active, setActive] = useState(false);
-  const hamburgerClick = () => {
-    setActive(!active);
-  };
-  return (
-    <div className="Hamburger" onClick={hamburgerClick}>
-      <div className={`line ${active ? "active" : null} top`} />
-      <div className={`line ${active ? "active" : null} middle`} />
-      <div className={`line ${active ? "active" : null} bottom`} />
-    </div>
-  );
-};
