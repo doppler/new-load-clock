@@ -4,19 +4,19 @@
   min-height: 100vh;
   color: white;
   background-color: black;
-  &.development {
-    &::before {
-      position: absolute;
-      display: inline-block;
-      transform: translateX(calc(50vw - 50%));
-      text-align: center;
-      // width: 100vw;
-      background-color: yellow;
-      color: black;
-      font-weight: bold;
-      content: "APP RUNNING IN DEVELOPMENT MODE";
-    }
-  }
+  // &.development {
+  //   &::before {
+  //     position: absolute;
+  //     display: inline-block;
+  //     transform: translateX(calc(50vw - 50%));
+  //     text-align: center;
+  //     // width: 100vw;
+  //     background-color: yellow;
+  //     color: black;
+  //     font-weight: bold;
+  //     content: "APP RUNNING IN DEVELOPMENT MODE";
+  //   }
+  // }
 }
 @media only screen and (max-width: 500px) {
   .App {

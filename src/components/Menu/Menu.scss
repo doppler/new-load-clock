@@ -38,8 +38,8 @@
 .Hamburger {
   z-index: 101;
   position: fixed;
-  top: 1em;
-  left: 1em;
+  top: 0.5rem;
+  left: 0.5rem;
   flex: 1;
   &:hover {
     cursor: pointer;
