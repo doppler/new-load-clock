@@ -9,7 +9,8 @@
   &::after {
     font-family: "HelveticaNeue";
     position: relative;
-    top: -95vh;
+    z-index: 1;
+    top: -175vh;
     width: 100%;
     content: attr(locationname);
     font-size: 8em;

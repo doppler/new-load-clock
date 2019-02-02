@@ -4,6 +4,7 @@ import { LoadClocks } from "./LoadClocks";
 import { Footer } from "./Footer/index";
 import "./Screen.scss";
 import locations from "../locations.json";
+import { WindsAloft } from "./WindsAloft";
 
 const Screen = ({ location, weather, loadsObject }) => {
   return (
@@ -19,6 +20,7 @@ const Screen = ({ location, weather, loadsObject }) => {
         locationName={locations[location]["name"]}
       />
       <Footer weather={weather || {}} />
+      <WindsAloft />
     </div>
   );
 };
