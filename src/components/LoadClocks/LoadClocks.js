@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
+import { fakeLoads } from "../../lib/utils";
 const { differenceInSeconds } = require("date-fns");
 
 /* eslint-disable no-unused-vars */
@@ -14,6 +15,9 @@ const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
 const LoadClocks = ({ loadsObject, locationName }) => {
+  useEffect(() => {
+    if (process.env.REACT_APP_FAKE_LOADS) fakeLoads(loadsObject);
+  }, [loadsObject]);
   return (
     <div className="LoadClocks" locationname={locationName}>
       {loadsObject && loadsObject.loads && loadsObject.loads.length
@@ -42,17 +46,14 @@ export const LoadClock = ({ load }) => {
     setTimer({ ds, time: secondsToMMSS(ds) });
   };
 
-  useEffect(
-    () => {
-      timerInterval = setInterval(() => {
-        updateTimer();
-      }, 1000);
-      return () => {
-        clearInterval(timerInterval);
-      };
-    },
-    [load]
-  );
+  useEffect(() => {
+    timerInterval = setInterval(() => {
+      updateTimer();
+    }, 1000);
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [load]);
   if (timer.ds >= 0 && load.status !== STATUS_HOLD) return null;
   return (
     <div className={`Load ${colorForSecondsRemaining(timer.ds)}`}>
