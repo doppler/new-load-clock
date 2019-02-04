@@ -1,38 +1,31 @@
 .WindsAloft {
-  position: absolute;
-  top: 70vh;
-  left: 0;
-  height: 15vh;
+  position: relative;
+  top: -25vh;
+  height: 10vh;
   width: 100vw;
   display: flex;
-  // flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-weight: bold;
-  opacity: 0.15;
+  opacity: 0.95;
   .altitudeGroup {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 90vw;
-    height: 100%;
+    width: 100vw;
     .text {
       z-index: 2;
-      color: white;
+      color: gold;
       font-weight: bold;
       font-size: 2rem;
-      text-shadow: -1px -1px 1px black, 1px 1px 1px black;
+      text-shadow: -2px -2px 3px black, 2px 2px 3px black;
     }
     .arrow {
       z-index: 1;
       position: absolute;
-      top: calc(50% - 7.5vh);
-      width: 15vh;
-      height: 15vh;
-      // background-color: hsla(45, 100%, 50%, 0.5);
-      // clip-path: polygon(3% 0, 50% 20%, 97% 0, 100% 3%, 50% 100%, 0 3%);
+      top: calc(50% - 5vh);
+      width: 10vh;
+      height: 10vh;
       clip-path: polygon(
         20% 0%,
         80% 0%,
