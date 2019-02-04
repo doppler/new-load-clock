@@ -20,10 +20,10 @@
     height: 100%;
     .text {
       z-index: 2;
-      color: black;
+      color: white;
       font-weight: bold;
       font-size: 2rem;
-      text-shadow: -1px -1px 1px white, 1px 1px 1px white;
+      text-shadow: -1px -1px 1px black, 1px 1px 1px black;
     }
     .arrow {
       z-index: 1;
@@ -32,7 +32,25 @@
       width: 15vh;
       height: 15vh;
       // background-color: hsla(45, 100%, 50%, 0.5);
-      clip-path: polygon(3% 0, 50% 20%, 97% 0, 100% 3%, 50% 100%, 0 3%);
+      // clip-path: polygon(3% 0, 50% 20%, 97% 0, 100% 3%, 50% 100%, 0 3%);
+      clip-path: polygon(
+        20% 0%,
+        80% 0%,
+        80% 40%,
+        100% 40%,
+        50% 100%,
+        0% 40%,
+        20% 40%,
+        20% 42%,
+        4% 42%,
+        50% 97%,
+        96% 42%,
+        78% 42%,
+        78% 2%,
+        22% 2%,
+        22% 42%,
+        20% 42%
+      );
     }
   }
 }

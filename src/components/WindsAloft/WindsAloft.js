@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import SettingsContext from "../SettingsContext/Context";
 import "./WindsAloft.scss";
-const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.99)`;
+const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.9)`;
 
 const WindsAloft = () => {
   const [windsAloft, setWindsAloft] = useState([]);
+  const { header } = useContext(SettingsContext);
 
   const fetchWindsAloftData = async (region, station) => {
     const res = await fetch(
@@ -29,7 +31,7 @@ const WindsAloft = () => {
             style={{
               transform: `rotate(${forecast.direction}deg)`,
               display: forecast.direction === "L/V" ? "none" : "block",
-              backgroundColor: colorForSpeed(forecast.speed.mph)
+              background: colorForSpeed(forecast.speed.mph)
             }}
           />
           <span className="altitude text">
@@ -40,10 +42,16 @@ const WindsAloft = () => {
               ? "Light/Variable"
               : `${forecast.direction}\u00B0`}
           </span>
-          <span className="speed text">{forecast.speed.mph} mph</span>
+          <span className="speed text">
+            {forecast.speed.mph > 0 ? `${forecast.speed.mph} mph` : null}
+          </span>
           <span className="temperature text">
             {forecast.temperature
-              ? `${forecast.temperature.farenheit}\u00B0F`
+              ? header.celsius
+                ? `${(((forecast.temperature.farenheit - 32) * 5) / 9).toFixed(
+                    1
+                  )}\u00B0C`
+                : `${forecast.temperature.farenheit}\u00B0F`
               : null}
           </span>
         </div>
