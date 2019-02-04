@@ -59,12 +59,12 @@ const App = () => {
     >
       <Hamburger {...{ toggleMenu, menuVisible }} />
       <Menu {...{ toggleMenu, menuVisible }} />
-      {Object.keys(locations).map((location, i) => (
+      {Object.keys(locations).map((locationCode, i) => (
         <Screen
           key={i}
-          location={location}
-          weather={weather[location]}
-          loadsObject={loads[location]}
+          locationCode={locationCode}
+          weather={weather[locationCode]}
+          loadsObject={loads[locationCode]}
         />
       ))}
       <Settings />

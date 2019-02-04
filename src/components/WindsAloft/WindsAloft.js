@@ -3,7 +3,8 @@ import SettingsContext from "../SettingsContext/Context";
 import "./WindsAloft.scss";
 const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.9)`;
 
-const WindsAloft = () => {
+const WindsAloft = ({ windsAloftSettings }) => {
+  if (!windsAloftSettings) return <div className="WindsAloft" />;
   const [windsAloft, setWindsAloft] = useState([]);
   const { celsius } = useContext(SettingsContext);
 
@@ -20,7 +21,7 @@ const WindsAloft = () => {
     setWindsAloft(windsAloft);
   };
   useEffect(() => {
-    fetchWindsAloftData("mia", "ATL");
+    fetchWindsAloftData(windsAloftSettings.region, windsAloftSettings.station);
   }, []);
   return (
     <div className="WindsAloft">

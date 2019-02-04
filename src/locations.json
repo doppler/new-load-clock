@@ -1,7 +1,27 @@
 {
-  "ATL": { "name": "Atlanta", "tz": "America/New_York" },
-  "CLW": { "name": "Clewiston", "tz": "America/New_York" },
-  "DAL": { "name": "Dallas", "tz": "America/Chicago" },
-  "HOU": { "name": "Houston", "tz": "America/Chicago" },
-  "SAN": { "name": "San Marcos", "tz": "America/Chicago" }
+  "ATL": {
+    "name": "Atlanta",
+    "tz": "America/New_York",
+    "windsAloftSettings": { "region": "mia", "station": "ATL" }
+  },
+  "CLW": {
+    "name": "Clewiston",
+    "tz": "America/New_York",
+    "windsAloftSettings": { "region": "mia", "station": "MIA" }
+  },
+  "DAL": {
+    "name": "Dallas",
+    "tz": "America/Chicago",
+    "windsAloftSettings": { "region": "dfw", "station": "DAL" }
+  },
+  "HOU": {
+    "name": "Houston",
+    "tz": "America/Chicago",
+    "windsAloftSettings": { "region": "dfw", "station": "HOU" }
+  },
+  "SAN": {
+    "name": "San Marcos",
+    "tz": "America/Chicago",
+    "windsAloftSettings": { "region": "dfw", "station": "SAT" }
+  }
 }

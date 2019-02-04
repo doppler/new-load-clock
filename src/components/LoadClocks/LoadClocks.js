@@ -13,9 +13,9 @@ const STATUS_MANIFEST = 1,
 const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
-const LoadClocks = ({ loadsObject, locationName }) => {
+const LoadClocks = ({ loadsObject }) => {
   return (
-    <div className="LoadClocks" locationname={locationName}>
+    <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
         ? loadsObject.loads.map((load, i) => <LoadClock load={load} key={i} />)
         : null}

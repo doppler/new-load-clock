@@ -7,22 +7,24 @@ import locations from "../locations.json";
 import { WindsAloft } from "./WindsAloft";
 import SettingsContext from "./SettingsContext/Context";
 
-const Screen = ({ location, weather, loadsObject }) => {
-  const { windsAloft } = useContext(SettingsContext);
+const Screen = ({ locationCode, weather, loadsObject }) => {
+  const { name, tz, windsAloftSettings } = locations[locationCode];
+  const { displayWindsAloft } = useContext(SettingsContext);
   return (
-    <div className="Screen" locationname={locations[location]["name"]}>
+    <div className="Screen" locationname={name}>
       <Header
         temperature={weather && weather.outsideTemp}
-        locationName={locations[location]["name"]}
-        locationTimezone={locations[location]["tz"]}
+        locationName={name}
+        locationTimezone={tz}
         loadsFlownToday={loadsObject.loadsFlownToday}
       />
-      <LoadClocks
-        loadsObject={loadsObject}
-        locationName={locations[location]["name"]}
-      />
+      <LoadClocks loadsObject={loadsObject} />
       <Footer weather={weather || {}} />
-      {windsAloft ? <WindsAloft /> : null}
+      {displayWindsAloft ? (
+        <WindsAloft {...{ windsAloftSettings }} />
+      ) : (
+        <div className="WindsAloft" />
+      )}
     </div>
   );
 };

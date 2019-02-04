@@ -5,7 +5,7 @@ const newState = {
     bars: false
   },
   celsius: false,
-  windsAloft: false
+  displayWindsAloft: false
 };
 
 const lcState = JSON.parse(localStorage.getItem("lc.settings")) || newState;
