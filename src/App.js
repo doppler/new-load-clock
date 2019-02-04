@@ -9,46 +9,24 @@ const locationCodes = Object.keys(locations).map(i => i);
 
 const codeFromUrl = () => {
   const code = document.location.hash.replace("#", "");
+  locationCodes.push("SETTINGS");
   if (locationCodes.includes(code)) {
     return code;
   }
 };
 
 const App = () => {
+  const [locationCode, setLocationCode] = useState("ATL");
   const [menuVisible, setMenuVisible] = useState(false);
   const toggleMenu = () => setMenuVisible(!menuVisible);
+  useEffect(() => setLocationCode(codeFromUrl() || locationCodes[0]), []);
   useEffect(() => {
-    let locationCode;
-    if ((locationCode = codeFromUrl())) {
-      window.scrollTo(
-        document.body.clientWidth * locationCodes.indexOf(locationCode),
-        0
-      );
-    }
-    let timer;
-    window.onscroll = () => {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        const index = Math.round(
-          window.pageXOffset / document.body.clientWidth
-        );
-        window.scrollTo(document.body.clientWidth * index, 0);
-        document.location.hash = `#${locationCodes[index]}`;
-      }, 50);
-    };
-    window.addEventListener("hashchange", event => {
-      if (window.location.hash === "#SETTINGS") {
-        window.scrollTo(document.body.clientWidth * locationCodes.length, 0);
-        return;
-      }
-      locationCode = codeFromUrl();
-      if (locationCode) {
-        window.scrollTo(
-          document.body.clientWidth * locationCodes.indexOf(locationCode),
-          0
-        );
-      }
+    const hashChangeListener = window.addEventListener("hashchange", event => {
+      setLocationCode(codeFromUrl());
     });
+    return () => {
+      window.removeEventListener("hashchange", hashChangeListener);
+    };
   }, []);
   const { weather, loads } = useContext(SocketContext);
   return (
@@ -59,15 +37,15 @@ const App = () => {
     >
       <Hamburger {...{ toggleMenu, menuVisible }} />
       <Menu {...{ toggleMenu, menuVisible }} />
-      {Object.keys(locations).map((locationCode, i) => (
+      {locationCode === "SETTINGS" ? (
+        <Settings />
+      ) : (
         <Screen
-          key={i}
           locationCode={locationCode}
           weather={weather[locationCode]}
           loadsObject={loads[locationCode]}
         />
-      ))}
-      <Settings />
+      )}
     </div>
   );
 };

@@ -17,12 +17,14 @@ const WindsAloft = ({ windsAloftSettings }) => {
       }
     );
     const json = await res.json();
-    let windsAloft = json.dataRows[0].forecast;
-    setWindsAloft(windsAloft);
+    const windsAloftData = json.dataRows[0].forecast;
+    setWindsAloft(windsAloftData);
   };
+
   useEffect(() => {
     fetchWindsAloftData(windsAloftSettings.region, windsAloftSettings.station);
-  }, []);
+    return () => {};
+  }, [windsAloftSettings]);
   return (
     <div className="WindsAloft">
       {windsAloft.map(forecast => (
