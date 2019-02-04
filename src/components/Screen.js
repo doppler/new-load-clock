@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Header } from "./Header";
 import { LoadClocks } from "./LoadClocks";
 import { Footer } from "./Footer/index";
 import "./Screen.scss";
 import locations from "../locations.json";
 import { WindsAloft } from "./WindsAloft";
+import SettingsContext from "./SettingsContext/Context";
 
 const Screen = ({ location, weather, loadsObject }) => {
+  const { windsAloft } = useContext(SettingsContext);
   return (
     <div className="Screen" locationname={locations[location]["name"]}>
       <Header
@@ -20,7 +22,7 @@ const Screen = ({ location, weather, loadsObject }) => {
         locationName={locations[location]["name"]}
       />
       <Footer weather={weather || {}} />
-      <WindsAloft />
+      {windsAloft ? <WindsAloft /> : null}
     </div>
   );
 };
