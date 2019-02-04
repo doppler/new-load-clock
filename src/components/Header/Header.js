@@ -4,7 +4,7 @@ import moment from "moment-timezone";
 import "./Header.scss";
 
 const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
-  const { header, dispatch } = useContext(SettingsContext);
+  const { celsius, dispatch } = useContext(SettingsContext);
   const [time, setTime] = useState(null);
   const updateTime = locationTimezone => {
     setTime(moment.tz(locationTimezone).format("h:mm A"));
@@ -15,8 +15,8 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
     }, 1000);
     return () => clearInterval(timeInterval);
   }, [locationTimezone]);
-  const toggleHeader = attribute => {
-    dispatch({ type: "toggleHeader", attribute });
+  const toggleBoolSetting = attribute => {
+    dispatch({ type: "toggleBoolSetting", attribute });
   };
   return (
     <div className="Header">
@@ -27,10 +27,10 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
         style={{
           color: `hsl(${280 - temperature * 3}, 100%, 50%)`
         }}
-        onClick={() => toggleHeader("celsius")}
+        onClick={() => toggleBoolSetting("celsius")}
       >
         {temperature
-          ? header.celsius
+          ? celsius
             ? `${(((temperature - 32) * 5) / 9).toFixed(1)} °C`
             : `${temperature} °F`
           : null}

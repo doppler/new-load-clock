@@ -5,7 +5,7 @@ const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.9)`;
 
 const WindsAloft = () => {
   const [windsAloft, setWindsAloft] = useState([]);
-  const { header } = useContext(SettingsContext);
+  const { celsius } = useContext(SettingsContext);
 
   const fetchWindsAloftData = async (region, station) => {
     const res = await fetch(
@@ -47,7 +47,7 @@ const WindsAloft = () => {
           </span>
           <span className="temperature text">
             {forecast.temperature
-              ? header.celsius
+              ? celsius
                 ? `${(((forecast.temperature.farenheit - 32) * 5) / 9).toFixed(
                     1
                   )}\u00B0C`
