@@ -14,12 +14,15 @@ const PORT = process.env.PORT || 5000;
 // );
 server.listen(PORT);
 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, "build")));
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
+  return;
 });
-
+app.use(express.static(path.join(__dirname, "build")));
+app.get("*", (req, res) => {
+  res.json({ error: "Not Found" });
+  return;
+});
 const loadAnnouncements = {};
 const weatherAnnouncements = {};
 Object.keys(locations).forEach(location => {
