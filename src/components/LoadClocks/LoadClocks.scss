@@ -128,3 +128,16 @@
     font-size: 4em;
   }
 }
+@media only screen and (max-width: 640px) {
+  .Header {
+    font-size: 0.5em;
+  }
+  .Load {
+    header {
+      font-size: 1.5em;
+    }
+    span.time {
+      font-size: 4em;
+    }
+  }
+}
