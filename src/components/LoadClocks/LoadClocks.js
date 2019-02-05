@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./LoadClocks.scss";
 import secondsToMMSS from "../../lib/secondsToMMSS";
-const { differenceInSeconds } = require("date-fns");
+const { addMinutes, differenceInSeconds } = require("date-fns");
 
 /* eslint-disable no-unused-vars */
 const STATUS_MANIFEST = 1,
@@ -14,6 +14,17 @@ const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
 const LoadClocks = ({ loadsObject }) => {
+  // useEffect(() => { // use this for testing purposes
+  //   if (loadsObject && loadsObject.loads) {
+  //     loadsObject.loads.push({
+  //       plane: "Caravan",
+  //       loadNumber: 1,
+  //       slotsRemaining: 10,
+  //       departureTime: addMinutes(new Date(), 20),
+  //       status: 1
+  //     });
+  //   }
+  // }, []);
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
