@@ -27,3 +27,4 @@ src/loads/*
 /.vscode
 .env
 savedWeatherAnnouncements.txt
+/chrome-debug-profile
