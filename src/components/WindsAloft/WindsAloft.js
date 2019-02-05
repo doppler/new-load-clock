@@ -8,9 +8,11 @@ const WindsAloft = ({ windsAloftSettings }) => {
   const [windsAloft, setWindsAloft] = useState([]);
   const { celsius } = useContext(SettingsContext);
 
-  const fetchWindsAloftData = async (region, station) => {
+  const fetchWindsAloftData = async () => {
     const res = await fetch(
-      `https://winds-aloft-json.herokuapp.com/forecast/${region}/${station}.json`,
+      `https://winds-aloft-json.herokuapp.com/forecast/${
+        windsAloftSettings.region
+      }/${windsAloftSettings.station}.json`,
       {
         mode: "cors",
         headers: { "Content-Type": "application/json" }
@@ -22,8 +24,14 @@ const WindsAloft = ({ windsAloftSettings }) => {
   };
 
   useEffect(() => {
-    fetchWindsAloftData(windsAloftSettings.region, windsAloftSettings.station);
-    return () => {};
+    fetchWindsAloftData();
+    const reFectchInterval = setInterval(
+      () => fetchWindsAloftData(),
+      1000 * 60 * 10
+    );
+    return () => {
+      clearInterval(reFectchInterval);
+    };
   }, [windsAloftSettings]);
   return (
     <div className="WindsAloft">
