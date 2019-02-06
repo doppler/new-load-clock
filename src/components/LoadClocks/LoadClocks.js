@@ -16,6 +16,7 @@ const STATUS_HOLD = STATUS_LANDED;
 
 const LoadClocks = ({ loadsObject }) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   useEffect(() => {
     // use this for testing purposes
     if (!process.env.REACT_APP_FAKE_LOADS) return false;
@@ -25,10 +26,22 @@ const LoadClocks = ({ loadsObject }) => {
         loadNumber: loadsObject.loads.length + 1,
         slotsRemaining: 10,
         departureTime: addMinutes(new Date(), 1),
+=======
+  useEffect(() => {
+    // use this for testing purposes
+    if (!process.env.REACT_APP_FAKE_LOADS) return;
+    if (loadsObject && loadsObject.loads) {
+      loadsObject.loads.push({
+        plane: "Caravan",
+        loadNumber: 1,
+        slotsRemaining: 10,
+        departureTime: addMinutes(new Date(), 20),
+>>>>>>> uncomment test loads code and add skip condition
         status: 1
       });
     }
   }, []);
+<<<<<<< HEAD
 =======
   // useEffect(() => { // use this for testing purposes
   //   if (loadsObject && loadsObject.loads) {
@@ -42,6 +55,8 @@ const LoadClocks = ({ loadsObject }) => {
   //   }
   // }, []);
 >>>>>>> tweek sizes for iPhone 5/6 screen size
+=======
+>>>>>>> uncomment test loads code and add skip condition
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
