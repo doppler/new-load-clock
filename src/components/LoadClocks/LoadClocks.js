@@ -14,17 +14,19 @@ const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
 const LoadClocks = ({ loadsObject }) => {
-  // useEffect(() => { // use this for testing purposes
-  //   if (loadsObject && loadsObject.loads) {
-  //     loadsObject.loads.push({
-  //       plane: "Caravan",
-  //       loadNumber: 1,
-  //       slotsRemaining: 10,
-  //       departureTime: addMinutes(new Date(), 20),
-  //       status: 1
-  //     });
-  //   }
-  // }, []);
+  useEffect(() => {
+    // use this for testing purposes
+    if (!process.env.REACT_APP_FAKE_LOADS) return;
+    if (loadsObject && loadsObject.loads) {
+      loadsObject.loads.push({
+        plane: "Caravan",
+        loadNumber: 1,
+        slotsRemaining: 10,
+        departureTime: addMinutes(new Date(), 20),
+        status: 1
+      });
+    }
+  }, []);
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
