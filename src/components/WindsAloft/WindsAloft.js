@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import useInterval from "../../lib/use-interval";
 import SettingsContext from "../SettingsContext/Context";
 import "./WindsAloft.scss";
 const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.9)`;
@@ -25,14 +26,12 @@ const WindsAloft = ({ windsAloftSettings }) => {
 
   useEffect(() => {
     fetchWindsAloftData();
-    const reFectchInterval = setInterval(
-      () => fetchWindsAloftData(),
-      1000 * 60 * 10
-    );
-    return () => {
-      clearInterval(reFectchInterval);
-    };
   }, [windsAloftSettings]);
+
+  useInterval(async () => {
+    fetchWindsAloftData();
+  }, 1000 * 60 * 10);
+
   return (
     <div className="WindsAloft">
       {windsAloft.map(forecast => (
