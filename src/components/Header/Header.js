@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
+import useInterval from "../../lib/use-interval";
 import SettingsContext from "../SettingsContext/Context";
 import moment from "moment-timezone";
 import "./Header.scss";
@@ -6,15 +7,9 @@ import "./Header.scss";
 const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   const { celsius, dispatch } = useContext(SettingsContext);
   const [time, setTime] = useState(null);
-  const updateTime = locationTimezone => {
-    setTime(moment.tz(locationTimezone).format("h:mm A"));
-  };
-  useEffect(() => {
-    const timeInterval = setInterval(() => {
-      updateTime(locationTimezone);
-    }, 1000);
-    return () => clearInterval(timeInterval);
-  }, [locationTimezone]);
+  useInterval(() => {
+    setTime(moment.tz(locationTimezone).format("h:mm:ss A"));
+  }, 1000);
   const toggleBoolSetting = attribute => {
     dispatch({ type: "toggleBoolSetting", attribute });
   };
