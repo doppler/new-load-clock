@@ -29,14 +29,18 @@ const LoadClocks = ({ loadsObject }) => {
 =======
   useEffect(() => {
     // use this for testing purposes
-    if (!process.env.REACT_APP_FAKE_LOADS) return;
+    if (!process.env.REACT_APP_FAKE_LOADS) return false;
     if (loadsObject && loadsObject.loads) {
       loadsObject.loads.push({
         plane: "Caravan",
-        loadNumber: 1,
+        loadNumber: loadsObject.loads.length + 1,
         slotsRemaining: 10,
+<<<<<<< HEAD
         departureTime: addMinutes(new Date(), 20),
 >>>>>>> uncomment test loads code and add skip condition
+=======
+        departureTime: addMinutes(new Date(), 1),
+>>>>>>> implement and use "useInterval"
         status: 1
       });
     }
