@@ -7,15 +7,12 @@ import HashMarks from "./HashMarks";
 const Compass = ({ weather }) => {
   const { windDirection, prevWindDirs, windSpeed } = weather;
   const led = useRef(null);
-  useEffect(
-    () => {
-      led.current.classList.add("on");
-      setTimeout(() => {
-        led.current && led.current.classList.remove("on");
-      }, 50);
-    },
-    [weather]
-  );
+  useEffect(() => {
+    led.current.classList.add("on");
+    setTimeout(() => {
+      led.current && led.current.classList.remove("on");
+    }, 50);
+  }, [weather]);
   let rotation;
   const correctedRotation = degree => {
     let angle;
