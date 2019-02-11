@@ -8,11 +8,7 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
   const { celsius, dispatch } = useContext(SettingsContext);
   const [time, setTime] = useState(null);
   useInterval(() => {
-<<<<<<< HEAD
     setTime(moment.tz(locationTimezone).format("h:mm A"));
-=======
-    setTime(moment.tz(locationTimezone).format("h:mm:ss A"));
->>>>>>> 3ba624974baffba0d12f3d13bfeba58f1ca1a0d7
   }, 1000);
   const toggleBoolSetting = attribute => {
     dispatch({ type: "toggleBoolSetting", attribute });
