@@ -15,8 +15,6 @@ const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
 const LoadClocks = ({ loadsObject }) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
   useEffect(() => {
     // use this for testing purposes
     if (!process.env.REACT_APP_FAKE_LOADS) return false;
@@ -26,41 +24,10 @@ const LoadClocks = ({ loadsObject }) => {
         loadNumber: loadsObject.loads.length + 1,
         slotsRemaining: 10,
         departureTime: addMinutes(new Date(), 1),
-=======
-  useEffect(() => {
-    // use this for testing purposes
-    if (!process.env.REACT_APP_FAKE_LOADS) return false;
-    if (loadsObject && loadsObject.loads) {
-      loadsObject.loads.push({
-        plane: "Caravan",
-        loadNumber: loadsObject.loads.length + 1,
-        slotsRemaining: 10,
-<<<<<<< HEAD
-        departureTime: addMinutes(new Date(), 20),
->>>>>>> uncomment test loads code and add skip condition
-=======
-        departureTime: addMinutes(new Date(), 1),
->>>>>>> implement and use "useInterval"
         status: 1
       });
     }
   }, []);
-<<<<<<< HEAD
-=======
-  // useEffect(() => { // use this for testing purposes
-  //   if (loadsObject && loadsObject.loads) {
-  //     loadsObject.loads.push({
-  //       plane: "Caravan",
-  //       loadNumber: 1,
-  //       slotsRemaining: 10,
-  //       departureTime: addMinutes(new Date(), 20),
-  //       status: 1
-  //     });
-  //   }
-  // }, []);
->>>>>>> tweek sizes for iPhone 5/6 screen size
-=======
->>>>>>> uncomment test loads code and add skip condition
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
