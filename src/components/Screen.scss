@@ -17,24 +17,23 @@
     opacity: 0.25;
   }
 }
-
-@media only screen and (min-width: 1920px) {
-  .Screen {
-    margin-right: 1px;
-    width: 20vw;
-    min-width: 20vw;
-    background-size: contain;
-    &::after {
-      font-size: 2.5em;
-    }
-  }
-  .Footer {
-    width: 20vw;
-  }
-  .WindStatsTable {
-    font-size: small;
-  }
-}
+// @media only screen and (min-width: 1920px) {
+//   .Screen {
+//     margin-right: 1px;
+//     width: 20vw;
+//     min-width: 20vw;
+//     background-size: contain;
+//     &::after {
+//       font-size: 2.5em;
+//     }
+//   }
+//   .Footer {
+//     width: 20vw;
+//   }
+//   .WindStatsTable {
+//     font-size: small;
+//   }
+// }
 @media only screen and (max-width: 1024px) {
   .Screen {
     &::after {
