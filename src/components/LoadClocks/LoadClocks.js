@@ -17,15 +17,16 @@ const STATUS_HOLD = STATUS_LANDED;
 const LoadClocks = ({ loadsObject }) => {
   useEffect(() => {
     // use this for testing purposes
-    if (!process.env.REACT_APP_FAKE_LOADS) return false;
-    if (loadsObject && loadsObject.loads) {
-      loadsObject.loads.push({
-        plane: "Caravan",
-        loadNumber: loadsObject.loads.length + 1,
-        slotsRemaining: 10,
-        departureTime: addMinutes(new Date(), 1),
-        status: 1
-      });
+    if (process.env.REACT_APP_FAKE_LOADS) {
+      if (loadsObject && loadsObject.loads) {
+        loadsObject.loads.push({
+          plane: "Caravan",
+          loadNumber: loadsObject.loads.length + 1,
+          slotsRemaining: 10,
+          departureTime: addMinutes(new Date(), 1),
+          status: 1
+        });
+      }
     }
   }, []);
   return (

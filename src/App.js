@@ -19,7 +19,9 @@ const App = () => {
   const [locationCode, setLocationCode] = useState("ATL");
   const [menuVisible, setMenuVisible] = useState(false);
   const toggleMenu = () => setMenuVisible(!menuVisible);
-  useEffect(() => setLocationCode(codeFromUrl() || locationCodes[0]), []);
+  useEffect(() => {
+    setLocationCode(codeFromUrl() || locationCodes[0]);
+  }, []);
   useEffect(() => {
     const hashChangeListener = window.addEventListener("hashchange", event => {
       setLocationCode(codeFromUrl());
