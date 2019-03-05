@@ -14,6 +14,21 @@ const STATUS_MANIFEST = 1,
 const STATUS_HOLD = STATUS_LANDED;
 /* eslint-enable */
 
+const loadsFilteredByPlanesLeastLoadNumber = loads => {
+  const groupBy = function(xs, key) {
+    return xs.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  };
+  const planeGroups = groupBy(loads, "plane");
+  return Object.keys(planeGroups).map(plane =>
+    planeGroups[plane].reduce((res, obj) =>
+      obj.loadNumber < res.loadNumber ? obj : res
+    )
+  );
+};
+
 const LoadClocks = ({ loadsObject }) => {
   useEffect(() => {
     // use this for testing purposes
@@ -32,7 +47,9 @@ const LoadClocks = ({ loadsObject }) => {
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
-        ? loadsObject.loads.map((load, i) => <LoadClock load={load} key={i} />)
+        ? loadsFilteredByPlanesLeastLoadNumber(loadsObject.loads).map(
+            (load, i) => <LoadClock load={load} key={i} />
+          )
         : null}
     </div>
   );
