@@ -1,9 +1,9 @@
 .Compass {
   position: relative;
-  width: 15vh;
-  height: 15vh;
+  width: calc(var(--vh, 1vh) * 15);
+  height: calc(var(--vh, 1vh) * 15);
   z-index: 10;
-  font-size: 2vh;
+  font-size: calc(var(--vh, 1vh) * 2);
   border-radius: 10px 0 0 10px;
   .LED {
     position: relative;
@@ -44,7 +44,7 @@
       left: 25%;
       width: 50%;
       height: 50%;
-      font-size: 4vh;
+      font-size: calc(var(--vh, 1vh) * 4);
       font-weight: bold;
       text-shadow: 2px 1px 3px black, 0px -1px white;
       z-index: 2;

@@ -6,7 +6,7 @@
   // align-items: center;
   justify-content: center;
   z-index: 10;
-  height: 15vh;
+  height: calc(var(--vh, 1vh) * 15);
   width: calc(15vh * 1.618);
   table {
     width: calc(15vh * 1.618 - 2em);

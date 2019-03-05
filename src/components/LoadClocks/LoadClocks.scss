@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   background: linear-gradient(
     181deg,
     hsla(360, 100%, 50%, 0.5),

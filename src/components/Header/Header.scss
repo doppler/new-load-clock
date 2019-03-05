@@ -1,6 +1,6 @@
 .Header {
   width: 100%;
-  height: 5vh;
+  height: calc(var(--vh, 1vh) * 5);
   display: flex;
   flex-basis: content;
   justify-content: flex-end;

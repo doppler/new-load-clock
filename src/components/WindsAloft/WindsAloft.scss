@@ -1,7 +1,7 @@
 .WindsAloft {
   position: relative;
-  top: -25vh;
-  height: 10vh;
+  bottom: calc(var(--vh, 1vh) * 25);
+  height: calc(var(--vh, 1vh) * 10);
   width: 100vw;
   display: flex;
   align-items: center;
@@ -18,9 +18,9 @@
     .arrow {
       z-index: 1;
       position: absolute;
-      top: calc(50% - 5vh);
-      width: 10vh;
-      height: 10vh;
+      top: calc(50% - calc(var(--vh, 1vh) * 5));
+      width: calc(var(--vh, 1vh) * 10);
+      height: calc(var(--vh, 1vh) * 10);
       clip-path: polygon(
         20% 0%,
         80% 0%,
