@@ -48,16 +48,16 @@
     display: block;
     width: 3vh;
     height: 0.75vh;
-    border-radius: 0.25vh;
     margin-bottom: 0.25vh;
+    border-radius: 0.25vh;
     background-color: white;
-    transition: 0.25s;
+    // transition: 0.25s;
     &.active {
       &.top {
-        transform: translateY(3px) rotate(-45deg);
+        transform: translateY(0.5vh) rotate(-45deg);
       }
       &.bottom {
-        transform: translateY(-3px) rotate(45deg);
+        transform: translateY(-0.5vh) rotate(45deg);
       }
       &.middle {
         display: none;
