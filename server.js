@@ -47,7 +47,7 @@ io.sockets.on("connection", socket => {
         console.log(err.message);
         return false;
       }
-      console.log("jwt-weather-record", record.location, record.time);
+      // console.log("jwt-weather-record", record.location, record.time);
       weatherAnnouncements[record.location] = record;
       // keep this around for testing for now
       // Object.keys(locations).forEach(location => {
@@ -74,10 +74,10 @@ io.sockets.on("connection", socket => {
 });
 setInterval(() => {
   io.to("announcements").emit("weather-announcement", weatherAnnouncements);
-  console.log(
-    new Date(),
-    "weather-announcement",
-    Object.keys(weatherAnnouncements).map(k => k)
-  );
+  // console.log(
+  //   new Date(),
+  //   "weather-announcement",
+  //   Object.keys(weatherAnnouncements).map(k => k)
+  // );
   // saveWeatherStream.write(`${JSON.stringify(weatherAnnouncements)}\n`);
 }, 2000);
