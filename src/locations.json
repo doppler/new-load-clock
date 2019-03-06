@@ -2,26 +2,31 @@
   "ATL": {
     "name": "Atlanta",
     "tz": "America/New_York",
-    "windsAloftSettings": { "region": "mia", "station": "ATL" }
+    "windsAloftSettings": { "region": "mia", "station": "ATL" },
+    "subdomain": "atlantaclock"
   },
   "CLW": {
     "name": "Clewiston",
     "tz": "America/New_York",
-    "windsAloftSettings": { "region": "mia", "station": "MIA" }
+    "windsAloftSettings": { "region": "mia", "station": "MIA" },
+    "subdomain": "floridaclock"
   },
   "DAL": {
     "name": "Dallas",
     "tz": "America/Chicago",
-    "windsAloftSettings": { "region": "dfw", "station": "DAL" }
+    "windsAloftSettings": { "region": "dfw", "station": "DAL" },
+    "subdomain": "dallasclock"
   },
   "HOU": {
     "name": "Houston",
     "tz": "America/Chicago",
-    "windsAloftSettings": { "region": "dfw", "station": "HOU" }
+    "windsAloftSettings": { "region": "dfw", "station": "HOU" },
+    "subdomain": "houstonclock"
   },
   "SAN": {
     "name": "San Marcos",
     "tz": "America/Chicago",
-    "windsAloftSettings": { "region": "dfw", "station": "SAT" }
+    "windsAloftSettings": { "region": "dfw", "station": "SAT" },
+    "subdomain": "sanmarcosclock"
   }
 }
