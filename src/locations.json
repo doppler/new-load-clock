@@ -23,7 +23,7 @@
     "windsAloftSettings": { "region": "dfw", "station": "HOU" },
     "subdomain": "houstonclock"
   },
-  "SAN": {
+  "SSM": {
     "name": "San Marcos",
     "tz": "America/Chicago",
     "windsAloftSettings": { "region": "dfw", "station": "SAT" },
