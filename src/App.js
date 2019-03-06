@@ -28,13 +28,13 @@ const App = () => {
     const hashChangeListener = window.addEventListener("hashchange", event => {
       setLocationCode(codeFromUrl());
     });
-    const windowSizeListener = window.addEventListener("resize", () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
+    // const windowSizeListener = window.addEventListener("resize", () => {
+    //   let vh = window.innerHeight * 0.01;
+    //   document.documentElement.style.setProperty("--vh", `${vh}px`);
+    // });
     return () => {
       window.removeEventListener("hashchange", hashChangeListener);
-      window.removeEventListener("resize", windowSizeListener);
+      // window.removeEventListener("resize", windowSizeListener);
     };
   }, []);
   const { weather, loads } = useContext(SocketContext);
