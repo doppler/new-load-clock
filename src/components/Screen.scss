@@ -8,9 +8,9 @@
     no-repeat center calc(50vh - 132px);
   &::after {
     font-family: "HelveticaNeue";
-    position: relative;
+    position: absolute;
     z-index: 1;
-    top: -105vh;
+    top: calc(var(--vh, 1vh) * 5);
     width: 100%;
     content: attr(locationname);
     font-size: 8em;
