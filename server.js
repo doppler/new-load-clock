@@ -64,7 +64,8 @@ io.sockets.on("connection", socket => {
       console.log(
         "jwt-load-announcment",
         announcement.location,
-        announcement.time
+        announcement.time,
+        announcement.loads
       );
       loadAnnouncements[announcement.location] = announcement;
       io.to("announcements").emit("load-announcement", loadAnnouncements);
