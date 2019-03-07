@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
+const addSeconds = require("date-fns/addSeconds");
 const jwt = require("jsonwebtoken");
 const io = require("socket.io")(server);
 const path = require("path");
@@ -61,8 +62,29 @@ io.sockets.on("connection", socket => {
         console.log(err.message);
         return false;
       }
-      console.log("jwt-load-announcment", announcement);
-      loadAnnouncements[announcement.location] = announcement;
+      let correctedAnnouncment = null;
+      if (process.env[`CLOCK_OFFSET_${announcement.location}`]) {
+        console.log(
+          `Applying CLOCK_OFFSET_${announcement.location}`,
+          process.env[`CLOCK_OFFSET_${announcement.location}`]
+        );
+        correctedAnnouncment = {
+          ...announcement,
+          loads: announcement.loads.map(load => {
+            return {
+              ...load,
+              originalDepartureTime: load.departureTime,
+              departureTime: addSeconds(
+                Date.parse(load.departureTime),
+                Number(process.env[`CLOCK_OFFSET_${announcement.location}`])
+              )
+            };
+          })
+        };
+      }
+      console.log("jwt-load-announcment", correctedAnnouncment || announcement);
+      loadAnnouncements[announcement.location] =
+        correctedAnnouncment || announcement;
       io.to("announcements").emit("load-announcement", loadAnnouncements);
     });
   });
