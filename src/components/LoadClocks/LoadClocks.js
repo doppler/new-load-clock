@@ -60,7 +60,10 @@ export const LoadClock = ({ load }) => {
   const [timer, setTimer] = useState({ ds: 0, time: "--:--" });
 
   useInterval(() => {
-    let ds = differenceInSeconds(new Date(), new Date(load.departureTime));
+    let currentTime = load.jumpRunDbTime
+      ? new Date(load.jumpRunDbTime)
+      : new Date();
+    let ds = differenceInSeconds(currentTime, new Date(load.departureTime));
     if (load.status === STATUS_HOLD) {
       setTimer({ ...timer, time: "HOLD" });
       return;
