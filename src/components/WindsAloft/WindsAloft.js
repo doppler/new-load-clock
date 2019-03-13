@@ -11,9 +11,9 @@ const WindsAloft = ({ windsAloftSettings }) => {
 
   const fetchWindsAloftData = async () => {
     const res = await fetch(
-      `https://winds-aloft-json.herokuapp.com/forecast/${
-        windsAloftSettings.region
-      }/${windsAloftSettings.station}.json`,
+      `https://windsaloft.herokuapp.com/forecast/${windsAloftSettings.region}/${
+        windsAloftSettings.station
+      }.json`,
       {
         mode: "cors",
         headers: { "Content-Type": "application/json" }
