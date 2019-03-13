@@ -15,16 +15,12 @@ const codeFromUrl = () => {
     return code;
   }
   // then check subdomain for e.g. houstonclock, dallasclock, etc.
-  if (
-    Object.keys(locations)
-      .map(key => locations[key].subdomain)
-      .includes(document.location.hostname.split(".")[0])
-  ) {
-    return Object.keys(locations).find(
+  return (
+    Object.keys(locations).find(
       key =>
         locations[key].subdomain === document.location.hostname.split(".")[0]
-    );
-  }
+    ) || "SETTINGS"
+  );
 };
 
 const App = () => {
