@@ -19,16 +19,15 @@ const codeFromUrl = () => {
     Object.keys(locations).find(
       key =>
         locations[key].subdomain === document.location.hostname.split(".")[0]
-    ) || "SETTINGS"
+    ) || "ATL"
   );
 };
 
 const App = () => {
-  const [locationCode, setLocationCode] = useState("ATL");
+  const [locationCode, setLocationCode] = useState(codeFromUrl());
   const [menuVisible, setMenuVisible] = useState(false);
   const toggleMenu = () => setMenuVisible(!menuVisible);
   useEffect(() => {
-    setLocationCode(codeFromUrl() || locationCodes[0]);
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   }, []);
