@@ -63,16 +63,17 @@ io.sockets.on("connection", socket => {
       }
       console.log("jwt-load-announcment", announcement);
       loadAnnouncements[announcement.location] = announcement;
-      io.to("announcements").emit("load-announcement", loadAnnouncements);
+      // io.to("announcements").emit("load-announcement", loadAnnouncements);
     });
   });
 });
 setInterval(() => {
   io.to("announcements").emit("weather-announcement", weatherAnnouncements);
+  io.to("announcements").emit("load-announcement", loadAnnouncements);
   // console.log(
   //   new Date(),
   //   "weather-announcement",
   //   Object.keys(weatherAnnouncements).map(k => k)
   // );
   // saveWeatherStream.write(`${JSON.stringify(weatherAnnouncements)}\n`);
-}, 2000);
+}, 1000);

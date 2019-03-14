@@ -26,7 +26,7 @@ const Footer = ({ weather, fakeData }) => {
   }, []);
   return (
     <div className={`Footer ${fakeData ? "fakeData" : null}`}>
-      <WindWidget weather={weather} prevWindSpeeds={prevWindSpeeds} />
+      <WindWidget weather={weather} />
       <GraphBackground />
       {params.dots || graph.dots ? (
         <>
