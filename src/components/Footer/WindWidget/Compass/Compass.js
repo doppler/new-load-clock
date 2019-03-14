@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { colorForSpeed } from "../../../../lib/wind-funcs";
 import "./Compass.scss";
 import GhostArrows from "./GhostArrows";
@@ -6,13 +6,6 @@ import HashMarks from "./HashMarks";
 
 const Compass = ({ weather }) => {
   const { windDirection, prevWindDirs, windSpeed } = weather;
-  const led = useRef(null);
-  useEffect(() => {
-    led.current.classList.add("on");
-    setTimeout(() => {
-      led.current && led.current.classList.remove("on");
-    }, 50);
-  }, [weather]);
   let rotation;
   const correctedRotation = degree => {
     let angle;
@@ -26,7 +19,6 @@ const Compass = ({ weather }) => {
   };
   return (
     <div className="Compass">
-      <div className="LED" ref={led} />
       <div className="Face">
         <div className="Circle" style={{ color: colorForSpeed(windSpeed) }}>
           {windSpeed > -1 ? windSpeed : "--"}
