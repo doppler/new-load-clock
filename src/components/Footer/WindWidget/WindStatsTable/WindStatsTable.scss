@@ -7,9 +7,9 @@
   justify-content: center;
   z-index: 10;
   height: calc(var(--vh, 1vh) * 15);
-  width: calc(15vh * 1.618);
+  width: 30vh;
   table {
-    width: calc(15vh * 1.618 - 2em);
+    width: calc(30vh - 2em);
   }
   th {
     font-size: 0.75em;
