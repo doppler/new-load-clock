@@ -4,11 +4,11 @@
   height: 100%;
   fill: transparent;
   .ct-series-a .ct-line {
-    stroke: blue;
+    stroke: hsl(180, 100%, 70%);
     stroke-width: 2px;
   }
   .ct-series-b .ct-line {
-    stroke: red;
+    stroke: hsl(0, 100%, 70%);
     stroke-width: 2px;
   }
 }
