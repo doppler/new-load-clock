@@ -91,7 +91,7 @@ export const LoadClock = ({ load }) => {
         {load.plane} {load.loadNumber}
       </header>
       <span className={`time ${timer.ds}`}>{timer.time}</span>
-      <footer>Slots Remaining: {load.slotsRemaining}</footer>
+      <footer>Open Slots: {load.slotsRemaining}</footer>
     </div>
   );
 };
