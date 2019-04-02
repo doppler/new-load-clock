@@ -11,7 +11,7 @@ const STATUS_MANIFEST = 1,
   STATUS_DEPARTED = 4,
   STATUS_LANDED = 5;
 
-const STATUS_HOLD = STATUS_LANDED;
+const STATUS_DELAYED = STATUS_LANDED;
 /* eslint-enable */
 
 const loadsFilteredByPlanesLeastLoadNumber = loads => {
@@ -35,10 +35,11 @@ const LoadClocks = ({ loadsObject }) => {
     if (process.env.REACT_APP_FAKE_LOADS) {
       if (loadsObject && loadsObject.loads) {
         loadsObject.loads.push({
-          plane: "Caravan",
+          plane: "Test Plane",
           loadNumber: loadsObject.loads.length + 1,
           slotsRemaining: 10,
-          departureTime: addMinutes(new Date(), 1),
+          // jumpRunDbTime: new Date(),
+          departureTime: addMinutes(new Date(), 4),
           status: 1
         });
       }
@@ -64,8 +65,8 @@ export const LoadClock = ({ load }) => {
       ? new Date(load.jumpRunDbTime)
       : new Date();
     let ds = differenceInSeconds(currentTime, new Date(load.departureTime));
-    if (load.status === STATUS_HOLD) {
-      setTimer({ ...timer, time: "HOLD" });
+    if (load.status === STATUS_DELAYED) {
+      setTimer({ ...timer, time: "DELAYED" });
       return;
     }
     if (ds >= 0) {
@@ -74,13 +75,13 @@ export const LoadClock = ({ load }) => {
     setTimer({ ds, time: secondsToMMSS(ds) });
   }, 1000);
 
-  if (timer.ds >= 0 && load.status !== STATUS_HOLD) return null;
+  if (timer.ds >= 0 && load.status !== STATUS_DELAYED) return null;
 
   return (
     <div className={`Load ${timer.ds}`}>
       <header
         className={
-          load.slotsRemaining === 0 || load.status === STATUS_HOLD
+          load.slotsRemaining === 0 || load.status === STATUS_DELAYED
             ? "status-red"
             : load.status === STATUS_LOADING
             ? "status-blue"
