@@ -76,12 +76,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: linear-gradient(hsl(60, 100%, 50%), hsl(0, 100%, 50%));
-      clip-path: polygon(50% 0, 40% 33%, 50% 50%, 60% 33%);
+      background-image: linear-gradient(hsl(45, 100%, 50%), hsl(15, 100%, 30%));
+      // clip-path: polygon(50% 0, 40% 33%, 50% 50%, 60% 33%);
+      clip-path: polygon(50% 0, 65% 40%, 53% 20%, 50% 100%, 47% 20%, 35% 40%);
       transition: 1s ease-in-out;
       &.previous {
         z-index: 0;
-        background-image: linear-gradient(hsl(240, 33%, 50%), hsl(0, 33%, 50%));
+        background-image: linear-gradient(hsl(45, 33%, 50%), hsl(15, 33%, 50%));
         clip-path: polygon(50% 0, 40% 33%, 50% 30%, 60% 33%);
         transition: none;
       }

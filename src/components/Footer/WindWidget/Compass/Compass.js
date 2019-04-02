@@ -28,7 +28,7 @@ const Compass = ({ weather }) => {
           className="Arrow"
           style={{
             transform: `rotate(${correctedRotation(windDirection)}deg)`,
-            opacity: `${windSpeed ? 0.75 : 0.25}`
+            opacity: `${windSpeed ? 0.85 : 0.5}`
           }}
         />
         <HashMarks />
