@@ -17,14 +17,25 @@
   td {
     text-align: center;
   }
-  td:first-child {
+  td:first-child,
+  th:first-child {
     text-align: left;
   }
 }
 
-@media only screen and (max-height: 1080px) {
+@media only screen and (max-height: 1920px) {
   .WindStatsTable {
-    font-size: 24px;
+    // width: calc(100vw - 15vh);
+    font-size: 4em;
+    table {
+      // width: calc(100vw - 15vh);
+      th {
+        font-size: 0.5em;
+      }
+      td:first-child {
+        font-size: 0.5em;
+      }
+    }
   }
 }
 @media only screen and (max-height: 1079px) {
