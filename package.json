@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "postinstall": "react-scripts build",
     "server": "nodemon server.js",
-    "dev": "concurrently \"yarn start\" \"yarn server\""
+    "dev": "concurrently \"yarn start\" \"yarn server\"",
+    "log": "nodemon remote-logger.js"
   },
   "eslintConfig": {
     "extends": "react-app"
