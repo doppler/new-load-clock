@@ -28,4 +28,8 @@ src/loads/*
 .env
 savedWeatherAnnouncements.txt
 /chrome-debug-profile
+<<<<<<< HEAD
 logs/*
+=======
+log.json.txt
+>>>>>>> ad3467b144841b457dff62d15162a267451bf3cc
