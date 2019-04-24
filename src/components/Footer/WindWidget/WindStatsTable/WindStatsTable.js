@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { colorForSpeed } from "../../../../lib/wind-funcs";
+import SettingsContext from "../../../SettingsContext/Context";
+
 import "./WindStatsTable.scss";
 
 let windSpeeds;
@@ -17,13 +19,17 @@ const windSpeedAvg = timespan => {
 };
 
 const StatsRow = ({ minute }) => {
+  const { displayWindLows } = useContext(SettingsContext);
+
   const high = windSpeedHigh(minute);
   const low = windSpeedLow(minute);
   const avg = windSpeedAvg(minute);
   return (
     <tr>
       <td>{minute} min</td>
-      <td style={{ color: colorForSpeed(low) }}>{low}</td>
+      {displayWindLows ? (
+        <td style={{ color: colorForSpeed(low) }}>{low}</td>
+      ) : null}
       <td style={{ color: colorForSpeed(avg) }}>{avg}</td>
       <td style={{ color: colorForSpeed(high) }}>{high}</td>
     </tr>
@@ -33,6 +39,8 @@ const StatsRow = ({ minute }) => {
 const WindStatsTable = ({ weather }) => {
   if (!weather.prevWindSpeeds)
     return <div className="WindStatsTable">No Weather Data.</div>;
+
+  const { displayWindLows } = useContext(SettingsContext);
   windSpeeds = weather.prevWindSpeeds
     ? [...weather.prevWindSpeeds].reverse()
     : [];
@@ -42,7 +50,7 @@ const WindStatsTable = ({ weather }) => {
         <thead>
           <tr>
             <th>Winds</th>
-            <th>Low</th>
+            {displayWindLows ? <th>Low</th> : null}
             <th>Avg</th>
             <th>High</th>
           </tr>
