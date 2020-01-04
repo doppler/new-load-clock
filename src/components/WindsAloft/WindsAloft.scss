@@ -3,6 +3,7 @@
   bottom: calc(var(--vh, 1vh) * 25);
   height: calc(var(--vh, 1vh) * 10);
   width: 100vw;
+  font-size: 1em;
   display: flex;
   align-items: center;
   color: gold;
@@ -42,7 +43,13 @@
     }
   }
 }
-@media only screen and (min-height: 1920px) {
+@media only screen and (min-width: 1080px) {
+  .WindsAloft {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (min-width: 720px) {
   .WindsAloft {
     font-size: 2em;
   }

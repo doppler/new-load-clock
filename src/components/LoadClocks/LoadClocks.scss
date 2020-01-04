@@ -99,13 +99,16 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 720px) {
   .Load {
     header {
-      font-size: 6em;
+      font-size: 3em;
     }
     span.time {
-      font-size: 24em;
+      font-size: 10em;
+    }
+    footer {
+      font-size: 2em;
     }
   }
 }
@@ -123,7 +126,7 @@
     }
   }
 }
-@media only screen and (max-width: 1079px) {
+@media only screen and (max-width: 1080px) {
   .LoadClocks::after {
     font-size: 4em;
   }

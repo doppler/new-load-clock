@@ -29,3 +29,4 @@ src/loads/*
 savedWeatherAnnouncements.txt
 /chrome-debug-profile
 logs/*
+chrome-debug
