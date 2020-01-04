@@ -112,7 +112,19 @@
     }
   }
 }
-
+@media only screen and (max-width: 768px) {
+  .Load {
+    header {
+      font-size: 3em;
+    }
+    span.time {
+      font-size: 10em;
+    }
+    footer {
+      font-size: 2em;
+    }
+  }
+}
 @media only screen and (max-height: 1080px) {
   .Load {
     header {

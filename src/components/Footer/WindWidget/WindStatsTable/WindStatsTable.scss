@@ -3,11 +3,11 @@
   font-weight: bold;
   text-shadow: 3px 3px 5px black, -1px -1px 1px black;
   display: grid;
-  // align-items: center;
   justify-content: center;
   z-index: 10;
   height: calc(var(--vh, 1vh) * 15);
-  width: 30vh;
+  // width: 30vh;
+  margin-left: 1em;
   table {
     width: calc(30vh - 2em);
   }
@@ -22,18 +22,28 @@
   }
 }
 
-@media only screen and (max-height: 1080px) {
+@media only screen and (max-width: 1080px) {
   .WindStatsTable {
-    font-size: 24px;
+    font-size: 3em;
   }
 }
-@media only screen and (max-height: 1079px) {
+@media only screen and (max-width: 900px) {
   .WindStatsTable {
-    font-size: 0.9rem;
+    font-size: 2.75em;
   }
 }
-@media only screen and (max-height: 600px) {
+@media only screen and (max-width: 768px) {
   .WindStatsTable {
-    font-size: 0.45rem;
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .WindStatsTable {
+    font-size: 2.125rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .WindStatsTable {
+    font-size: 1.125rem;
   }
 }
