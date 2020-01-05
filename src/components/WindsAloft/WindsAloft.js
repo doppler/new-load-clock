@@ -1,19 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import useInterval from "../../lib/use-interval";
 import SettingsContext from "../SettingsContext/Context";
 import "./WindsAloft.scss";
 const colorForSpeed = speed => `hsla(${120 - speed * 2}, 100%, 50%, 0.9)`;
 
 const WindsAloft = ({ windsAloftSettings }) => {
-  if (!windsAloftSettings) return <div className="WindsAloft" />;
   const [windsAloft, setWindsAloft] = useState([]);
   const { celsius } = useContext(SettingsContext);
 
-  const fetchWindsAloftData = async () => {
+  const fetchWindsAloftData = useCallback(async () => {
     const res = await fetch(
-      `https://windsaloft.herokuapp.com/forecast/${windsAloftSettings.region}/${
-        windsAloftSettings.station
-      }.json`,
+      `https://windsaloft.herokuapp.com/forecast/${windsAloftSettings.region}/${windsAloftSettings.station}.json`,
       {
         mode: "cors",
         headers: { "Content-Type": "application/json" }
@@ -22,11 +19,11 @@ const WindsAloft = ({ windsAloftSettings }) => {
     const json = await res.json();
     const windsAloftData = json.dataRows[0].forecast;
     setWindsAloft(windsAloftData);
-  };
+  }, [windsAloftSettings.region, windsAloftSettings.station]);
 
   useEffect(() => {
     fetchWindsAloftData();
-  }, [windsAloftSettings]);
+  }, [windsAloftSettings, fetchWindsAloftData]);
 
   useInterval(async () => {
     fetchWindsAloftData();

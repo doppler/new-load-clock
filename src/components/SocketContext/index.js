@@ -8,12 +8,9 @@ const SocketProvider = props => {
     weather: {},
     loads
   });
-  useEffect(
-    () => {
-      initSockets({ setValue });
-    },
-    [initSockets]
-  );
+  useEffect(() => {
+    initSockets({ setValue });
+  }, []);
 
   return (
     <SocketContext.Provider value={value}>

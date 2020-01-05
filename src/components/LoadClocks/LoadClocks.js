@@ -43,13 +43,14 @@ const LoadClocks = ({ loadsObject }) => {
         });
       }
     }
-  }, []);
+  }, [loadsObject]);
+
   return (
     <div className="LoadClocks">
       {loadsObject && loadsObject.loads && loadsObject.loads.length
-        ? loadsFilteredByPlanesLeastLoadNumber(loadsObject.loads).map(
-            (load, i) => <LoadClock load={load} key={i} />
-          )
+        ? loadsFilteredByPlanesLeastLoadNumber(
+            loadsObject.loads
+          ).map((load, i) => <LoadClock load={load} key={i} />)
         : null}
     </div>
   );
