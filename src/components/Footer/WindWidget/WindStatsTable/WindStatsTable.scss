@@ -1,13 +1,11 @@
 .WindStatsTable {
-  font-size: 2.5em;
+  font-size: 2vh;
   font-weight: bold;
   text-shadow: 3px 3px 5px black, -1px -1px 1px black;
-  display: grid;
   justify-content: center;
   z-index: 10;
-  height: calc(var(--vh, 1vh) * 15);
-  // width: 30vh;
-  margin-left: 1em;
+  position: relative;
+  left: 2vh;
   table {
     width: calc(30vh - 2em);
   }
@@ -19,31 +17,5 @@
   }
   td:first-child {
     text-align: left;
-  }
-}
-
-@media only screen and (max-width: 1080px) {
-  .WindStatsTable {
-    font-size: 3em;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .WindStatsTable {
-    font-size: 2.75em;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .WindStatsTable {
-    font-size: 2rem;
-  }
-}
-@media only screen and (max-width: 720px) {
-  .WindStatsTable {
-    font-size: 2.125rem;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .WindStatsTable {
-    font-size: 1.125rem;
   }
 }

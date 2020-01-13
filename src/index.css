@@ -20,6 +20,3 @@ body {
   font-family: "HelveticaNeue";
   src: url(./HelveticaNeue-HeavyExtObl.woff);
 }
-:root {
-  --vh: 1vh;
-}

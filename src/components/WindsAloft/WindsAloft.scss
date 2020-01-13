@@ -1,9 +1,9 @@
 .WindsAloft {
-  position: relative;
-  bottom: calc(var(--vh, 1vh) * 25);
-  height: calc(var(--vh, 1vh) * 10);
+  font-size: 2vh;
+  position: absolute;
+  top: 75vh;
+  height: 10vh;
   width: 100vw;
-  font-size: 1em;
   display: flex;
   align-items: center;
   color: gold;
@@ -19,9 +19,8 @@
     .arrow {
       z-index: 1;
       position: absolute;
-      top: calc(50% - calc(var(--vh, 1vh) * 5));
-      width: calc(var(--vh, 1vh) * 10);
-      height: calc(var(--vh, 1vh) * 10);
+      width: 10vh;
+      height: 10vh;
       clip-path: polygon(
         20% 0%,
         80% 0%,
@@ -41,16 +40,5 @@
         20% 42%
       );
     }
-  }
-}
-@media only screen and (min-width: 1080px) {
-  .WindsAloft {
-    font-size: 2em;
-  }
-}
-
-@media only screen and (min-width: 720px) {
-  .WindsAloft {
-    font-size: 2em;
   }
 }

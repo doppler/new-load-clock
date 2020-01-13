@@ -1,7 +1,7 @@
 .Footer {
   position: relative;
   bottom: 0;
-  height: calc(var(--vh, 1vh) * 15);
+  height: 15vh;
   &.fakeData {
     &::before {
       position: absolute;
