@@ -9062,10 +9062,10 @@ react-app-polyfill@^1.0.5:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-chartist@^0.14.2:
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/react-chartist/-/react-chartist-0.14.2.tgz#18a56370a189c06e33fb59d00d5679a47115613c"
-  integrity sha512-QMg4aHfZoZ34EFFXmR0E0LJdXxR0TNIkyZCvgMTeHC+XzyRf2Lys9wWp7iyyvADOEpm+Gw3r4JKqf5pvl5ZhzQ==
+react-chartist@^0.13.1:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/react-chartist/-/react-chartist-0.13.3.tgz#2a6f677bab45b3474c828b74ef244fc4fca08d0b"
+  integrity sha512-lHA2JKy6S81/4KNhr1kXXXVyfeSOPVaxLX9Ohf31ntOj7XNGu5392qIvss+zfUWUuj5XCO1fy7w2fUCCUXkjBA==
   dependencies:
     prop-types "^15.5.8"
 
