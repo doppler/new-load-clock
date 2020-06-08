@@ -71,7 +71,7 @@
       height: 100%;
       background-image: linear-gradient(hsl(60, 100%, 50%), hsl(0, 100%, 50%));
       clip-path: polygon(50% 0, 40% 33%, 50% 50%, 60% 33%);
-      transition: 1s ease-in-out;
+      // transition: 1s ease-in-out;
       &.previous {
         z-index: 0;
         background-image: linear-gradient(hsl(240, 33%, 50%), hsl(0, 33%, 50%));
