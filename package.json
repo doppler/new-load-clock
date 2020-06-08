@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "engines": {
     "node": "12.14.1",
-    "yarn": "1.21.1"
+    "yarn": "^1.21.1"
   },
   "private": true,
   "proxy": "http://localhost:5000",
