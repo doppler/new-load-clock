@@ -24,7 +24,7 @@ const Header = ({ temperature, locationTimezone, loadsFlownToday }) => {
         }}
         onClick={() => toggleBoolSetting("celsius")}
       >
-        {temperature
+        {temperature && temperature !== 3276.7 // magic number when Davis is misbehaving
           ? celsius
             ? `${(((temperature - 32) * 5) / 9).toFixed(1)} °C`
             : `${temperature} °F`
