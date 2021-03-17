@@ -28,6 +28,8 @@ const StatsRow = ({ minute }) => {
 const WindStatsTable = ({ weather }) => {
   if (!weather.prevWindSpeeds)
     return <div className="WindStatsTable">No Weather Data.</div>;
+  if (weather.windSpeed === 255)
+    return <div className="WindStatsTable">Weather Station Error.</div>
 
   windSpeeds = weather.prevWindSpeeds
     ? [...weather.prevWindSpeeds].reverse()
