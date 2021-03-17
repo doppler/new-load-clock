@@ -21,7 +21,7 @@ const Compass = ({ weather }) => {
     <div className="Compass">
       <div className="Face">
         <div className="Circle" style={{ color: colorForSpeed(windSpeed) }}>
-          {windSpeed > -1 ? windSpeed : "--"}
+          {windSpeed > -1 && windSpeed < 255 ? windSpeed : "--"}
         </div>
         <GhostArrows prevDirs={prevWindDirs} />
         <div
